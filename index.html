@@ -749,6 +749,7 @@
         }
     </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
     <div class="bg-gradient"></div>
@@ -837,7 +838,7 @@
                 <div id="educationSection" style="display:none; margin-top: 3rem;">
                     <h3 style="font-family: var(--font-display); color: var(--clr-accent); text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">SAVOIRS ESSENTIELS</h3>
                     <div class="edu-grid" id="eduContent"></div>
-                    
+
                     <div class="quantum-section" id="quantumSection" style="display:none; margin-top: 3rem;">
                         <h3 class="quantum-title">PHYSIQUE QUANTIQUE : LA SCIENCE DE L'INFINIMENT PETIT</h3>
                         <div class="quantum-def">
@@ -990,6 +991,7 @@
     <button class="voice-btn" id="voiceBtn" title="Lire a haute voix">🔊</button>
 
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
     <script>
         const config = {
             fr: { enter: "ENTRER", back: "RETOUR", select: "Choisir la langue" },
@@ -1033,7 +1035,7 @@
             { id: 'astronomy', title: 'Astronomie', img: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500', quote: "Nous sommes poussiere d'etoiles.", author: "Carl Sagan", isNews: true, category: 'astronomy', desc: "Eclipses 2026, mission Artemis II, cometes et decouvertes spatiales." },
             { id: 'quantum', title: 'Physique Quantique', img: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500', quote: "Si vous pensez comprendre la physique quantique, c'est que vous ne la comprenez pas.", author: "Richard Feynman", isNews: true, category: 'quantum', desc: "Ordinateurs quantiques, intrication, teleportation quantique." },
             { id: 'astrology', title: 'Astrologie', img: 'https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?w=500', quote: "Les etoiles inclinent, mais n'obligent pas.", author: "Ptolemee", isNews: true, category: 'astrology', desc: "Signes du zodiaque, retrogrades, alignements planetaires 2026." },
-            { id: 'secrets', title: 'Secrets de l\'Univers', img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=500', quote: "L'univers n'est pas etranger, il est en nous.", author: "Neil deGrasse Tyson", isNews: true, category: 'secrets', desc: "Matiere noire, trous noirs, multivers, civilisations extraterrestres." }
+            { id: 'secrets', title: "Secrets de l'Univers", img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=500', quote: "L'univers n'est pas etranger, il est en nous.", author: "Neil deGrasse Tyson", isNews: true, category: 'secrets', desc: "Matiere noire, trous noirs, multivers, civilisations extraterrestres." }
         ];
 
         const powerQuotes = [
@@ -1159,4 +1161,335 @@
             const specimenSection = document.getElementById('specimenSection');
             const newsSection = document.getElementById('newsSection');
             const secretsSection = document.getElementById('secretsSection');
-            const detail Le code a été tronqué. Je vais le compléter et le sauvegarder proprement dans un fichier.
+            const detailView = document.getElementById('detailView');
+
+            if (detailView.style.display === 'block') {
+                const title = document.getElementById('detailTitle').textContent;
+                const quote = document.getElementById('detailQuote').textContent;
+                textToRead = title + '. ' + quote;
+
+                if (innovSection.style.display === 'block') {
+                    const powerQ = document.getElementById('powerQuote').textContent;
+                    textToRead += '. Mot de pouvoir. ' + powerQ;
+                }
+
+                if (mindsetSection.style.display === 'block') {
+                    const mindsetText = document.getElementById('mindsetText').textContent;
+                    textToRead += '. Mindset Alpha. ' + mindsetText;
+                }
+
+                if (specimenSection.style.display === 'block') {
+                    textToRead += '. Les Specimens. Fraternite de musiciens et programmeurs. Membres fondateurs: Big Thugv et Morning Starr. Domaines: Musique, Programmation, Recherche, Innovation, Intelligence Artificielle, Sciences Occultes.';
+                }
+
+                if (newsSection.style.display === 'block') {
+                    textToRead += '. Nouvelles du monde. ';
+                    document.querySelectorAll('.news-card-detail').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                }
+
+                if (secretsSection.style.display === 'block') {
+                    textToRead += '. Secrets de l univers. ';
+                    document.querySelectorAll('.secret-card').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                }
+
+                if (eduSection.style.display === 'block') {
+                    textToRead += '. Savoirs essentiels. ';
+                    document.querySelectorAll('.edu-card').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                    const quantumSection = document.getElementById('quantumSection');
+                    if (quantumSection.style.display !== 'none') {
+                        textToRead += '. Physique Quantique. ' + quantumSection.textContent;
+                    }
+                }
+
+                if (locSection.style.display === 'block') {
+                    textToRead += '. Localisation. Republique Democratique du Congo. Pays voisins: ';
+                    document.querySelectorAll('.country-card').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                }
+            } else {
+                textToRead = 'Morning Starr Morgan. Bienvenue sur mon site personnel. ';
+                textToRead += 'Reseaux sociaux. ';
+                socialData.forEach(item => {
+                    textToRead += item.title + '. ' + item.quote + '. ';
+                });
+            }
+
+            if (textToRead) {
+                currentUtterance = new SpeechSynthesisUtterance(textToRead);
+                currentUtterance.lang = 'fr-FR';
+                currentUtterance.rate = 0.9;
+                currentUtterance.pitch = 1;
+
+                currentUtterance.onend = () => {
+                    isSpeaking = false;
+                    voiceBtn.classList.remove('speaking');
+                    voiceBtn.textContent = '🔊';
+                };
+
+                synth.speak(currentUtterance);
+                isSpeaking = true;
+                voiceBtn.classList.add('speaking');
+                voiceBtn.textContent = '⏹️';
+            }
+        }
+
+        // --- Moteur ---
+        const langSelect = document.getElementById('langSelect');
+        const enterBtn = document.getElementById('enterButton');
+        const intro = document.getElementById('introScreen');
+        const app = document.getElementById('appContainer');
+        const backBtn = document.getElementById('backBtn');
+
+        langSelect.addEventListener('change', () => {
+            const lang = langSelect.value;
+            enterBtn.textContent = config[lang].enter;
+            enterBtn.classList.add('ready');
+        });
+
+        enterBtn.addEventListener('click', () => {
+            const lang = langSelect.value;
+            localStorage.setItem('ms_lang', lang);
+            localStorage.setItem('ms_visited', 'true');
+            showApp();
+        });
+
+        function showApp() {
+            const lang = localStorage.getItem('ms_lang') || 'fr';
+            backBtn.textContent = config[lang].back;
+            intro.style.opacity = '0';
+            setTimeout(() => {
+                intro.style.display = 'none';
+                app.style.display = 'block';
+                setTimeout(() => app.style.opacity = '1', 50);
+                renderAllGrids();
+            }, 800);
+        }
+
+        function renderAllGrids() {
+            renderGrid('socialGrid', socialData, 'social');
+            renderGrid('eduGrid', eduData, 'edu');
+            renderGrid('locGrid', locData, 'loc');
+            renderGrid('innovGrid', innovData, 'innov');
+            renderGrid('specimenGrid', specimenData, 'specimen');
+            renderGrid('newsGrid', newsData, 'news');
+        }
+
+        function renderGrid(gridId, data, type) {
+            const grid = document.getElementById(gridId);
+            grid.innerHTML = '';
+            data.forEach(item => {
+                const card = document.createElement('div');
+                let cardClass = 'card';
+                let badgeHTML = '';
+
+                if (item.isInnovator) {
+                    cardClass += ' innovator-card';
+                    badgeHTML = '<div class="badge badge-elite">Elite</div>';
+                } else if (type === 'edu') {
+                    cardClass += ' education-card';
+                    badgeHTML = '<div class="badge badge-edu">Savoir</div>';
+                } else if (type === 'loc') {
+                    cardClass += ' location-card';
+                    badgeHTML = '<div class="badge badge-loc">Geo</div>';
+                } else if (type === 'specimen') {
+                    cardClass += ' specimen-card';
+                    badgeHTML = '<div class="badge badge-specimen">SP</div>';
+                } else if (type === 'news') {
+                    cardClass += ' news-card';
+                    badgeHTML = '<div class="badge badge-news">News</div>';
+                }
+
+                card.className = cardClass;
+                card.innerHTML = `
+                    ${badgeHTML}
+                    <img src="${item.img}" class="card-img" alt="${item.title}">
+                    <div class="card-body">
+                        <h3 class="card-title">${item.title}</h3>
+                        <p class="card-text">"${item.quote.substring(0, 40)}..."</p>
+                    </div>
+                `;
+                card.onclick = () => showDetail(item, type);
+                grid.appendChild(card);
+            });
+        }
+
+        function showDetail(item, type) {
+            // Hide all grids and headers
+            ['socialGrid', 'eduGrid', 'locGrid', 'innovGrid', 'specimenGrid', 'newsGrid'].forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            ['header-social', 'header-edu', 'header-loc', 'header-innov', 'header-specimen', 'header-news'].forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+
+            document.getElementById('detailView').style.display = 'block';
+            backBtn.style.display = 'block';
+
+            // Hide all special sections
+            document.getElementById('innovatorSection').style.display = 'none';
+            document.getElementById('educationSection').style.display = 'none';
+            document.getElementById('locationSection').style.display = 'none';
+            document.getElementById('mindsetSection').style.display = 'none';
+            document.getElementById('specimenSection').style.display = 'none';
+            document.getElementById('newsSection').style.display = 'none';
+            document.getElementById('secretsSection').style.display = 'none';
+            document.getElementById('quantumSection').style.display = 'none';
+
+            document.getElementById('detailTitle').textContent = item.title;
+            document.getElementById('detailQuote').innerHTML = `"${item.quote}"<span class="author">- ${item.author}</span>`;
+            document.getElementById('detailImg').src = item.img;
+
+            const detailLink = document.getElementById('detailLink');
+            const qrContainer = document.getElementById('qrContainer');
+
+            if (item.isInnovator) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('innovatorSection').style.display = 'block';
+
+                const randomPower = powerQuotes[Math.floor(Math.random() * powerQuotes.length)];
+                document.getElementById('powerQuote').innerHTML = `"${randomPower.text}"<span class="author">- ${randomPower.author}</span>`;
+
+                const investorGrid = document.getElementById('investorGrid');
+                investorGrid.innerHTML = '';
+                const shuffled = [...investorQuotes].sort(() => 0.5 - Math.random()).slice(0, 6);
+                shuffled.forEach(inv => {
+                    const invCard = document.createElement('div');
+                    invCard.className = 'investor-card';
+                    invCard.innerHTML = `<div class="investor-name">${inv.name}</div><div class="investor-quote">"${inv.quote}"</div>`;
+                    investorGrid.appendChild(invCard);
+                });
+
+            } else if (item.isMindset) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('mindsetSection').style.display = 'block';
+
+            } else if (item.isSpecimen) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('specimenSection').style.display = 'block';
+
+            } else if (item.isNews) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('newsSection').style.display = 'block';
+
+                const newsContent = document.getElementById('newsContent');
+                newsContent.innerHTML = '';
+
+                if (item.category === 'secrets') {
+                    document.getElementById('newsSection').style.display = 'none';
+                    document.getElementById('secretsSection').style.display = 'block';
+                    const secretsContent = document.getElementById('secretsContent');
+                    secretsContent.innerHTML = '';
+                    secretsTopics.forEach(secret => {
+                        const sCard = document.createElement('div');
+                        sCard.className = 'secret-card';
+                        sCard.innerHTML = `<div class="secret-title">${secret.title}</div><div class="secret-desc">${secret.desc}</div>`;
+                        secretsContent.appendChild(sCard);
+                    });
+                } else {
+                    const topics = newsTopics[item.category] || [];
+                    topics.forEach(news => {
+                        const nCard = document.createElement('div');
+                        nCard.className = 'news-card-detail';
+                        nCard.innerHTML = `<div class="news-category">${item.category.toUpperCase()}</div><div class="news-headline">${news.headline}</div><div class="news-content">${news.content}</div>`;
+                        newsContent.appendChild(nCard);
+                    });
+                }
+
+            } else if (type === 'edu') {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('educationSection').style.display = 'block';
+
+                const eduContent = document.getElementById('eduContent');
+                eduContent.innerHTML = '';
+                const shuffled = [...eduTopics].sort(() => 0.5 - Math.random()).slice(0, 6);
+                shuffled.forEach(topic => {
+                    const eduCard = document.createElement('div');
+                    eduCard.className = 'edu-card';
+                    eduCard.innerHTML = `<div class="edu-icon">${topic.icon}</div><div class="edu-title">${topic.title}</div><div class="edu-desc">${topic.desc}</div>`;
+                    eduContent.appendChild(eduCard);
+                });
+
+                // Show quantum section for science
+                if (item.id === 'science') {
+                    document.getElementById('quantumSection').style.display = 'block';
+                }
+
+            } else if (type === 'loc') {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('locationSection').style.display = 'block';
+
+                const countryGrid = document.getElementById('countryGrid');
+                countryGrid.innerHTML = '';
+                neighborCountries.forEach(country => {
+                    const cCard = document.createElement('div');
+                    cCard.className = 'country-card';
+                    cCard.innerHTML = `<div class="country-flag">${country.flag}</div><div class="country-name">${country.name}</div><div class="country-capital">${country.capital}</div>`;
+                    countryGrid.appendChild(cCard);
+                });
+
+            } else {
+                detailLink.style.display = 'block';
+                detailLink.href = item.url;
+                detailLink.textContent = item.id === 'contact' ? 'CONTACTER' : 'VISITER';
+
+                qrContainer.innerHTML = '';
+                qrContainer.style.display = 'block';
+                if (item.id === 'instagram' && typeof QRCode !== 'undefined') {
+                    QRCode.toCanvas(qrContainer, item.url, { width: 150, margin: 1, color: { dark: '#000', light: '#fff' } });
+                } else {
+                    qrContainer.style.display = 'none';
+                }
+            }
+
+            window.scrollTo(0, 0);
+        }
+
+        backBtn.onclick = () => {
+            document.getElementById('detailView').style.display = 'none';
+            backBtn.style.display = 'none';
+
+            // Show all grids and headers
+            ['socialGrid', 'eduGrid', 'locGrid', 'innovGrid', 'specimenGrid', 'newsGrid'].forEach(id => {
+                document.getElementById(id).style.display = 'grid';
+            });
+            ['header-social', 'header-edu', 'header-loc', 'header-innov', 'header-specimen', 'header-news'].forEach(id => {
+                document.getElementById(id).style.display = 'flex';
+            });
+
+            window.scrollTo(0, 0);
+        };
+
+        function initParticles() {
+            const container = document.getElementById('particleContainer');
+            for(let i=0; i<40; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.animationDuration = (10 + Math.random() * 10) + 's';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(p);
+            }
+        }
+
+        window.onload = () => {
+            initParticles();
+            if(localStorage.getItem('ms_visited') === 'true') {
+                showApp();
+            }
+        };
+    </script>
+</body>
+</html>
