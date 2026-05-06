@@ -35,7 +35,8 @@
             inset: 0;
             background: 
                 radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(255, 204, 0, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 90% 90%, rgba(255, 204, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 85, 0.03) 0%, transparent 50%);
             z-index: -2;
         }
         .particles {
@@ -146,7 +147,7 @@
         .navbar {
             position: fixed;
             top: 0; width: 100%; height: 80px;
-            background: rgba(5, 5, 8, 0.8);
+            background: rgba(5, 5, 8, 0.9);
             backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
@@ -249,6 +250,22 @@
             border-color: var(--clr-rose);
             box-shadow: 0 20px 60px rgba(255, 0, 85, 0.15);
         }
+        .specimen-card {
+            background: linear-gradient(145deg, rgba(138,43,226,0.08), rgba(0,242,255,0.05));
+            border: 2px solid rgba(138, 43, 226, 0.4);
+        }
+        .specimen-card:hover {
+            border-color: #8a2be2;
+            box-shadow: 0 20px 60px rgba(138, 43, 226, 0.3);
+        }
+        .news-card {
+            background: linear-gradient(145deg, rgba(0,255,127,0.05), rgba(255,215,0,0.05));
+            border: 1px solid rgba(0, 255, 127, 0.2);
+        }
+        .news-card:hover {
+            border-color: #00ff7f;
+            box-shadow: 0 20px 60px rgba(0, 255, 127, 0.15);
+        }
         .badge {
             position: absolute;
             top: 10px;
@@ -271,6 +288,14 @@
         }
         .badge-loc {
             background: linear-gradient(135deg, var(--clr-rose), var(--clr-gold));
+            color: #000;
+        }
+        .badge-specimen {
+            background: linear-gradient(135deg, #8a2be2, #00f2ff);
+            color: #fff;
+        }
+        .badge-news {
+            background: linear-gradient(135deg, #00ff7f, var(--clr-gold));
             color: #000;
         }
         .detail-view {
@@ -509,6 +534,212 @@
             color: var(--clr-gold);
             font-weight: 700;
         }
+        .specimen-section {
+            background: linear-gradient(145deg, rgba(138,43,226,0.08), rgba(0,242,255,0.05));
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .specimen-title {
+            font-family: var(--font-display);
+            color: #8a2be2;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .specimen-founder {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .founder-card {
+            background: rgba(138, 43, 226, 0.05);
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .founder-card:hover {
+            border-color: #8a2be2;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.2);
+        }
+        .founder-name {
+            font-family: var(--font-display);
+            color: #8a2be2;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .founder-role {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .founder-desc {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .specimen-traits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .trait-card {
+            background: rgba(138, 43, 226, 0.03);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .trait-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .trait-name {
+            font-family: var(--font-display);
+            color: #8a2be2;
+            font-size: 0.9rem;
+        }
+        .news-section {
+            background: linear-gradient(145deg, rgba(0,255,127,0.05), rgba(255,215,0,0.05));
+            border: 2px solid rgba(0, 255, 127, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .news-title {
+            font-family: var(--font-display);
+            color: #00ff7f;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .news-card-detail {
+            background: rgba(0, 255, 127, 0.03);
+            border: 1px solid rgba(0, 255, 127, 0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .news-card-detail:hover {
+            border-color: #00ff7f;
+            transform: translateY(-5px);
+        }
+        .news-category {
+            font-family: var(--font-display);
+            color: #00ff7f;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .news-headline {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .news-content {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .quantum-section {
+            background: linear-gradient(145deg, rgba(0,242,255,0.08), rgba(138,43,226,0.05));
+            border: 2px solid rgba(0, 242, 255, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .quantum-title {
+            font-family: var(--font-display);
+            color: var(--clr-accent);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .quantum-def {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .quantum-factors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .factor-card {
+            background: rgba(0, 242, 255, 0.03);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+        .factor-title {
+            font-family: var(--font-display);
+            color: var(--clr-accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .factor-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .secrets-section {
+            background: linear-gradient(145deg, rgba(255,0,85,0.08), rgba(138,43,226,0.05));
+            border: 2px solid rgba(255, 0, 85, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .secrets-title {
+            font-family: var(--font-display);
+            color: var(--clr-rose);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .secrets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .secret-card {
+            background: rgba(255, 0, 85, 0.03);
+            border: 1px solid rgba(255, 0, 85, 0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .secret-card:hover {
+            border-color: var(--clr-rose);
+            transform: translateY(-3px);
+        }
+        .secret-title {
+            font-family: var(--font-display);
+            color: var(--clr-rose);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .secret-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
         @media (max-width: 600px) {
             .navbar { padding: 0 20px; }
             .logo-big { width: 100px; height: 100px; font-size: 60px; }
@@ -574,6 +805,20 @@
         </div>
         <main class="main-grid" id="innovGrid"></main>
 
+        <div class="section-header" id="header-specimen">
+            <div class="section-line"></div>
+            <h2 class="section-title">Les Specimens (SP)</h2>
+            <div class="section-line"></div>
+        </div>
+        <main class="main-grid" id="specimenGrid"></main>
+
+        <div class="section-header" id="header-news">
+            <div class="section-line"></div>
+            <h2 class="section-title">Nouvelles du Monde</h2>
+            <div class="section-line"></div>
+        </div>
+        <main class="main-grid" id="newsGrid"></main>
+
         <section class="detail-view" id="detailView">
             <div class="profile-header">
                 <img src="" alt="" class="profile-img" id="detailImg">
@@ -592,6 +837,44 @@
                 <div id="educationSection" style="display:none; margin-top: 3rem;">
                     <h3 style="font-family: var(--font-display); color: var(--clr-accent); text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">SAVOIRS ESSENTIELS</h3>
                     <div class="edu-grid" id="eduContent"></div>
+                    
+                    <div class="quantum-section" id="quantumSection" style="display:none; margin-top: 3rem;">
+                        <h3 class="quantum-title">PHYSIQUE QUANTIQUE : LA SCIENCE DE L'INFINIMENT PETIT</h3>
+                        <div class="quantum-def">
+                            <p><strong>Definition :</strong> La physique quantique est une theorie qui decrit le comportement des objets physiques au niveau nanoscopique. Elle couvre notamment les atomes, les electrons et les photons. Contrairement a la physique classique ou un objet est defini par sa position et sa vitesse, en physique quantique un objet est decrit par sa <span style="color:var(--clr-accent);font-weight:700;">fonction d'onde</span> — on peut definir ses probabilites de presence a un endroit donne et a un moment donne.</p>
+                            <br>
+                            <p><strong>Principe fondamental :</strong> La <span style="color:var(--clr-accent);font-weight:700;">dualite onde-particule</span> — un objet quantique (electron, atome, photon) se comporte tantot comme une onde, tantot comme une particule selon le contexte experimental.</p>
+                            <br>
+                            <p><strong>Applications actuelles :</strong> Le transistor (base de tous les ordinateurs et telephones), les lasers (telecommunications par fibres optiques), l'imagerie medicale IRM, les GPS, les LED, et bientot l'ordinateur quantique qui revolutionnera l'informatique.</p>
+                        </div>
+                        <h4 style="font-family: var(--font-display); color: var(--clr-gold); text-align: center; margin: 2rem 0 1rem; font-size: 1.1rem;">FACTEURS DE RECHERCHE & DEVELOPPEMENT</h4>
+                        <div class="quantum-factors">
+                            <div class="factor-card">
+                                <div class="factor-title">🔬 Informatique Quantique</div>
+                                <div class="factor-desc">Ordinateurs utilisant des qubits pour des calculs impossibles aux machines classiques. IBM, Google et la Chine sont en course.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">🔐 Cryptographie Quantique</div>
+                                <div class="factor-desc">Communication ultra-securisee basee sur l'intrication quantique. Impossible a pirater par des moyens classiques.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">💊 Medecine Quantique</div>
+                                <div class="factor-desc">Simulation moleculaire pour decouvrir de nouveaux medicaments. Modelisation de proteines a l'echelle atomique.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">📡 Capteurs Quantiques</div>
+                                <div class="factor-desc">Detection de signaux infimes pour la geologie, la navigation sans GPS et la detection de matiere noire.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">🌱 Agriculture Quantique</div>
+                                <div class="factor-desc">Optimisation de la photosynthese artificielle et creation d'engrais plus efficaces grace a la chimie quantique.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">🌍 Climat Quantique</div>
+                                <div class="factor-desc">Modelisation climatique ultra-precise et developpement de materiaux pour capturer le CO2 efficacement.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="locationSection" style="display:none; margin-top: 3rem;">
@@ -607,7 +890,7 @@
                         <h3 class="mindset-title">MINDSET ALPHA</h3>
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" alt="Mindset Alpha" class="mindset-img" id="mindsetImg">
                         <div class="mindset-text" id="mindsetText">
-                            <p>Le <span class="mindset-highlight">Mindset Alpha</span> est l'etat d'esprit des leaders qui transforment le monde. Ce n'est pas une question de talent inné, mais d'une decision conscience de dominer sa vie.</p>
+                            <p>Le <span class="mindset-highlight">Mindset Alpha</span> est l'etat d'esprit des leaders qui transforment le monde. Ce n'est pas une question de talent inne, mais d'une decision conscience de dominer sa vie.</p>
                             <br>
                             <p><span class="mindset-highlight">Les 5 piliers du Mindset Alpha :</span></p>
                             <p>1. <span class="mindset-highlight">Vision Clairvoyante</span> - Voir l'avenir avant qu'il n'arrive. Comprendre que la realite est malleable et que nos pensees creent notre monde.</p>
@@ -620,6 +903,86 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="specimenSection" style="display:none; margin-top: 3rem;">
+                    <div class="specimen-section">
+                        <h3 class="specimen-title">LES SPECIMENS (SP)</h3>
+                        <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.1rem;">
+                            Une fraternite d'elite composee de musiciens et programmeurs accomplis sur toute branche. 
+                            Une communaute de recherche dediee aux grands innovateurs de notre epoque.
+                        </p>
+                        <h4 style="font-family: var(--font-display); color: #8a2be2; text-align: center; margin: 2rem 0 1rem; font-size: 1.2rem;">MEMBRES FONDATEURS</h4>
+                        <div class="specimen-founder">
+                            <div class="founder-card">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">🎵💻</div>
+                                <div class="founder-name">Big_Thugv</div>
+                                <div class="founder-role">Co-Fondateur & Pionnier</div>
+                                <div class="founder-desc">
+                                    Grand pionnier de la musique et de la programmation. Visionnaire dont l'influence traverse les frontieres 
+                                    de l'art et de la technologie. Fan de musique passionne, chercheur d'innovation infatigable.
+                                </div>
+                            </div>
+                            <div class="founder-card">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">🌟🎶</div>
+                                <div class="founder-name">Morning_Starr</div>
+                                <div class="founder-role">Co-Fondateur & Visionnaire</div>
+                                <div class="founder-desc">
+                                    Pionnier de la nouvelle generation. Musicien accompli et programmeur sur toute branche. 
+                                    A la recherche permanente des grands innovateurs qui changent le monde. Fan de musique devoue.
+                                </div>
+                            </div>
+                        </div>
+                        <h4 style="font-family: var(--font-display); color: #8a2be2; text-align: center; margin: 2rem 0 1rem; font-size: 1.1rem;">DOMAINES D'EXCELLENCE</h4>
+                        <div class="specimen-traits">
+                            <div class="trait-card">
+                                <div class="trait-icon">🎼</div>
+                                <div class="trait-name">Musique</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">💻</div>
+                                <div class="trait-name">Programmation</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">🔬</div>
+                                <div class="trait-name">Recherche</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">🚀</div>
+                                <div class="trait-name">Innovation</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">🧠</div>
+                                <div class="trait-name">Intelligence Artificielle</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">🔮</div>
+                                <div class="trait-name">Sciences Occultes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="newsSection" style="display:none; margin-top: 3rem;">
+                    <div class="news-section">
+                        <h3 class="news-title">NOUVELLES DU MONDE 2026</h3>
+                        <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem;">
+                            Les dernieres decouvertes et actualites dans les domaines de la musique, de l'art, 
+                            de l'astronomie, de la physique quantique, de l'astrologie et des secrets de l'univers.
+                        </p>
+                        <div class="news-grid" id="newsContent"></div>
+                    </div>
+                </div>
+
+                <div id="secretsSection" style="display:none; margin-top: 3rem;">
+                    <div class="secrets-section">
+                        <h3 class="secrets-title">SECRETS CACHES DE L'UNIVERS</h3>
+                        <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem;">
+                            Les mysteres les plus profonds de l'univers que la science commence a peine a effleurer.
+                        </p>
+                        <div class="secrets-grid" id="secretsContent"></div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
@@ -658,6 +1021,19 @@
         const innovData = [
             { id: 'innovator', title: 'Innovateur', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500', quote: "L'avenir appartient a ceux qui croient a la beaute de leurs reves.", author: "Eleanor Roosevelt", isInnovator: true },
             { id: 'mindset', title: 'Mindset Alpha', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500', quote: "Le mental est tout. Ce que vous pensez, vous le devenez.", author: "Bouddha", isMindset: true }
+        ];
+
+        const specimenData = [
+            { id: 'specimen', title: 'Les Specimens (SP)', img: 'https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=500', quote: "L'excellence n'est pas un acte, mais une habitude.", author: "Aristote", isSpecimen: true, desc: "Fraternite de musiciens et programmeurs. A la recherche des grands innovateurs." }
+        ];
+
+        const newsData = [
+            { id: 'music', title: 'Musique', img: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500', quote: "La musique donne une ame a l'univers.", author: "Platon", isNews: true, category: 'music', desc: "Nouveaux albums, festivals, revolution numerique dans l'industrie musicale." },
+            { id: 'art', title: 'Art & Culture', img: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=500', quote: "L'art est la plus haute forme d'espoir.", author: "Gerhard Richter", isNews: true, category: 'art', desc: "Expositions, mouvements artistiques, street art, NFT et art numerique." },
+            { id: 'astronomy', title: 'Astronomie', img: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500', quote: "Nous sommes poussiere d'etoiles.", author: "Carl Sagan", isNews: true, category: 'astronomy', desc: "Eclipses 2026, mission Artemis II, cometes et decouvertes spatiales." },
+            { id: 'quantum', title: 'Physique Quantique', img: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500', quote: "Si vous pensez comprendre la physique quantique, c'est que vous ne la comprenez pas.", author: "Richard Feynman", isNews: true, category: 'quantum', desc: "Ordinateurs quantiques, intrication, teleportation quantique." },
+            { id: 'astrology', title: 'Astrologie', img: 'https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?w=500', quote: "Les etoiles inclinent, mais n'obligent pas.", author: "Ptolemee", isNews: true, category: 'astrology', desc: "Signes du zodiaque, retrogrades, alignements planetaires 2026." },
+            { id: 'secrets', title: 'Secrets de l\'Univers', img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=500', quote: "L'univers n'est pas etranger, il est en nous.", author: "Neil deGrasse Tyson", isNews: true, category: 'secrets', desc: "Matiere noire, trous noirs, multivers, civilisations extraterrestres." }
         ];
 
         const powerQuotes = [
@@ -710,6 +1086,50 @@
             { icon: "⚡", title: "Energie Libre", desc: "Fusion nucleaire, solaire avancee, energies renouvelables. Le futur de l'energie." }
         ];
 
+        const newsTopics = {
+            music: [
+                { headline: "Revolution AI dans la Musique", content: "Les outils de creation musicale par IA atteignent un niveau professionnel. Des artistes utilisent desormais l'IA comme co-auteur pour composer des albums complets." },
+                { headline: "Retour du Vinyl", content: "Les ventes de disques vinyles depassent pour la premiere fois depuis 1987 les ventes de CD. Une renaissance analogique dans un monde numerique." },
+                { headline: "Festivals Immersifs 2026", content: "Les festivals de musique integrent des experiences en realite augmentee et des hologrammes d'artistes legendaires pour des concerts posthumes." }
+            ],
+            art: [
+                { headline: "Art Generatif NFT", content: "Les collections NFT d'art generatif atteignent des records. Des algorithmes crees par des artistes africains emergent sur la scene internationale." },
+                { headline: "Street Art Digital", content: "Des projections AR transforment les murs des villes en galeries d'art interactives. Le street art entre dans l'ere du metaverse." },
+                { headline: "Restitution des Tresors Africains", content: "De plus en plus de musees europeens restituent des oeuvres d'art africaines volees pendant la colonisation. Un tournant historique." }
+            ],
+            astronomy: [
+                { headline: "Eclipse Totale 12 Aout 2026", content: "L'eclipse totale de Soleil du 12 aout 2026 sera visible depuis l'Islande, le nord de l'Espagne et le Groenland. Evenement majeur de l'annee." },
+                { headline: "Mission Artemis II", content: "Quatre astronautes (3 Americains, 1 Canadien) survoleront la Lune en fevrier 2026. Premier vol habite vers la Lune depuis Apollo 17 en 1972." },
+                { headline: "Comete C/2026 A1 (MAPS)", content: "Decouverte en janvier 2026, cette comete pourrait etre spectaculaire en avril. Son passage au perihelie le 4 avril est attendu avec impatience." },
+                { headline: "Chang'e 7 - Chine sur la Lune", content: "La mission chinoise Chang'e 7 explorera le pole Sud lunaire a la fin de l'ete 2026, a la recherche de glace d'eau pour une future base." }
+            ],
+            quantum: [
+                { headline: "Ordinateur Quantique 1000 Qubits", content: "IBM a revele un processeur quantique de plus de 1000 qubits. La suprematie quantique pour resoudre des problemes classiquement impossibles approche." },
+                { headline: "Teleportation Quantique Record", content: "Des chercheurs ont reussi a teleporter de l'information quantique sur une distance record de 100 km via fibre optique standard." },
+                { headline: "France 2030 - Plan Quantique", content: "La France investit massivement dans le quantique pour la sante, l'agriculture, la cybersecurite et le climat. L'independance technologique europeenne est en jeu." }
+            ],
+            astrology: [
+                { headline: "Alignement Planetaire 2026", content: "Jupiter et Mars formeront un couple serre du 14 au 18 novembre 2026. Un spectacle celeste rare a observer au telescope dans le meme champ." },
+                { headline: "Retrograde de Mercure", content: "Les periodes de retrograde de Mercure en 2026 sont prevues en janvier, mai et septembre. Periodes traditionnellement associees a la reflexion et au reexamen." },
+                { headline: "Nouvelle Lune du 12 Aout", content: "Coincidant avec l'eclipse totale, cette nouvelle lune marque un moment energetique puissant selon les traditions astrologiques." }
+            ],
+            secrets: [
+                { headline: "Matiere Noire : Enfin Detectee ?", content: "Des experiences souterraines pourraient avoir detecte des signaux de matiere noire. La substance mysterieuse qui compose 85% de la matiere de l'univers." },
+                { headline: "Trous Noirs : L'Information Survit", content: "Nouvelles theories suggerent que l'information qui tombe dans un trou noir n'est pas detruite mais encodee sur l'horizon evenementiel." },
+                { headline: "Signal WOW 2.0", content: "Un nouveau signal radio anomal provenant de l'espace profond a ete detecte. Les scientifiques etudient s'il pourrait etre d'origine artificielle." },
+                { headline: "Multivers : Preuves Observationnelles", content: "Des anomalies dans le rayonnement cosmique de fond pourraient etre des signatures de collisions avec d'autres univers dans le multivers." }
+            ]
+        };
+
+        const secretsTopics = [
+            { title: "🔮 Matiere Noire & Energie Noire", desc: "95% de l'univers est invisible. La matiere noire (27%) attire par gravite, l'energie noire (68%) accelere l'expansion. Nous ne savons pas ce que c'est." },
+            { title: "🕳️ Trous Noirs & Paradoxe de l'Information", desc: "Stephen Hawking a decouvert que les trous noirs s'evaporent. Mais ou va l'information ? Le paradoxe reste non resolu." },
+            { title: "🌌 Multivers & Realites Paralleles", desc: "Notre univers pourrait n'etre qu'une bulle dans un ocean de bulles. Chaque decision cree une branche dans le multivers quantique." },
+            { title: "👽 Civilisations Extraterrestres", desc: "L'equation de Drake estime des milliards de civilisations. Le paradoxe de Fermi demande : ou sont-ils tous ?" },
+            { title: "⏳ Voyage dans le Temps", desc: "La relativite generale autorise theoriquement les boucles temporelles. Les trous de ver pourraient connecter differentes epoques." },
+            { title: "🧬 ADN Cosmique", desc: "Les elements lourds dans notre corps (carbone, oxygene, fer) ont ete forge dans les etoiles. Nous sommes litteralement poussiere d'etoiles." }
+        ];
+
         // Voice synthesis
         let synth = window.speechSynthesis;
         let currentUtterance = null;
@@ -732,272 +1152,11 @@
         function readCurrentContent() {
             let textToRead = '';
 
-            // Check which section is visible
             const innovSection = document.getElementById('innovatorSection');
             const eduSection = document.getElementById('educationSection');
             const locSection = document.getElementById('locationSection');
             const mindsetSection = document.getElementById('mindsetSection');
-            const detailView = document.getElementById('detailView');
-
-            if (detailView.style.display === 'block') {
-                const title = document.getElementById('detailTitle').textContent;
-                const quote = document.getElementById('detailQuote').textContent;
-                textToRead = title + '. ' + quote;
-
-                if (innovSection.style.display === 'block') {
-                    const powerQ = document.getElementById('powerQuote').textContent;
-                    textToRead += '. Mot de pouvoir. ' + powerQ;
-                }
-
-                if (mindsetSection.style.display === 'block') {
-                    const mindsetText = document.getElementById('mindsetText').textContent;
-                    textToRead += '. Mindset Alpha. ' + mindsetText;
-                }
-
-                if (eduSection.style.display === 'block') {
-                    textToRead += '. Savoirs essentiels. ';
-                    document.querySelectorAll('.edu-card').forEach(card => {
-                        textToRead += card.textContent + '. ';
-                    });
-                }
-
-                if (locSection.style.display === 'block') {
-                    textToRead += '. Localisation. Republique Democratique du Congo. Pays voisins: ';
-                    document.querySelectorAll('.country-card').forEach(card => {
-                        textToRead += card.textContent + '. ';
-                    });
-                }
-            } else {
-                // Read main page content
-                textToRead = 'Morning Starr Morgan. Bienvenue sur mon site personnel. ';
-                textToRead += 'Reseaux sociaux. ';
-                socialData.forEach(item => {
-                    textToRead += item.title + '. ' + item.quote + '. ';
-                });
-            }
-
-            if (textToRead) {
-                currentUtterance = new SpeechSynthesisUtterance(textToRead);
-                currentUtterance.lang = 'fr-FR';
-                currentUtterance.rate = 0.9;
-                currentUtterance.pitch = 1;
-
-                currentUtterance.onend = () => {
-                    isSpeaking = false;
-                    voiceBtn.classList.remove('speaking');
-                    voiceBtn.textContent = '🔊';
-                };
-
-                synth.speak(currentUtterance);
-                isSpeaking = true;
-                voiceBtn.classList.add('speaking');
-                voiceBtn.textContent = '⏹️';
-            }
-        }
-
-        // --- Moteur ---
-        const langSelect = document.getElementById('langSelect');
-        const enterBtn = document.getElementById('enterButton');
-        const intro = document.getElementById('introScreen');
-        const app = document.getElementById('appContainer');
-        const backBtn = document.getElementById('backBtn');
-
-        langSelect.addEventListener('change', () => {
-            const lang = langSelect.value;
-            enterBtn.textContent = config[lang].enter;
-            enterBtn.classList.add('ready');
-        });
-
-        enterBtn.addEventListener('click', () => {
-            const lang = langSelect.value;
-            localStorage.setItem('ms_lang', lang);
-            localStorage.setItem('ms_visited', 'true');
-            showApp();
-        });
-
-        function showApp() {
-            const lang = localStorage.getItem('ms_lang') || 'fr';
-            backBtn.textContent = config[lang].back;
-            intro.style.opacity = '0';
-            setTimeout(() => {
-                intro.style.display = 'none';
-                app.style.display = 'block';
-                setTimeout(() => app.style.opacity = '1', 50);
-                renderAllGrids();
-            }, 800);
-        }
-
-        function renderAllGrids() {
-            renderGrid('socialGrid', socialData, 'social');
-            renderGrid('eduGrid', eduData, 'edu');
-            renderGrid('locGrid', locData, 'loc');
-            renderGrid('innovGrid', innovData, 'innov');
-        }
-
-        function renderGrid(gridId, data, type) {
-            const grid = document.getElementById(gridId);
-            grid.innerHTML = '';
-            data.forEach(item => {
-                const card = document.createElement('div');
-                let cardClass = 'card';
-                let badgeHTML = '';
-
-                if (item.isInnovator) {
-                    cardClass += ' innovator-card';
-                    badgeHTML = '<div class="badge badge-elite">Elite</div>';
-                } else if (type === 'edu') {
-                    cardClass += ' education-card';
-                    badgeHTML = '<div class="badge badge-edu">Savoir</div>';
-                } else if (type === 'loc') {
-                    cardClass += ' location-card';
-                    badgeHTML = '<div class="badge badge-loc">Geo</div>';
-                }
-
-                card.className = cardClass;
-                card.innerHTML = `
-                    ${badgeHTML}
-                    <img src="${item.img}" class="card-img" alt="${item.title}">
-                    <div class="card-body">
-                        <h3 class="card-title">${item.title}</h3>
-                        <p class="card-text">"${item.quote.substring(0, 40)}..."</p>
-                    </div>
-                `;
-                card.onclick = () => showDetail(item, type);
-                grid.appendChild(card);
-            });
-        }
-
-        function showDetail(item, type) {
-            // Hide all grids and headers
-            document.getElementById('socialGrid').style.display = 'none';
-            document.getElementById('eduGrid').style.display = 'none';
-            document.getElementById('locGrid').style.display = 'none';
-            document.getElementById('innovGrid').style.display = 'none';
-            document.getElementById('header-social').style.display = 'none';
-            document.getElementById('header-edu').style.display = 'none';
-            document.getElementById('header-loc').style.display = 'none';
-            document.getElementById('header-innov').style.display = 'none';
-
-            document.getElementById('detailView').style.display = 'block';
-            backBtn.style.display = 'block';
-
-            // Hide all special sections
-            document.getElementById('innovatorSection').style.display = 'none';
-            document.getElementById('educationSection').style.display = 'none';
-            document.getElementById('locationSection').style.display = 'none';
-            document.getElementById('mindsetSection').style.display = 'none';
-
-            document.getElementById('detailTitle').textContent = item.title;
-            document.getElementById('detailQuote').innerHTML = `"${item.quote}"<span class="author">- ${item.author}</span>`;
-            document.getElementById('detailImg').src = item.img;
-
-            const detailLink = document.getElementById('detailLink');
-            const qrContainer = document.getElementById('qrContainer');
-
-            if (item.isInnovator) {
-                detailLink.style.display = 'none';
-                qrContainer.style.display = 'none';
-                document.getElementById('innovatorSection').style.display = 'block';
-
-                const randomPower = powerQuotes[Math.floor(Math.random() * powerQuotes.length)];
-                document.getElementById('powerQuote').innerHTML = `"${randomPower.text}"<span class="author">- ${randomPower.author}</span>`;
-
-                const investorGrid = document.getElementById('investorGrid');
-                investorGrid.innerHTML = '';
-                const shuffled = [...investorQuotes].sort(() => 0.5 - Math.random()).slice(0, 6);
-                shuffled.forEach(inv => {
-                    const invCard = document.createElement('div');
-                    invCard.className = 'investor-card';
-                    invCard.innerHTML = `<div class="investor-name">${inv.name}</div><div class="investor-quote">"${inv.quote}"</div>`;
-                    investorGrid.appendChild(invCard);
-                });
-
-            } else if (item.isMindset) {
-                detailLink.style.display = 'none';
-                qrContainer.style.display = 'none';
-                document.getElementById('mindsetSection').style.display = 'block';
-
-            } else if (type === 'edu') {
-                detailLink.style.display = 'none';
-                qrContainer.style.display = 'none';
-                document.getElementById('educationSection').style.display = 'block';
-
-                const eduContent = document.getElementById('eduContent');
-                eduContent.innerHTML = '';
-                const shuffled = [...eduTopics].sort(() => 0.5 - Math.random()).slice(0, 6);
-                shuffled.forEach(topic => {
-                    const eduCard = document.createElement('div');
-                    eduCard.className = 'edu-card';
-                    eduCard.innerHTML = `<div class="edu-icon">${topic.icon}</div><div class="edu-title">${topic.title}</div><div class="edu-desc">${topic.desc}</div>`;
-                    eduContent.appendChild(eduCard);
-                });
-
-            } else if (type === 'loc') {
-                detailLink.style.display = 'none';
-                qrContainer.style.display = 'none';
-                document.getElementById('locationSection').style.display = 'block';
-
-                const countryGrid = document.getElementById('countryGrid');
-                countryGrid.innerHTML = '';
-                neighborCountries.forEach(country => {
-                    const cCard = document.createElement('div');
-                    cCard.className = 'country-card';
-                    cCard.innerHTML = `<div class="country-flag">${country.flag}</div><div class="country-name">${country.name}</div><div class="country-capital">${country.capital}</div>`;
-                    countryGrid.appendChild(cCard);
-                });
-
-            } else {
-                detailLink.style.display = 'block';
-                detailLink.href = item.url;
-                detailLink.textContent = item.id === 'contact' ? 'CONTACTER' : 'VISITER';
-
-                qrContainer.innerHTML = '';
-                qrContainer.style.display = 'block';
-                if (item.id === 'instagram' && typeof QRCode !== 'undefined') {
-                    QRCode.toCanvas(qrContainer, item.url, { width: 150, margin: 1, color: { dark: '#000', light: '#fff' } });
-                } else {
-                    qrContainer.style.display = 'none';
-                }
-            }
-
-            window.scrollTo(0, 0);
-        }
-
-        backBtn.onclick = () => {
-            document.getElementById('detailView').style.display = 'none';
-            backBtn.style.display = 'none';
-
-            // Show all grids and headers
-            document.getElementById('socialGrid').style.display = 'grid';
-            document.getElementById('eduGrid').style.display = 'grid';
-            document.getElementById('locGrid').style.display = 'grid';
-            document.getElementById('innovGrid').style.display = 'grid';
-            document.getElementById('header-social').style.display = 'flex';
-            document.getElementById('header-edu').style.display = 'flex';
-            document.getElementById('header-loc').style.display = 'flex';
-            document.getElementById('header-innov').style.display = 'flex';
-
-            window.scrollTo(0, 0);
-        };
-
-        function initParticles() {
-            const container = document.getElementById('particleContainer');
-            for(let i=0; i<40; i++) {
-                const p = document.createElement('div');
-                p.className = 'particle';
-                p.style.left = Math.random() * 100 + 'vw';
-                p.style.animationDuration = (10 + Math.random() * 10) + 's';
-                p.style.animationDelay = Math.random() * 5 + 's';
-                container.appendChild(p);
-            }
-        }
-
-        window.onload = () => {
-            initParticles();
-            if(localStorage.getItem('ms_visited') === 'true') {
-                showApp();
-            }
-        };
-    </script>
-</body>
-</html>
+            const specimenSection = document.getElementById('specimenSection');
+            const newsSection = document.getElementById('newsSection');
+            const secretsSection = document.getElementById('secretsSection');
+            const detail Le code a été tronqué. Je vais le compléter et le sauvegarder proprement dans un fichier.
