@@ -4,17 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morning Starr Morgan | Official</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0f'/%3E%3Ctext x='50' y='70' font-family='Arial' font-size='60' font-weight='900' text-anchor='middle' fill='%23ffd700'%3EM%3C/text%3E%3C/svg%3E">
-    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300fff7'/%3E%3Cstop offset='100%25' style='stop-color:%23ffd700'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0f'/%3E%3Ctext x='50' y='70' font-family='Arial Black' font-size='60' font-weight='900' text-anchor='middle' fill='url(%23g)'%3EM%3C/text%3E%3Ccircle cx='85' cy='15' r='8' fill='%23ff2a6d'/%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --clr-bg: #050508;
             --clr-bg-card: #0d0d14;
-            --clr-accent: #00f2ff; /* Cyan Electrique */
-            --clr-gold: #ffcc00;   /* Or Pur */
+            --clr-accent: #00f2ff;
+            --clr-gold: #ffcc00;
             --clr-rose: #ff0055;
             --clr-text: #f0f0f0;
             --radius: 20px;
@@ -23,10 +20,8 @@
             --font-body: 'Space Grotesk', sans-serif;
             --font-quote: 'Playfair Display', serif;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
         body {
             font-family: var(--font-body);
             background: var(--clr-bg);
@@ -35,8 +30,6 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-
-        /* Arrière-plan animé */
         .bg-gradient {
             position: fixed;
             inset: 0;
@@ -45,14 +38,12 @@
                 radial-gradient(circle at 90% 90%, rgba(255, 204, 0, 0.05) 0%, transparent 40%);
             z-index: -2;
         }
-
         .particles {
             position: fixed;
             inset: 0;
             pointer-events: none;
             z-index: -1;
         }
-
         .particle {
             position: absolute;
             width: 2px;
@@ -62,14 +53,11 @@
             opacity: 0.3;
             animation: float 15s infinite linear;
         }
-
         @keyframes float {
             0% { transform: translateY(110vh) scale(0); opacity: 0; }
             50% { opacity: 0.5; transform: scale(1.5); }
             100% { transform: translateY(-10vh) scale(0); opacity: 0; }
         }
-
-        /* Écran d'accueil */
         #introScreen {
             position: fixed;
             inset: 0;
@@ -82,7 +70,6 @@
             background: var(--clr-bg);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .logo-big {
             width: 140px;
             height: 140px;
@@ -98,12 +85,10 @@
             box-shadow: 0 0 50px rgba(255, 204, 0, 0.3);
             animation: pulse 2s infinite alternate;
         }
-
         @keyframes pulse {
             from { transform: scale(1); box-shadow: 0 0 30px rgba(255, 204, 0, 0.2); }
             to { transform: scale(1.05); box-shadow: 0 0 60px rgba(0, 242, 255, 0.4); }
         }
-
         #animatedTitle {
             font-family: var(--font-display);
             font-size: clamp(1.5rem, 5vw, 3.5rem);
@@ -116,16 +101,13 @@
             -webkit-text-fill-color: transparent;
             animation: shimmer 4s linear infinite;
         }
-
         @keyframes shimmer { to { background-position: 200% center; } }
-
         .language-selector {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
             align-items: center;
         }
-
         select {
             padding: 1rem 2rem;
             border-radius: 50px;
@@ -138,7 +120,6 @@
             min-width: 220px;
             text-align: center;
         }
-
         #enterButton {
             padding: 1rem 4rem;
             border-radius: 50px;
@@ -152,20 +133,16 @@
             opacity: 0.5;
             pointer-events: none;
         }
-
         #enterButton.ready {
             opacity: 1;
             pointer-events: all;
             box-shadow: 0 10px 30px rgba(255, 204, 0, 0.4);
         }
-
-        /* Interface Principale */
         #appContainer {
             display: none;
-            opacity: 0;
-            transition: opacity 1s ease;
+            min-height: 100vh;
+            padding-bottom: 4rem;
         }
-
         .navbar {
             position: fixed;
             top: 0; width: 100%; height: 80px;
@@ -178,7 +155,6 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-
         .nav-brand { display: flex; align-items: center; gap: 15px; }
         .nav-logo {
             width: 40px; height: 40px;
@@ -188,7 +164,6 @@
             display: flex; align-items: center; justify-content: center;
             font-family: var(--font-display); font-weight: 900;
         }
-
         .back-btn {
             background: transparent;
             border: 1px solid var(--clr-gold);
@@ -199,17 +174,35 @@
             display: none;
             font-weight: 600;
         }
-
-        /* Grille & Cartes */
+        .section-header {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--clr-gold), transparent);
+        }
+        .section-title {
+            font-family: var(--font-display);
+            color: var(--clr-gold);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            white-space: nowrap;
+        }
         .main-grid {
             max-width: 1200px;
-            margin: 120px auto 50px;
+            margin: 30px auto 50px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             padding: 20px;
         }
-
         .card {
             background: var(--clr-bg-card);
             border-radius: var(--radius);
@@ -219,40 +212,79 @@
             cursor: pointer;
             position: relative;
         }
-
         .card:hover {
             transform: translateY(-10px);
             border-color: var(--clr-gold);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
-
         .card-img {
             width: 100%; height: 200px; object-fit: cover;
             filter: grayscale(0.5); transition: 0.5s;
         }
-
         .card:hover .card-img { filter: grayscale(0); transform: scale(1.05); }
-
         .card-body { padding: 20px; }
         .card-title { font-family: var(--font-display); color: var(--clr-gold); margin-bottom: 10px; }
         .card-text { font-family: var(--font-quote); font-style: italic; opacity: 0.7; font-size: 0.9rem; }
-
-        /* Sections Détails */
+        .innovator-card {
+            background: linear-gradient(145deg, rgba(255,215,0,0.05), rgba(0,242,255,0.05));
+            border: 2px solid rgba(255, 204, 0, 0.3);
+        }
+        .innovator-card:hover {
+            border-color: var(--clr-accent);
+            box-shadow: 0 20px 60px rgba(0, 242, 255, 0.2);
+        }
+        .education-card {
+            background: linear-gradient(145deg, rgba(0,242,255,0.05), rgba(255,0,85,0.05));
+            border: 1px solid rgba(0, 242, 255, 0.2);
+        }
+        .education-card:hover {
+            border-color: var(--clr-accent);
+            box-shadow: 0 20px 60px rgba(0, 242, 255, 0.15);
+        }
+        .location-card {
+            background: linear-gradient(145deg, rgba(255,0,85,0.05), rgba(255,215,0,0.05));
+            border: 1px solid rgba(255, 0, 85, 0.2);
+        }
+        .location-card:hover {
+            border-color: var(--clr-rose);
+            box-shadow: 0 20px 60px rgba(255, 0, 85, 0.15);
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+        .badge-elite {
+            background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+            color: #000;
+        }
+        .badge-edu {
+            background: linear-gradient(135deg, var(--clr-accent), var(--clr-rose));
+            color: #fff;
+        }
+        .badge-loc {
+            background: linear-gradient(135deg, var(--clr-rose), var(--clr-gold));
+            color: #000;
+        }
         .detail-view {
             display: none;
-            max-width: 800px;
+            max-width: 900px;
             margin: 120px auto;
             padding: 20px;
             animation: slideUp 0.5s ease forwards;
         }
-
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
         .profile-header {
             text-align: center;
             margin-bottom: 40px;
         }
-
         .profile-img {
             width: 250px; height: 250px;
             border-radius: 50%;
@@ -261,7 +293,6 @@
             object-fit: cover;
             box-shadow: 0 0 30px rgba(255, 204, 0, 0.2);
         }
-
         .btn-link {
             display: block;
             width: fit-content;
@@ -275,7 +306,6 @@
             text-transform: uppercase;
             font-family: var(--font-display);
         }
-
         .quote-box {
             margin-top: 30px;
             padding: 20px;
@@ -285,27 +315,221 @@
             font-size: 1.2rem;
             color: #fff;
         }
-
+        .author {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: normal;
+            font-family: var(--font-body);
+        }
+        .qr-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--radius);
+            display: inline-block;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        .power-quote {
+            font-family: var(--font-quote);
+            font-size: 1.5rem;
+            color: var(--clr-gold);
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+            border-radius: var(--radius);
+            margin: 1rem 0;
+            background: rgba(255, 215, 0, 0.03);
+        }
+        .investor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .investor-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .investor-card:hover {
+            border-color: var(--clr-accent);
+            transform: translateY(-5px);
+        }
+        .investor-name {
+            font-family: var(--font-display);
+            color: var(--clr-accent);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .investor-quote {
+            font-family: var(--font-quote);
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .edu-card {
+            background: rgba(0, 242, 255, 0.03);
+            border: 1px solid rgba(0, 242, 255, 0.15);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        .edu-card:hover {
+            border-color: var(--clr-accent);
+            transform: translateY(-5px);
+            background: rgba(0, 242, 255, 0.05);
+        }
+        .edu-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .edu-title {
+            font-family: var(--font-display);
+            color: var(--clr-accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .edu-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .location-map {
+            width: 100%;
+            max-width: 600px;
+            border-radius: var(--radius);
+            margin: 2rem auto;
+            border: 2px solid rgba(255, 0, 85, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .country-card {
+            background: rgba(255, 0, 85, 0.03);
+            border: 1px solid rgba(255, 0, 85, 0.15);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .country-card:hover {
+            border-color: var(--clr-rose);
+            transform: scale(1.05);
+        }
+        .country-flag {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .country-name {
+            font-family: var(--font-display);
+            color: var(--clr-rose);
+            font-size: 1rem;
+        }
+        .country-capital {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+        .voice-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+            border: none;
+            color: #000;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(255, 204, 0, 0.4);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .voice-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(0, 242, 255, 0.5);
+        }
+        .voice-btn.speaking {
+            animation: voicePulse 1s infinite;
+        }
+        @keyframes voicePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 204, 0, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(0, 242, 255, 0.8); }
+        }
+        .mindset-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: var(--radius);
+            margin: 2rem auto;
+            border: 3px solid var(--clr-gold);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .mindset-section {
+            background: linear-gradient(145deg, rgba(255,215,0,0.05), rgba(0,242,255,0.05));
+            border: 2px solid rgba(255, 204, 0, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .mindset-title {
+            font-family: var(--font-display);
+            color: var(--clr-gold);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .mindset-text {
+            font-family: var(--font-body);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            text-align: justify;
+            font-size: 1rem;
+        }
+        .mindset-highlight {
+            color: var(--clr-gold);
+            font-weight: 700;
+        }
         @media (max-width: 600px) {
             .navbar { padding: 0 20px; }
             .logo-big { width: 100px; height: 100px; font-size: 60px; }
             .profile-img { width: 180px; height: 180px; }
+            .section-title { font-size: 0.9rem; }
+            .voice-btn { width: 50px; height: 50px; font-size: 1.2rem; bottom: 20px; right: 20px; }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
-
     <div class="bg-gradient"></div>
     <div class="particles" id="particleContainer"></div>
 
-    <!-- Écran de Bienvenue -->
     <section id="introScreen">
         <div class="logo-big">M</div>
         <h1 id="animatedTitle">Morning Starr Morgan</h1>
         <div class="language-selector">
             <select id="langSelect">
                 <option value="" disabled selected>Select Language / Langue</option>
-                <option value="fr">Français</option>
+                <option value="fr">Francais</option>
                 <option value="en">English</option>
                 <option value="ln">Lingala</option>
             </select>
@@ -313,7 +537,6 @@
         </div>
     </section>
 
-    <!-- Contenu Principal -->
     <div id="appContainer">
         <nav class="navbar">
             <div class="nav-brand">
@@ -323,21 +546,87 @@
             <button class="back-btn" id="backBtn">RETOUR</button>
         </nav>
 
-        <main class="main-grid" id="mainGrid">
-            <!-- Les cartes seront générées ici -->
-        </main>
+        <div class="section-header" id="header-social">
+            <div class="section-line"></div>
+            <h2 class="section-title">Reseaux Sociaux</h2>
+            <div class="section-line"></div>
+        </div>
+        <main class="main-grid" id="socialGrid"></main>
 
-        <!-- Vue Détails -->
+        <div class="section-header" id="header-edu">
+            <div class="section-line"></div>
+            <h2 class="section-title">Decouverte & Education</h2>
+            <div class="section-line"></div>
+        </div>
+        <main class="main-grid" id="eduGrid"></main>
+
+        <div class="section-header" id="header-loc">
+            <div class="section-line"></div>
+            <h2 class="section-title">Localisation</h2>
+            <div class="section-line"></div>
+        </div>
+        <main class="main-grid" id="locGrid"></main>
+
+        <div class="section-header" id="header-innov">
+            <div class="section-line"></div>
+            <h2 class="section-title">Innovation & Vision</h2>
+            <div class="section-line"></div>
+        </div>
+        <main class="main-grid" id="innovGrid"></main>
+
         <section class="detail-view" id="detailView">
             <div class="profile-header">
-                <img src="eb6c74c3-7f46-4c93-8241-ce41d6c58c2a.jpg" alt="Morning Starr" class="profile-img">
+                <img src="" alt="" class="profile-img" id="detailImg">
                 <h2 id="detailTitle" style="font-family: var(--font-display); font-size: 2.5rem; color: var(--clr-gold);"></h2>
                 <a href="#" id="detailLink" target="_blank" class="btn-link">VISITER</a>
+                <div class="qr-container" id="qrContainer"></div>
                 <div class="quote-box" id="detailQuote"></div>
+
+                <div id="innovatorSection" style="display:none; margin-top: 3rem;">
+                    <h3 style="font-family: var(--font-display); color: var(--clr-accent); text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">MOTS DE POUVOIR</h3>
+                    <div class="power-quote" id="powerQuote"></div>
+                    <h3 style="font-family: var(--font-display); color: var(--clr-gold); text-align: center; margin: 2rem 0 1rem; font-size: 1.2rem;">GRANDS INVESTISSEURS & INNOVATEURS</h3>
+                    <div class="investor-grid" id="investorGrid"></div>
+                </div>
+
+                <div id="educationSection" style="display:none; margin-top: 3rem;">
+                    <h3 style="font-family: var(--font-display); color: var(--clr-accent); text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">SAVOIRS ESSENTIELS</h3>
+                    <div class="edu-grid" id="eduContent"></div>
+                </div>
+
+                <div id="locationSection" style="display:none; margin-top: 3rem;">
+                    <h3 style="font-family: var(--font-display); color: var(--clr-rose); text-align: center; margin-bottom: 1rem; font-size: 1.5rem;">MA POSITION</h3>
+                    <img src="https://media.gettyimages.com/id/1716956111/video/zoom-in-on-monochrome-map-of-democratic-republic-of-congo-4k-high-quality-dark-theme-simple.jpg?s=640x640&k=20&c=m4g-qUYxQXbkrQDar8WiPezfLnWrJiJesSv0Eg9qEMs=" alt="RDC" class="location-map">
+                    <p style="text-align: center; color: rgba(255,255,255,0.7); margin: 1rem 0;">Republique Democratique du Congo - Brazzaville</p>
+                    <h3 style="font-family: var(--font-display); color: var(--clr-gold); text-align: center; margin: 2rem 0 1rem; font-size: 1.2rem;">PAYS VOISINS & REGION</h3>
+                    <div class="country-grid" id="countryGrid"></div>
+                </div>
+
+                <div id="mindsetSection" style="display:none; margin-top: 3rem;">
+                    <div class="mindset-section">
+                        <h3 class="mindset-title">MINDSET ALPHA</h3>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" alt="Mindset Alpha" class="mindset-img" id="mindsetImg">
+                        <div class="mindset-text" id="mindsetText">
+                            <p>Le <span class="mindset-highlight">Mindset Alpha</span> est l'etat d'esprit des leaders qui transforment le monde. Ce n'est pas une question de talent inné, mais d'une decision conscience de dominer sa vie.</p>
+                            <br>
+                            <p><span class="mindset-highlight">Les 5 piliers du Mindset Alpha :</span></p>
+                            <p>1. <span class="mindset-highlight">Vision Clairvoyante</span> - Voir l'avenir avant qu'il n'arrive. Comprendre que la realite est malleable et que nos pensees creent notre monde.</p>
+                            <p>2. <span class="mindset-highlight">Discipline Absolue</span> - Faire ce qui doit etre fait, meme quand personne ne regarde. La discipline bat le talent chaque fois que le talent ne travaille pas assez dur.</p>
+                            <p>3. <span class="mindset-highlight">Resilience Infinie</span> - Tomber 100 fois, se relever 101. L'echec n'est qu'un feedback, pas une identite.</p>
+                            <p>4. <span class="mindset-highlight">Apprentissage Continu</span> - Lire, observer, experimenter. Le monde appartient aux etudiants eternels.</p>
+                            <p>5. <span class="mindset-highlight">Action Decisive</span> - Les plans parfaits ne valent rien sans execution. Mieux vaut une action imparfaite qu'une inaction parfaite.</p>
+                            <br>
+                            <p>"Le lion ne se reveille pas un matin et pense 'Je vais chasser aujourd'hui'. Il se reveille et chasse. <span class="mindset-highlight">Soyez le lion.</span>"</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 
+    <button class="voice-btn" id="voiceBtn" title="Lire a haute voix">🔊</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <script>
         const config = {
             fr: { enter: "ENTRER", back: "RETOUR", select: "Choisir la langue" },
@@ -346,24 +635,173 @@
         };
 
         const socialData = [
-            { id: 'instagram', title: 'Instagram', url: 'https://instagram.com/kama.ko69', img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500', quote: "La beauté commence au moment où vous décidez d'être vous-même." },
-            { id: 'youtube', title: 'YouTube', url: 'https://youtube.com/@JohnnyMorgan-rs7xe', img: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=500', quote: "La musique exprime ce qui ne peut être dit et sur quoi il est impossible de se taire." },
-            { id: 'tiktok', title: 'TikTok', url: 'https://tiktok.com/@morningstarr', img: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=500', quote: "La créativité, c'est l'intelligence qui s'amuse." },
-            { id: 'facebook', title: 'Facebook', url: 'https://facebook.com/morgan.mornigstarr', img: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500', quote: "L'amitié est une âme en deux corps." },
-            { id: 'contact', title: 'Contact', url: 'mailto:kkamako69@gmail.com', img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500', quote: "Écrivez l'histoire que vous voulez lire." }
+            { id: 'instagram', title: 'Instagram', url: 'https://instagram.com/morning_starr_24k', img: 'https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-icon-png-full-colour-900x900.png', quote: "La beaute commence au moment ou vous decidez d'etre vous-meme.", author: "Coco Chanel" },
+            { id: 'youtube', title: 'YouTube', url: 'https://youtube.com/@JohnnyMorgan-rs7xe', img: 'https://www.edigitalagency.com.au/wp-content/uploads/new-YouTube-logo-png.png', quote: "La musique exprime ce qui ne peut etre dit.", author: "Victor Hugo" },
+            { id: 'x', title: 'X (Twitter)', url: 'https://x.com/morgunshted9', img: 'https://img.freepik.com/free-vector/new-twitter-logo-x-icon-black-background_1017-45427.jpg', quote: "La liberte n'a pas de prix.", author: "Bob Marley" },
+            { id: 'facebook', title: 'Facebook', url: 'https://facebook.com/morgan.mornigstarr', img: 'https://www.edigitalagency.com.au/wp-content/uploads/new-Facebook-logo-blue-png.png', quote: "L'amitie est une ame en deux corps.", author: "Aristote" },
+            { id: 'tiktok', title: 'TikTok', url: 'https://tiktok.com/@morningstarr', img: 'https://www.edigitalagency.com.au/wp-content/uploads/TikTok-logo-on-smooth-edges-black-square.png', quote: "La creativite, c'est l'intelligence qui s'amuse.", author: "Einstein" },
+            { id: 'contact', title: 'Contact', url: 'mailto:kkamako69@gmail.com', img: 'https://static.vecteezy.com/system/resources/thumbnails/029/588/611/small/business-contact-us-icon-set-rounded-square-button-style-vector.jpg', quote: "Ecrivez l'histoire que vous voulez lire.", author: "Proverbe" }
         ];
 
-        // --- Moteur de l'Application ---
+        const eduData = [
+            { id: 'science', title: 'Sciences & Tech', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500', quote: "La science est l'art de la curiosite.", author: "Proverbe", desc: "Astronomie, physique quantique, IA, biotechnologie - les frontieres de l'humanite." },
+            { id: 'history', title: 'Histoire & Culture', img: 'https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=500', quote: "Celui qui oublie son passe est condamne a le revivre.", author: "Santayana", desc: "Civilisations anciennes, empires africains, revolutions qui ont change le monde." },
+            { id: 'philosophy', title: 'Philosophie', img: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500', quote: "Connais-toi toi-meme.", author: "Socrate", desc: "Penseurs de l'Antiquite a nos jours. La quete du sens et de la verite." },
+            { id: 'finance', title: 'Finance & Business', img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500', quote: "L'argent est un bon serviteur mais un mauvais maitre.", author: "Francis Bacon", desc: "Crypto, bourse, entrepreneuriat, developpement personnel financier." }
+        ];
 
+        const locData = [
+            { id: 'rdc', title: 'RDC - Mon Pays', img: 'https://media.gettyimages.com/id/1716956111/video/zoom-in-on-monochrome-map-of-democratic-republic-of-congo-4k-high-quality-dark-theme-simple.jpg?s=640x640&k=20&c=m4g-qUYxQXbkrQDar8WiPezfLnWrJiJesSv0Eg9qEMs=', quote: "Le Congo, coeur battant de l'Afrique.", author: "Patrice Lumumba", desc: "Brazzaville, Kinshasa, le fleuve Congo, la foret tropicale." },
+            { id: 'africa', title: 'Afrique Centrale', img: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=500', quote: "L'Afrique est le berceau de l'humanite.", author: "Proverbe", desc: "Cameroun, Gabon, RCA, Angola, Rwanda, Burundi - nos freres voisins." }
+        ];
+
+        const innovData = [
+            { id: 'innovator', title: 'Innovateur', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500', quote: "L'avenir appartient a ceux qui croient a la beaute de leurs reves.", author: "Eleanor Roosevelt", isInnovator: true },
+            { id: 'mindset', title: 'Mindset Alpha', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500', quote: "Le mental est tout. Ce que vous pensez, vous le devenez.", author: "Bouddha", isMindset: true }
+        ];
+
+        const powerQuotes = [
+            { text: "Ne reve pas ta vie, vis tes reves.", author: "Unknown" },
+            { text: "Le seul limit a notre epanouissement de demain sera nos doutes d'aujourd'hui.", author: "Franklin D. Roosevelt" },
+            { text: "L'imagination est plus importante que le savoir.", author: "Albert Einstein" },
+            { text: "La meilleure facon de predire l'avenir est de le creer.", author: "Peter Drucker" },
+            { text: "Je n'echoue jamais. J'apprends simplement 10,000 facons qui ne fonctionnent pas.", author: "Thomas Edison" },
+            { text: "Le succes c'est tomber sept fois, se relever huit.", author: "Proverbe japonais" }
+        ];
+
+        const investorQuotes = [
+            { name: "Elon Musk", quote: "Quelque chose de suffisamment important, vous devriez essayer meme si le resultat probable est l'echec." },
+            { name: "Steve Jobs", quote: "Restez affames. Restez fous." },
+            { name: "Jeff Bezos", quote: "Votre marque est ce que les gens disent de vous lorsque vous n'etes pas dans la piece." },
+            { name: "Warren Buffett", quote: "Le meilleur investissement que vous puissiez faire est en vous-meme." },
+            { name: "Bill Gates", quote: "C'est pas votre faute si vous etes ne pauvre, mais c'est votre faute si vous mourez pauvre." },
+            { name: "Mark Zuckerberg", quote: "Le plus grand risque est de ne prendre aucun risque." },
+            { name: "Richard Branson", quote: "Si quelqu'un vous offre une opportunite incroyable et que vous n'etes pas sur de pouvoir le faire, dites oui." },
+            { name: "Jack Ma", quote: "Aujourd'hui est dur. Demain sera pire. Mais apres-demain sera magnifique." },
+            { name: "Oprah Winfrey", quote: "Transformez vos blessures en sagesse." },
+            { name: "Tony Robbins", quote: "Ce qui est impossible aujourd'hui sera possible demain." },
+            { name: "Robert Kiyosaki", quote: "Ne travaillez pas pour l'argent, faites travailler l'argent pour vous." },
+            { name: "Nelson Mandela", quote: "Tout semble impossible jusqu'a ce que ce soit fait." }
+        ];
+
+        const neighborCountries = [
+            { flag: "🇨🇬", name: "Congo-Brazzaville", capital: "Brazzaville" },
+            { flag: "🇨🇲", name: "Cameroun", capital: "Yaounde" },
+            { flag: "🇬🇦", name: "Gabon", capital: "Libreville" },
+            { flag: "🇨🇫", name: "RCA", capital: "Bangui" },
+            { flag: "🇦🇴", name: "Angola", capital: "Luanda" },
+            { flag: "🇷🇼", name: "Rwanda", capital: "Kigali" },
+            { flag: "🇧🇮", name: "Burundi", capital: "Bujumbura" },
+            { flag: "🇹🇿", name: "Tanzanie", capital: "Dodoma" },
+            { flag: "🇿🇲", name: "Zambie", capital: "Lusaka" },
+            { flag: "🇿🇼", name: "Zimbabwe", capital: "Harare" },
+            { flag: "🇲🇿", name: "Mozambique", capital: "Maputo" },
+            { flag: "🇿🇦", name: "Afrique du Sud", capital: "Pretoria" }
+        ];
+
+        const eduTopics = [
+            { icon: "🔬", title: "Physique Quantique", desc: "Comprendre l'univers au niveau subatomique. Dualite onde-particule, intrication quantique, multivers." },
+            { icon: "🧬", title: "Biotechnologie", desc: "CRISPR, therapie genique, clonage, intelligence biologique. L'avenir de la medecine." },
+            { icon: "🤖", title: "Intelligence Artificielle", desc: "Machine learning, deep learning, reseaux neuronaux. La quatrieme revolution industrielle." },
+            { icon: "🚀", title: "Exploration Spatiale", desc: "Mars, exoplanetes, trous noirs, matiere noire. L'humanite au-dela de la Terre." },
+            { icon: "🏛️", title: "Empires Africains", desc: "Kongo, Mali, Songhai, Egypte antique. Les civilisations oubliees de l'histoire." },
+            { icon: "💰", title: "Crypto & Blockchain", desc: "Bitcoin, Ethereum, DeFi, NFT. La decentralisation du pouvoir financier." },
+            { icon: "🧠", title: "Neurosciences", desc: "Plasticite cerebrale, memoire, conscience. Comprendre le cerveau humain." },
+            { icon: "⚡", title: "Energie Libre", desc: "Fusion nucleaire, solaire avancee, energies renouvelables. Le futur de l'energie." }
+        ];
+
+        // Voice synthesis
+        let synth = window.speechSynthesis;
+        let currentUtterance = null;
+        let isSpeaking = false;
+
+        const voiceBtn = document.getElementById('voiceBtn');
+        voiceBtn.addEventListener('click', toggleVoice);
+
+        function toggleVoice() {
+            if (isSpeaking) {
+                synth.cancel();
+                isSpeaking = false;
+                voiceBtn.classList.remove('speaking');
+                voiceBtn.textContent = '🔊';
+            } else {
+                readCurrentContent();
+            }
+        }
+
+        function readCurrentContent() {
+            let textToRead = '';
+
+            // Check which section is visible
+            const innovSection = document.getElementById('innovatorSection');
+            const eduSection = document.getElementById('educationSection');
+            const locSection = document.getElementById('locationSection');
+            const mindsetSection = document.getElementById('mindsetSection');
+            const detailView = document.getElementById('detailView');
+
+            if (detailView.style.display === 'block') {
+                const title = document.getElementById('detailTitle').textContent;
+                const quote = document.getElementById('detailQuote').textContent;
+                textToRead = title + '. ' + quote;
+
+                if (innovSection.style.display === 'block') {
+                    const powerQ = document.getElementById('powerQuote').textContent;
+                    textToRead += '. Mot de pouvoir. ' + powerQ;
+                }
+
+                if (mindsetSection.style.display === 'block') {
+                    const mindsetText = document.getElementById('mindsetText').textContent;
+                    textToRead += '. Mindset Alpha. ' + mindsetText;
+                }
+
+                if (eduSection.style.display === 'block') {
+                    textToRead += '. Savoirs essentiels. ';
+                    document.querySelectorAll('.edu-card').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                }
+
+                if (locSection.style.display === 'block') {
+                    textToRead += '. Localisation. Republique Democratique du Congo. Pays voisins: ';
+                    document.querySelectorAll('.country-card').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                }
+            } else {
+                // Read main page content
+                textToRead = 'Morning Starr Morgan. Bienvenue sur mon site personnel. ';
+                textToRead += 'Reseaux sociaux. ';
+                socialData.forEach(item => {
+                    textToRead += item.title + '. ' + item.quote + '. ';
+                });
+            }
+
+            if (textToRead) {
+                currentUtterance = new SpeechSynthesisUtterance(textToRead);
+                currentUtterance.lang = 'fr-FR';
+                currentUtterance.rate = 0.9;
+                currentUtterance.pitch = 1;
+
+                currentUtterance.onend = () => {
+                    isSpeaking = false;
+                    voiceBtn.classList.remove('speaking');
+                    voiceBtn.textContent = '🔊';
+                };
+
+                synth.speak(currentUtterance);
+                isSpeaking = true;
+                voiceBtn.classList.add('speaking');
+                voiceBtn.textContent = '⏹️';
+            }
+        }
+
+        // --- Moteur ---
         const langSelect = document.getElementById('langSelect');
         const enterBtn = document.getElementById('enterButton');
         const intro = document.getElementById('introScreen');
         const app = document.getElementById('appContainer');
-        const grid = document.getElementById('mainGrid');
         const backBtn = document.getElementById('backBtn');
-        const detailView = document.getElementById('detailView');
 
-        // Gestion de la langue et du bouton Entrer
         langSelect.addEventListener('change', () => {
             const lang = langSelect.value;
             enterBtn.textContent = config[lang].enter;
@@ -380,52 +818,168 @@
         function showApp() {
             const lang = localStorage.getItem('ms_lang') || 'fr';
             backBtn.textContent = config[lang].back;
-            
             intro.style.opacity = '0';
             setTimeout(() => {
                 intro.style.display = 'none';
                 app.style.display = 'block';
                 setTimeout(() => app.style.opacity = '1', 50);
-                renderGrid();
+                renderAllGrids();
             }, 800);
         }
 
-        function renderGrid() {
+        function renderAllGrids() {
+            renderGrid('socialGrid', socialData, 'social');
+            renderGrid('eduGrid', eduData, 'edu');
+            renderGrid('locGrid', locData, 'loc');
+            renderGrid('innovGrid', innovData, 'innov');
+        }
+
+        function renderGrid(gridId, data, type) {
+            const grid = document.getElementById(gridId);
             grid.innerHTML = '';
-            socialData.forEach(item => {
+            data.forEach(item => {
                 const card = document.createElement('div');
-                card.className = 'card';
+                let cardClass = 'card';
+                let badgeHTML = '';
+
+                if (item.isInnovator) {
+                    cardClass += ' innovator-card';
+                    badgeHTML = '<div class="badge badge-elite">Elite</div>';
+                } else if (type === 'edu') {
+                    cardClass += ' education-card';
+                    badgeHTML = '<div class="badge badge-edu">Savoir</div>';
+                } else if (type === 'loc') {
+                    cardClass += ' location-card';
+                    badgeHTML = '<div class="badge badge-loc">Geo</div>';
+                }
+
+                card.className = cardClass;
                 card.innerHTML = `
+                    ${badgeHTML}
                     <img src="${item.img}" class="card-img" alt="${item.title}">
                     <div class="card-body">
                         <h3 class="card-title">${item.title}</h3>
                         <p class="card-text">"${item.quote.substring(0, 40)}..."</p>
                     </div>
                 `;
-                card.onclick = () => showDetail(item);
+                card.onclick = () => showDetail(item, type);
                 grid.appendChild(card);
             });
         }
 
-        function showDetail(item) {
-            grid.style.display = 'none';
-            detailView.style.display = 'block';
+        function showDetail(item, type) {
+            // Hide all grids and headers
+            document.getElementById('socialGrid').style.display = 'none';
+            document.getElementById('eduGrid').style.display = 'none';
+            document.getElementById('locGrid').style.display = 'none';
+            document.getElementById('innovGrid').style.display = 'none';
+            document.getElementById('header-social').style.display = 'none';
+            document.getElementById('header-edu').style.display = 'none';
+            document.getElementById('header-loc').style.display = 'none';
+            document.getElementById('header-innov').style.display = 'none';
+
+            document.getElementById('detailView').style.display = 'block';
             backBtn.style.display = 'block';
 
+            // Hide all special sections
+            document.getElementById('innovatorSection').style.display = 'none';
+            document.getElementById('educationSection').style.display = 'none';
+            document.getElementById('locationSection').style.display = 'none';
+            document.getElementById('mindsetSection').style.display = 'none';
+
             document.getElementById('detailTitle').textContent = item.title;
-            document.getElementById('detailQuote').textContent = `"${item.quote}"`;
-            document.getElementById('detailLink').href = item.url;
-            
+            document.getElementById('detailQuote').innerHTML = `"${item.quote}"<span class="author">- ${item.author}</span>`;
+            document.getElementById('detailImg').src = item.img;
+
+            const detailLink = document.getElementById('detailLink');
+            const qrContainer = document.getElementById('qrContainer');
+
+            if (item.isInnovator) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('innovatorSection').style.display = 'block';
+
+                const randomPower = powerQuotes[Math.floor(Math.random() * powerQuotes.length)];
+                document.getElementById('powerQuote').innerHTML = `"${randomPower.text}"<span class="author">- ${randomPower.author}</span>`;
+
+                const investorGrid = document.getElementById('investorGrid');
+                investorGrid.innerHTML = '';
+                const shuffled = [...investorQuotes].sort(() => 0.5 - Math.random()).slice(0, 6);
+                shuffled.forEach(inv => {
+                    const invCard = document.createElement('div');
+                    invCard.className = 'investor-card';
+                    invCard.innerHTML = `<div class="investor-name">${inv.name}</div><div class="investor-quote">"${inv.quote}"</div>`;
+                    investorGrid.appendChild(invCard);
+                });
+
+            } else if (item.isMindset) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('mindsetSection').style.display = 'block';
+
+            } else if (type === 'edu') {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('educationSection').style.display = 'block';
+
+                const eduContent = document.getElementById('eduContent');
+                eduContent.innerHTML = '';
+                const shuffled = [...eduTopics].sort(() => 0.5 - Math.random()).slice(0, 6);
+                shuffled.forEach(topic => {
+                    const eduCard = document.createElement('div');
+                    eduCard.className = 'edu-card';
+                    eduCard.innerHTML = `<div class="edu-icon">${topic.icon}</div><div class="edu-title">${topic.title}</div><div class="edu-desc">${topic.desc}</div>`;
+                    eduContent.appendChild(eduCard);
+                });
+
+            } else if (type === 'loc') {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('locationSection').style.display = 'block';
+
+                const countryGrid = document.getElementById('countryGrid');
+                countryGrid.innerHTML = '';
+                neighborCountries.forEach(country => {
+                    const cCard = document.createElement('div');
+                    cCard.className = 'country-card';
+                    cCard.innerHTML = `<div class="country-flag">${country.flag}</div><div class="country-name">${country.name}</div><div class="country-capital">${country.capital}</div>`;
+                    countryGrid.appendChild(cCard);
+                });
+
+            } else {
+                detailLink.style.display = 'block';
+                detailLink.href = item.url;
+                detailLink.textContent = item.id === 'contact' ? 'CONTACTER' : 'VISITER';
+
+                qrContainer.innerHTML = '';
+                qrContainer.style.display = 'block';
+                if (item.id === 'instagram' && typeof QRCode !== 'undefined') {
+                    QRCode.toCanvas(qrContainer, item.url, { width: 150, margin: 1, color: { dark: '#000', light: '#fff' } });
+                } else {
+                    qrContainer.style.display = 'none';
+                }
+            }
+
             window.scrollTo(0, 0);
         }
 
         backBtn.onclick = () => {
-            grid.style.display = 'grid';
-            detailView.style.display = 'none';
+            document.getElementById('detailView').style.display = 'none';
             backBtn.style.display = 'none';
+
+            // Show all grids and headers
+            document.getElementById('socialGrid').style.display = 'grid';
+            document.getElementById('eduGrid').style.display = 'grid';
+            document.getElementById('locGrid').style.display = 'grid';
+            document.getElementById('innovGrid').style.display = 'grid';
+            document.getElementById('header-social').style.display = 'flex';
+            document.getElementById('header-edu').style.display = 'flex';
+            document.getElementById('header-loc').style.display = 'flex';
+            document.getElementById('header-innov').style.display = 'flex';
+
+            window.scrollTo(0, 0);
         };
 
-        // Particules
         function initParticles() {
             const container = document.getElementById('particleContainer');
             for(let i=0; i<40; i++) {
@@ -438,11 +992,9 @@
             }
         }
 
-        // Vérification automatique au chargement
         window.onload = () => {
             initParticles();
             if(localStorage.getItem('ms_visited') === 'true') {
-                // On passe directement à l'app si déjà visité
                 showApp();
             }
         };
