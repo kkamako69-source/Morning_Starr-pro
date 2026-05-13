@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morning Starr Morgan | Official</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300fff7'/%3E%3Cstop offset='100%25' style='stop-color:%23ffd700'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0f'/%3E%3Ctext x='50' y='70' font-family='Arial Black' font-size='60' font-weight='900' text-anchor='middle' fill='url(%23g)'%3EM%3C/text%3E%3Ccircle cx='85' cy='15' r='8' fill='%23ff2a6d'/%3E%3C/svg%3E">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --clr-bg: #050508;
@@ -19,6 +19,7 @@
             --font-display: 'Orbitron', sans-serif;
             --font-body: 'Space Grotesk', sans-serif;
             --font-quote: 'Playfair Display', serif;
+            --font-classic: 'Cinzel', serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -139,6 +140,10 @@
             pointer-events: all;
             box-shadow: 0 10px 30px rgba(255, 204, 0, 0.4);
         }
+        #enterButton:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 204, 0, 0.6);
+        }
         #appContainer {
             display: none;
             min-height: 100vh;
@@ -174,6 +179,11 @@
             cursor: pointer;
             display: none;
             font-weight: 600;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: var(--clr-gold);
+            color: #000;
         }
         .section-header {
             max-width: 1200px;
@@ -330,6 +340,11 @@
             font-weight: 900;
             text-transform: uppercase;
             font-family: var(--font-display);
+            transition: all 0.3s;
+        }
+        .btn-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 204, 0, 0.4);
         }
         .quote-box {
             margin-top: 30px;
@@ -740,6 +755,64 @@
             font-size: 0.85rem;
             line-height: 1.5;
         }
+        /* New: Proverb ticker */
+        .proverb-ticker {
+            background: linear-gradient(90deg, rgba(255,215,0,0.1), rgba(0,242,255,0.1));
+            border-top: 1px solid rgba(255, 204, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 204, 0, 0.2);
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 2rem 0;
+        }
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 40s linear infinite;
+            font-family: var(--font-quote);
+            font-style: italic;
+            color: var(--clr-gold);
+            font-size: 1rem;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        /* New: Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* New: Loading spinner */
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 204, 0, 0.2);
+            border-top: 3px solid var(--clr-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        /* New: Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+        .footer-brand {
+            font-family: var(--font-display);
+            color: var(--clr-gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
         @media (max-width: 600px) {
             .navbar { padding: 0 20px; }
             .logo-big { width: 100px; height: 100px; font-size: 60px; }
@@ -748,7 +821,6 @@
             .voice-btn { width: 50px; height: 50px; font-size: 1.2rem; bottom: 20px; right: 20px; }
         }
     </style>
-<base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -778,47 +850,52 @@
             <button class="back-btn" id="backBtn">RETOUR</button>
         </nav>
 
-        <div class="section-header" id="header-social">
+        <!-- Proverb Ticker -->
+        <div class="proverb-ticker reveal">
+            <div class="ticker-content" id="tickerContent"></div>
+        </div>
+
+        <div class="section-header reveal" id="header-social">
             <div class="section-line"></div>
             <h2 class="section-title">Reseaux Sociaux</h2>
             <div class="section-line"></div>
         </div>
-        <main class="main-grid" id="socialGrid"></main>
+        <main class="main-grid reveal" id="socialGrid"></main>
 
-        <div class="section-header" id="header-edu">
+        <div class="section-header reveal" id="header-edu">
             <div class="section-line"></div>
             <h2 class="section-title">Decouverte & Education</h2>
             <div class="section-line"></div>
         </div>
-        <main class="main-grid" id="eduGrid"></main>
+        <main class="main-grid reveal" id="eduGrid"></main>
 
-        <div class="section-header" id="header-loc">
+        <div class="section-header reveal" id="header-loc">
             <div class="section-line"></div>
             <h2 class="section-title">Localisation</h2>
             <div class="section-line"></div>
         </div>
-        <main class="main-grid" id="locGrid"></main>
+        <main class="main-grid reveal" id="locGrid"></main>
 
-        <div class="section-header" id="header-innov">
+        <div class="section-header reveal" id="header-innov">
             <div class="section-line"></div>
             <h2 class="section-title">Innovation & Vision</h2>
             <div class="section-line"></div>
         </div>
-        <main class="main-grid" id="innovGrid"></main>
+        <main class="main-grid reveal" id="innovGrid"></main>
 
-        <div class="section-header" id="header-specimen">
+        <div class="section-header reveal" id="header-specimen">
             <div class="section-line"></div>
             <h2 class="section-title">Les Specimens (SP)</h2>
             <div class="section-line"></div>
         </div>
-        <main class="main-grid" id="specimenGrid"></main>
+        <main class="main-grid reveal" id="specimenGrid"></main>
 
-        <div class="section-header" id="header-news">
+        <div class="section-header reveal" id="header-news">
             <div class="section-line"></div>
             <h2 class="section-title">Nouvelles du Monde</h2>
             <div class="section-line"></div>
         </div>
-        <main class="main-grid" id="newsGrid"></main>
+        <main class="main-grid reveal" id="newsGrid"></main>
 
         <section class="detail-view" id="detailView">
             <div class="profile-header">
@@ -849,4 +926,847 @@
                             <p><strong>Applications actuelles :</strong> Le transistor (base de tous les ordinateurs et telephones), les lasers (telecommunications par fibres optiques), l'imagerie medicale IRM, les GPS, les LED, et bientot l'ordinateur quantique qui revolutionnera l'informatique.</p>
                         </div>
                         <h4 style="font-family: var(--font-display); color: var(--clr-gold); text-align: center; margin: 2rem 0 1rem; font-size: 1.1rem;">FACTEURS DE RECHERCHE & DEVELOPPEMENT</h4>
+                        <div class="quantum-factors">
+                            <div class="factor-card">
+                                <div class="factor-title">🔬 Informatique Quantique</div>
+                                <div class="factor-desc">Ordinateurs utilisant des qubits pour des calculs impossibles aux machines classiques. IBM, Google et la Chine sont en course.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">🔐 Cryptographie Quantique</div>
+                                <div class="factor-desc">Communication ultra-securisee basee sur l'intrication quantique. Impossible a pirater par des moyens classiques.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">💊 Medecine Quantique</div>
+                                <div class="factor-desc">Simulation moleculaire pour decouvrir de nouveaux medicaments. Modelisation de proteines a l'echelle atomique.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">📡 Capteurs Quantiques</div>
+                                <div class="factor-desc">Detection de signaux infimes pour la geologie, la navigation sans GPS et la detection de matiere noire.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">🌱 Agriculture Quantique</div>
+                                <div class="factor-desc">Optimisation de la photosynthese artificielle et creation d'engrais plus efficaces grace a la chimie quantique.</div>
+                            </div>
+                            <div class="factor-card">
+                                <div class="factor-title">🌍 Climat Quantique</div>
+                                <div class="factor-desc">Modelisation climatique ultra-precise et developpement de materiaux pour capturer le CO2 efficacement.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div id="locationSection" style="display:none; margin-top: 3rem;">
+                    <h3 style="font-family: var(--font-display); color: var(--clr-rose); text-align: center; margin-bottom: 1rem; font-size: 1.5rem;">MA POSITION</h3>
+                    <img src="https://media.gettyimages.com/id/1716956111/video/zoom-in-on-monochrome-map-of-democratic-republic-of-congo-4k-high-quality-dark-theme-simple.jpg?s=640x640&k=20&c=m4g-qUYxQXbkrQDar8WiPezfLnWrJiJesSv0Eg9qEMs=" alt="RDC" class="location-map">
+                    <p style="text-align: center; color: rgba(255,255,255,0.7); margin: 1rem 0;">Republique Democratique du Congo - Brazzaville</p>
+                    <h3 style="font-family: var(--font-display); color: var(--clr-gold); text-align: center; margin: 2rem 0 1rem; font-size: 1.2rem;">PAYS VOISINS & REGION</h3>
+                    <div class="country-grid" id="countryGrid"></div>
+                </div>
+
+                <div id="mindsetSection" style="display:none; margin-top: 3rem;">
+                    <div class="mindset-section">
+                        <h3 class="mindset-title">MINDSET ALPHA</h3>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500" alt="Mindset Alpha" class="mindset-img" id="mindsetImg">
+                        <div class="mindset-text" id="mindsetText">
+                            <p>Le <span class="mindset-highlight">Mindset Alpha</span> est l'etat d'esprit des leaders qui transforment le monde. Ce n'est pas une question de talent inne, mais d'une decision conscience de dominer sa vie.</p>
+                            <br>
+                            <p><span class="mindset-highlight">Les 5 piliers du Mindset Alpha :</span></p>
+                            <p>1. <span class="mindset-highlight">Vision Clairvoyante</span> - Voir l'avenir avant qu'il n'arrive. Comprendre que la realite est malleable et que nos pensees creent notre monde.</p>
+                            <p>2. <span class="mindset-highlight">Discipline Absolue</span> - Faire ce qui doit etre fait, meme quand personne ne regarde. La discipline bat le talent chaque fois que le talent ne travaille pas assez dur.</p>
+                            <p>3. <span class="mindset-highlight">Resilience Infinie</span> - Tomber 100 fois, se relever 101. L'echec n'est qu'un feedback, pas une identite.</p>
+                            <p>4. <span class="mindset-highlight">Apprentissage Continu</span> - Lire, observer, experimenter. Le monde appartient aux etudiants eternels.</p>
+                            <p>5. <span class="mindset-highlight">Action Decisive</span> - Les plans parfaits ne valent rien sans execution. Mieux vaut une action imparfaite qu'une inaction parfaite.</p>
+                            <br>
+                            <p>"Le lion ne se reveille pas un matin et pense 'Je vais chasser aujourd'hui'. Il se reveille et chasse. <span class="mindset-highlight">Soyez le lion.</span>"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="specimenSection" style="display:none; margin-top: 3rem;">
+                    <div class="specimen-section">
+                        <h3 class="specimen-title">LES SPECIMENS (SP)</h3>
+                        <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.1rem;">
+                            Une fraternite d'elite composee de musiciens et programmeurs accomplis sur toute branche. 
+                            Une communaute de recherche dediee aux grands innovateurs de notre epoque.
+                        </p>
+                        <h4 style="font-family: var(--font-display); color: #8a2be2; text-align: center; margin: 2rem 0 1rem; font-size: 1.2rem;">MEMBRES FONDATEURS</h4>
+                        <div class="specimen-founder">
+                            <div class="founder-card">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">🎵💻</div>
+                                <div class="founder-name">Big_Thugv</div>
+                                <div class="founder-role">Co-Fondateur & Pionnier</div>
+                                <div class="founder-desc">
+                                    Grand pionnier de la musique et de la programmation. Visionnaire dont l'influence traverse les frontieres 
+                                    de l'art et de la technologie. Fan de musique passionne, chercheur d'innovation infatigable.
+                                </div>
+                            </div>
+                            <div class="founder-card">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">🌟🎶</div>
+                                <div class="founder-name">Morning_Starr</div>
+                                <div class="founder-role">Co-Fondateur & Visionnaire</div>
+                                <div class="founder-desc">
+                                    Pionnier de la nouvelle generation. Musicien accompli et programmeur sur toute branche. 
+                                    A la recherche permanente des grands innovateurs qui changent le monde. Fan de musique devoue.
+                                </div>
+                            </div>
+                        </div>
+                        <h4 style="font-family: var(--font-display); color: #8a2be2; text-align: center; margin: 2rem 0 1rem; font-size: 1.1rem;">DOMAINES D'EXCELLENCE</h4>
+                        <div class="specimen-traits">
+                            <div class="trait-card">
+                                <div class="trait-icon">🎼</div>
+                                <div class="trait-name">Musique</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">💻</div>
+                                <div class="trait-name">Programmation</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">🔬</div>
+                                <div class="trait-name">Recherche</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">🚀</div>
+                                <div class="trait-name">Innovation</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">🧠</div>
+                                <div class="trait-name">Intelligence Artificielle</div>
+                            </div>
+                            <div class="trait-card">
+                                <div class="trait-icon">🔮</div>
+                                <div class="trait-name">Sciences Occultes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="newsSection" style="display:none; margin-top: 3rem;">
+                    <div class="news-section">
+                        <h3 class="news-title">NOUVELLES DU MONDE 2026</h3>
+                        <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem;">
+                            Les dernieres decouvertes et actualites dans les domaines de la musique, de l'art, 
+                            de l'astronomie, de la physique quantique, de l'astrologie et des secrets de l'univers.
+                        </p>
+                        <div class="news-grid" id="newsContent"></div>
+                    </div>
+                </div>
+
+                <div id="secretsSection" style="display:none; margin-top: 3rem;">
+                    <div class="secrets-section">
+                        <h3 class="secrets-title">SECRETS CACHES DE L'UNIVERS</h3>
+                        <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem;">
+                            Les mysteres les plus profonds de l'univers que la science commence a peine a effleurer.
+                        </p>
+                        <div class="secrets-grid" id="secretsContent"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-brand">MORNING STARR MORGAN</div>
+            <p>© 2026 Morning Starr Morgan. Tous droits reserves.</p>
+            <p style="margin-top: 0.5rem; font-style: italic; font-family: var(--font-quote);">"La connaissance est le seul tresor que personne ne peut vous voler."</p>
+        </footer>
+    </div>
+
+    <button class="voice-btn" id="voiceBtn" title="Lire a haute voix">🔊</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+    <script>
+        const config = {
+            fr: { enter: "ENTRER", back: "RETOUR", select: "Choisir la langue" },
+            en: { enter: "ENTER", back: "BACK", select: "Select Language" },
+            ln: { enter: "KOTA", back: "ZONGA", select: "Pona Monoko" }
+        };
+
+        const socialData = [
+            { id: 'instagram', title: 'Instagram', url: 'https://instagram.com/morning_starr_24k', img: 'https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-icon-png-full-colour-900x900.png', quote: "La beaute commence au moment ou vous decidez d'etre vous-meme.", author: "Coco Chanel" },
+            { id: 'youtube', title: 'YouTube', url: 'https://youtube.com/@JohnnyMorgan-rs7xe', img: 'https://www.edigitalagency.com.au/wp-content/uploads/new-YouTube-logo-png.png', quote: "La musique exprime ce qui ne peut etre dit.", author: "Victor Hugo" },
+            { id: 'x', title: 'X (Twitter)', url: 'https://x.com/morgunshted9', img: 'https://img.freepik.com/free-vector/new-twitter-logo-x-icon-black-background_1017-45427.jpg', quote: "La liberte n'a pas de prix.", author: "Bob Marley" },
+            { id: 'facebook', title: 'Facebook', url: 'https://facebook.com/morgan.mornigstarr', img: 'https://www.edigitalagency.com.au/wp-content/uploads/new-Facebook-logo-blue-png.png', quote: "L'amitie est une ame en deux corps.", author: "Aristote" },
+            { id: 'tiktok', title: 'TikTok', url: 'https://tiktok.com/@morningstarr', img: 'https://www.edigitalagency.com.au/wp-content/uploads/TikTok-logo-on-smooth-edges-black-square.png', quote: "La creativite, c'est l'intelligence qui s'amuse.", author: "Einstein" },
+            { id: 'contact', title: 'Contact', url: 'mailto:kkamako69@gmail.com', img: 'https://static.vecteezy.com/system/resources/thumbnails/029/588/611/small/business-contact-us-icon-set-rounded-square-button-style-vector.jpg', quote: "Ecrivez l'histoire que vous voulez lire.", author: "Proverbe" }
+        ];
+
+        const eduData = [
+            { id: 'science', title: 'Sciences & Tech', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500', quote: "La science est l'art de la curiosite.", author: "Proverbe", desc: "Astronomie, physique quantique, IA, biotechnologie - les frontieres de l'humanite." },
+            { id: 'history', title: 'Histoire & Culture', img: 'https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=500', quote: "Celui qui oublie son passe est condamne a le revivre.", author: "Santayana", desc: "Civilisations anciennes, empires africains, revolutions qui ont change le monde." },
+            { id: 'philosophy', title: 'Philosophie', img: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500', quote: "Connais-toi toi-meme.", author: "Socrate", desc: "Penseurs de l'Antiquite a nos jours. La quete du sens et de la verite." },
+            { id: 'finance', title: 'Finance & Business', img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500', quote: "L'argent est un bon serviteur mais un mauvais maitre.", author: "Francis Bacon", desc: "Crypto, bourse, entrepreneuriat, developpement personnel financier." }
+        ];
+
+        const locData = [
+            { id: 'rdc', title: 'RDC - Mon Pays', img: 'https://media.gettyimages.com/id/1716956111/video/zoom-in-on-monochrome-map-of-democratic-republic-of-congo-4k-high-quality-dark-theme-simple.jpg?s=640x640&k=20&c=m4g-qUYxQXbkrQDar8WiPezfLnWrJiJesSv0Eg9qEMs=', quote: "Le Congo, coeur battant de l'Afrique.", author: "Patrice Lumumba", desc: "Brazzaville, Kinshasa, le fleuve Congo, la foret tropicale." },
+            { id: 'africa', title: 'Afrique Centrale', img: 'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=500', quote: "L'Afrique est le berceau de l'humanite.", author: "Proverbe", desc: "Cameroun, Gabon, RCA, Angola, Rwanda, Burundi - nos freres voisins." }
+        ];
+
+        const innovData = [
+            { id: 'innovator', title: 'Innovateur', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500', quote: "L'avenir appartient a ceux qui croient a la beaute de leurs reves.", author: "Eleanor Roosevelt", isInnovator: true },
+            { id: 'mindset', title: 'Mindset Alpha', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500', quote: "Le mental est tout. Ce que vous pensez, vous le devenez.", author: "Bouddha", isMindset: true }
+        ];
+
+        const specimenData = [
+            { id: 'specimen', title: 'Les Specimens (SP)', img: 'https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=500', quote: "L'excellence n'est pas un acte, mais une habitude.", author: "Aristote", isSpecimen: true, desc: "Fraternite de musiciens et programmeurs. A la recherche des grands innovateurs." }
+        ];
+
+        const newsData = [
+            { id: 'music', title: 'Musique', img: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500', quote: "La musique donne une ame a l'univers.", author: "Platon", isNews: true, category: 'music', desc: "Nouveaux albums, festivals, revolution numerique dans l'industrie musicale." },
+            { id: 'art', title: 'Art & Culture', img: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=500', quote: "L'art est la plus haute forme d'espoir.", author: "Gerhard Richter", isNews: true, category: 'art', desc: "Expositions, mouvements artistiques, street art, NFT et art numerique." },
+            { id: 'astronomy', title: 'Astronomie', img: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500', quote: "Nous sommes poussiere d'etoiles.", author: "Carl Sagan", isNews: true, category: 'astronomy', desc: "Eclipses 2026, mission Artemis II, cometes et decouvertes spatiales." },
+            { id: 'quantum', title: 'Physique Quantique', img: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500', quote: "Si vous pensez comprendre la physique quantique, c'est que vous ne la comprenez pas.", author: "Richard Feynman", isNews: true, category: 'quantum', desc: "Ordinateurs quantiques, intrication, teleportation quantique." },
+            { id: 'astrology', title: 'Astrologie', img: 'https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?w=500', quote: "Les etoiles inclinent, mais n'obligent pas.", author: "Ptolemee", isNews: true, category: 'astrology', desc: "Signes du zodiaque, retrogrades, alignements planetaires 2026." },
+            { id: 'secrets', title: "Secrets de l'Univers", img: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=500', quote: "L'univers n'est pas etranger, il est en nous.", author: "Neil deGrasse Tyson", isNews: true, category: 'secrets', desc: "Matiere noire, trous noirs, multivers, civilisations extraterrestres." }
+        ];
+
+        const allProverbs = [
+            { text: "Ne reve pas ta vie, vis tes reves.", author: "Unknown" },
+            { text: "Le seul limit a notre epanouissement de demain sera nos doutes d'aujourd'hui.", author: "Franklin D. Roosevelt" },
+            { text: "L'imagination est plus importante que le savoir.", author: "Albert Einstein" },
+            { text: "La meilleure facon de predire l'avenir est de le creer.", author: "Peter Drucker" },
+            { text: "Je n'echoue jamais. J'apprends simplement 10,000 facons qui ne fonctionnent pas.", author: "Thomas Edison" },
+            { text: "Le succes c'est tomber sept fois, se relever huit.", author: "Proverbe japonais" },
+            { text: "La connaissance est le seul tresor que personne ne peut vous voler.", author: "Baltasar Gracian" },
+            { text: "On ne voit bien qu'avec le coeur. L'essentiel est invisible pour les yeux.", author: "Antoine de Saint-Exupery" },
+            { text: "La vie est ce qui arrive quand vous etes occupe a faire d'autres projets.", author: "John Lennon" },
+            { text: "Le bonheur n'est pas une destination, c'est une facon de voyager.", author: "Margaret Lee Runbeck" },
+            { text: "Ce qui ne me tue pas me rend plus fort.", author: "Friedrich Nietzsche" },
+            { text: "La vraie generosite envers l'avenir consiste a tout donner au present.", author: "Albert Camus" },
+            { text: "Le monde appartient a ceux qui se levent tot.", author: "Proverbe africain" },
+            { text: "L'education est l'arme la plus puissante pour changer le monde.", author: "Nelson Mandela" },
+            { text: "Un homme sans culture est comme un arbre sans racines.", author: "Proverbe africain" },
+            { text: "La patience est un arbre dont les racines sont amères, mais les fruits sont doux.", author: "Proverbe congolais" },
+            { text: "Celui qui pose une question est un ignorant pendant cinq minutes. Celui qui n'en pose pas le reste toute sa vie.", author: "Proverbe chinois" },
+            { text: "La sagesse commence dans l'etonnement.", author: "Socrate" },
+            { text: "Il n'y a point de genie sans un grain de folie.", author: "Aristote" },
+            { text: "La simplicite est la sophistication supreme.", author: "Leonard de Vinci" },
+            { text: "Le courage n'est pas l'absence de peur, mais la capacite de vaincre ce qui fait peur.", author: "Nelson Mandela" },
+            { text: "La verite est en general une vengeance de l'ignorance offensee.", author: "Georges Courteline" },
+            { text: "Tout ce que vous pouvez imaginer est reel.", author: "Pablo Picasso" },
+            { text: "La musique est la langue des emotions.", author: "Emmanuel Kant" },
+            { text: "L'art de la medecine consiste a distraire le patient pendant que la nature le guerit.", author: "Voltaire" },
+            { text: "La science sans conscience n'est que ruine de l'ame.", author: "Rabelais" },
+            { text: "L'avenir appartient a ceux qui se levent tot.", author: "Proverbe" },
+            { text: "La plus grande gloire n'est pas de ne jamais tomber, mais de se relever a chaque chute.", author: "Confucius" },
+            { text: "La vie est un mystere qu'il faut vivre, et non un probleme a resoudre.", author: "Gandhi" },
+            { text: "La seule facon de faire du bon travail est d'aimer ce que vous faites.", author: "Steve Jobs" },
+            { text: "Le plus grand risque est de ne prendre aucun risque.", author: "Mark Zuckerberg" },
+            { text: "Votre temps est limite, ne le gaspillez pas en vivant la vie de quelqu'un d'autre.", author: "Steve Jobs" },
+            { text: "La logique vous menera de A a B. L'imagination vous menera partout.", author: "Albert Einstein" },
+            { text: "Celui qui ne connait pas l'histoire est condamne a la revivre.", author: "Karl Marx" },
+            { text: "Le bonheur est parfois une benediction, mais generalement c'est une conquete.", author: "Paulo Coelho" },
+            { text: "La seule limite a notre realisation de demain sera nos doutes d'aujourd'hui.", author: "Franklin D. Roosevelt" },
+            { text: "Soyez le changement que vous voulez voir dans le monde.", author: "Gandhi" },
+            { text: "Le succes n'est pas final, l'echec n'est pas fatal: c'est le courage de continuer qui compte.", author: "Winston Churchill" },
+            { text: "La vie est ce que vous en faites. Toujours a ete, toujours sera.", author: "Eleanor Roosevelt" },
+            { text: "Ne comptez pas les jours, faites que les jours comptent.", author: "Muhammad Ali" },
+            { text: "Le meilleur moment pour planter un arbre etait il y a 20 ans. Le deuxieme meilleur moment est maintenant.", author: "Proverbe chinois" },
+            { text: "La force ne vient pas de la capacite physique. Elle vient d'une volonte indomptable.", author: "Mahatma Gandhi" },
+            { text: "L'education est la cle qui ouvre la porte doree de la liberte.", author: "George Washington Carver" },
+            { text: "Le savoir est le pouvoir. La connaissance est la liberte.", author: "Proverbe" },
+            { text: "La musique est la langue universelle de l'humanite.", author: "Henry Wadsworth Longfellow" },
+            { text: "L'art est le plus court chemin de l'homme a l'homme.", author: "Andre Malraux" },
+            { text: "La science est organisee, la connaissance est systematisee, la sagesse est interiorisee.", author: "Proverbe" },
+            { text: "La verite est en general une vengeance de l'ignorance offensee.", author: "Georges Courteline" },
+            { text: "Le monde est un livre dont chaque pas qu'on ne fait pas est une page qu'on ne lit pas.", author: "Saint Augustin" },
+            { text: "L'important n'est pas de gagner, mais de participer.", author: "Pierre de Coubertin" },
+            { text: "La plus belle recompense de notre travail n'est pas ce que nous en tirons, mais ce que nous devenons grace a lui.", author: "John Ruskin" },
+            { text: "Le bonheur est une direction, non une destination.", author: "Sidney J. Harris" },
+            { text: "La vraie noblesse consiste a etre superieur a son passe soi-meme.", author: "Ernest Hemingway" },
+            { text: "Le courage n'est pas l'absence de peur, mais la capacite de vaincre ce qui fait peur.", author: "Nelson Mandela" },
+            { text: "La vie est un sommeil, l'amour en est le reve. Vous aurez vecu, si vous avez aime.", author: "Alfred de Musset" },
+            { text: "Le temps est le meilleur auteur: il trouve toujours une fin heureuse.", author: "Charles Chaplin" },
+            { text: "La patience est l'art d'esperer.", author: "Luc de Clapiers" },
+            { text: "L'avenir appartient a ceux qui croient a la beaute de leurs reves.", author: "Eleanor Roosevelt" },
+            { text: "La musique est la langue des emotions.", author: "Emmanuel Kant" },
+            { text: "Le bonheur n'est pas une destination, c'est une facon de voyager.", author: "Margaret Lee Runbeck" },
+            { text: "La plus grande gloire n'est pas de ne jamais tomber, mais de se relever a chaque chute.", author: "Confucius" },
+            { text: "La vie est un mystere qu'il faut vivre, et non un probleme a resoudre.", author: "Gandhi" },
+            { text: "La seule facon de faire du bon travail est d'aimer ce que vous faites.", author: "Steve Jobs" },
+            { text: "Le plus grand risque est de ne prendre aucun risque.", author: "Mark Zuckerberg" },
+            { text: "Votre temps est limite, ne le gaspillez pas en vivant la vie de quelqu'un d'autre.", author: "Steve Jobs" },
+            { text: "La logique vous menera de A a B. L'imagination vous menera partout.", author: "Albert Einstein" },
+            { text: "Celui qui ne connait pas l'histoire est condamne a la revivre.", author: "Karl Marx" },
+            { text: "Le bonheur est parfois une benediction, mais generalement c'est une conquete.", author: "Paulo Coelho" },
+            { text: "La seule limite a notre realisation de demain sera nos doutes d'aujourd'hui.", author: "Franklin D. Roosevelt" },
+            { text: "Soyez le changement que vous voulez voir dans le monde.", author: "Gandhi" },
+            { text: "Le succes n'est pas final, l'echec n'est pas fatal: c'est le courage de continuer qui compte.", author: "Winston Churchill" },
+            { text: "La vie est ce que vous en faites. Toujours a ete, toujours sera.", author: "Eleanor Roosevelt" },
+            { text: "Ne comptez pas les jours, faites que les jours comptent.", author: "Muhammad Ali" },
+            { text: "Le meilleur moment pour planter un arbre etait il y a 20 ans. Le deuxieme meilleur moment est maintenant.", author: "Proverbe chinois" },
+            { text: "La force ne vient pas de la capacite physique. Elle vient d'une volonte indomptable.", author: "Mahatma Gandhi" },
+            { text: "L'education est la cle qui ouvre la porte doree de la liberte.", author: "George Washington Carver" },
+            { text: "Le savoir est le pouvoir. La connaissance est la liberte.", author: "Proverbe" },
+            { text: "La musique est la langue universelle de l'humanite.", author: "Henry Wadsworth Longfellow" },
+            { text: "L'art est le plus court chemin de l'homme a l'homme.", author: "Andre Malraux" },
+            { text: "La science est organisee, la connaissance est systematisee, la sagesse est interiorisee.", author: "Proverbe" },
+            { text: "La verite est en general une vengeance de l'ignorance offensee.", author: "Georges Courteline" },
+            { text: "Le monde est un livre dont chaque pas qu'on ne fait pas est une page qu'on ne lit pas.", author: "Saint Augustin" },
+            { text: "L'important n'est pas de gagner, mais de participer.", author: "Pierre de Coubertin" },
+            { text: "La plus belle recompense de notre travail n'est pas ce que nous en tirons, mais ce que nous devenons grace a lui.", author: "John Ruskin" },
+            { text: "Le bonheur est une direction, non une destination.", author: "Sidney J. Harris" },
+            { text: "La vraie noblesse consiste a etre superieur a son passe soi-meme.", author: "Ernest Hemingway" },
+            { text: "Le courage n'est pas l'absence de peur, mais la capacite de vaincre ce qui fait peur.", author: "Nelson Mandela" },
+            { text: "La vie est un sommeil, l'amour en est le reve. Vous aurez vecu, si vous avez aime.", author: "Alfred de Musset" },
+            { text: "Le temps est le meilleur auteur: il trouve toujours une fin heureuse.", author: "Charles Chaplin" },
+            { text: "La patience est l'art d'esperer.", author: "Luc de Clapiers" },
+            { text: "L'avenir appartient a ceux qui croient a la beaute de leurs reves.", author: "Eleanor Roosevelt" },
+            { text: "La musique est la langue des emotions.", author: "Emmanuel Kant" },
+            { text: "Le bonheur n'est pas une destination, c'est une facon de voyager.", author: "Margaret Lee Runbeck" },
+            { text: "La plus grande gloire n'est pas de ne jamais tomber, mais de se relever a chaque chute.", author: "Confucius" },
+            { text: "La vie est un mystere qu'il faut vivre, et non un probleme a resoudre.", author: "Gandhi" },
+            { text: "La seule facon de faire du bon travail est d'aimer ce que vous faites.", author: "Steve Jobs" },
+            { text: "Le plus grand risque est de ne prendre aucun risque.", author: "Mark Zuckerberg" },
+            { text: "Votre temps est limite, ne le gaspillez pas en vivant la vie de quelqu'un d'autre.", author: "Steve Jobs" },
+            { text: "La logique vous menera de A a B. L'imagination vous menera partout.", author: "Albert Einstein" },
+            { text: "Celui qui ne connait pas l'histoire est condamne a la revivre.", author: "Karl Marx" },
+            { text: "Le bonheur est parfois une benediction, mais generalement c'est une conquete.", author: "Paulo Coelho" },
+            { text: "La seule limite a notre realisation de demain sera nos doutes d'aujourd'hui.", author: "Franklin D. Roosevelt" },
+            { text: "Soyez le changement que vous voulez voir dans le monde.", author: "Gandhi" },
+            { text: "Le succes n'est pas final, l'echec n'est pas fatal: c'est le courage de continuer qui compte.", author: "Winston Churchill" },
+            { text: "La vie est ce que vous en faites. Toujours a ete, toujours sera.", author: "Eleanor Roosevelt" },
+            { text: "Ne comptez pas les jours, faites que les jours comptent.", author: "Muhammad Ali" },
+            { text: "Le meilleur moment pour planter un arbre etait il y a 20 ans. Le deuxieme meilleur moment est maintenant.", author: "Proverbe chinois" },
+            { text: "La force ne vient pas de la capacite physique. Elle vient d'une volonte indomptable.", author: "Mahatma Gandhi" },
+            { text: "L'education est la cle qui ouvre la porte doree de la liberte.", author: "George Washington Carver" },
+            { text: "Le savoir est le pouvoir. La connaissance est la liberte.", author: "Proverbe" },
+            { text: "La musique est la langue universelle de l'humanite.", author: "Henry Wadsworth Longfellow" },
+            { text: "L'art est le plus court chemin de l'homme a l'homme.", author: "Andre Malraux" },
+            { text: "La science est organisee, la connaissance est systematisee, la sagesse est interiorisee.", author: "Proverbe" },
+            { text: "La verite est en general une vengeance de l'ignorance offensee.", author: "Georges Courteline" },
+            { text: "Le monde est un livre dont chaque pas qu'on ne fait pas est une page qu'on ne lit pas.", author: "Saint Augustin" },
+            { text: "L'important n'est pas de gagner, mais de participer.", author: "Pierre de Coubertin" },
+            { text: "La plus belle recompense de notre travail n'est pas ce que nous en tirons, mais ce que nous devenons grace a lui.", author: "John Ruskin" },
+            { text: "Le bonheur est une direction, non une destination.", author: "Sidney J. Harris" },
+            { text: "La vraie noblesse consiste a etre superieur a son passe soi-meme.", author: "Ernest Hemingway" },
+            { text: "Le courage n'est pas l'absence de peur, mais la capacite de vaincre ce qui fait peur.", author: "Nelson Mandela" },
+            { text: "La vie est un sommeil, l'amour en est le reve. Vous aurez vecu, si vous avez aime.", author: "Alfred de Musset" },
+            { text: "Le temps est le meilleur auteur: il trouve toujours une fin heureuse.", author: "Charles Chaplin" },
+            { text: "La patience est l'art d'esperer.", author: "Luc de Clapiers" },
+            { text: "L'avenir appartient a ceux qui croient a la beaute de leurs reves.", author: "Eleanor Roosevelt" },
+            { text: "La musique est la langue des emotions.", author: "Emmanuel Kant" },
+            { text: "Le bonheur n'est pas une destination, c'est une facon de voyager.", author: "Margaret Lee Runbeck" },
+            { text: "La plus grande gloire n'est pas de ne jamais tomber, mais de se relever a chaque chute.", author: "Confucius" },
+            { text: "La vie est un mystere qu'il faut vivre, et non un probleme a resoudre.", author: "Gandhi" },
+            { text: "La seule facon de faire du bon travail est d'aimer ce que vous faites.", author: "Steve Jobs" },
+            { text: "Le plus grand risque est de ne prendre aucun risque.", author: "Mark Zuckerberg" },
+            { text: "Votre temps est limite, ne le gaspillez pas en vivant la vie de quelqu'un d'autre.", author: "Steve Jobs" },
+            { text: "La logique vous menera de A a B. L'imagination vous menera partout.", author: "Albert Einstein" },
+            { text: "Celui qui ne connait pas l'histoire est condamne a la revivre.", author: "Karl Marx" },
+            { text: "Le bonheur est parfois une benediction, mais generalement c'est une conquete.", author: "Paulo Coelho" },
+            { text: "La seule limite a notre realisation de demain sera nos doutes d'aujourd'hui.", author: "Franklin D. Roosevelt" },
+            { text: "Soyez le changement que vous voulez voir dans le monde.", author: "Gandhi" },
+            { text: "Le succes n'est pas final, l'echec n'est pas fatal: c'est le courage de continuer qui compte.", author: "Winston Churchill" },
+            { text: "La vie est ce que vous en faites. Toujours a ete, toujours sera.", author: "Eleanor Roosevelt" },
+            { text: "Ne comptez pas les jours, faites que les jours comptent.", author: "Muhammad Ali" },
+            { text: "Le meilleur moment pour planter un arbre etait il y a 20 ans. Le deuxieme meilleur moment est maintenant.", author: "Proverbe chinois" },
+            { text: "La force ne vient pas de la capacite physique. Elle vient d'une volonte indomptable.", author: "Mahatma Gandhi" },
+            { text: "L'education est la cle qui ouvre la porte doree de la liberte.", author: "George Washington Carver" },
+            { text: "Le savoir est le pouvoir. La connaissance est la liberte.", author: "Proverbe" },
+            { text: "La musique est la langue universelle de l'humanite.", author: "Henry Wadsworth Longfellow" },
+            { text: "L'art est le plus court chemin de l'homme a l'homme.", author: "Andre Malraux" },
+            { text: "La science est organisee, la connaissance est systematisee, la sagesse est interiorisee.", author: "Proverbe" },
+            { text: "La verite est en general une vengeance de l'ignorance offensee.", author: "Georges Courteline" },
+            { text: "Le monde est un livre dont chaque pas qu'on ne fait pas est une page qu'on ne lit pas.", author: "Saint Augustin" },
+            { text: "L'important n'est pas de gagner, mais de participer.", author: "Pierre de Coubertin" },
+            { text: "La plus belle recompense de notre travail n'est pas ce que nous en tirons, mais ce que nous devenons grace a lui.", author: "John Ruskin" },
+            { text: "Le bonheur est une direction, non une destination.", author: "Sidney J. Harris" },
+            { text: "La vraie noblesse consiste a etre superieur a son passe soi-meme.", author: "Ernest Hemingway" },
+            { text: "Le courage n'est pas l'absence de peur, mais la capacite de vaincre ce qui fait peur.", author: "Nelson Mandela" },
+            { text: "La vie est un sommeil, l'amour en est le reve. Vous aurez vecu, si vous avez aime.", author: "Alfred de Musset" },
+            { text: "Le temps est le meilleur auteur: il trouve toujours une fin heureuse.", author: "Charles Chaplin" },
+            { text: "La patience est l'art d'esperer.", author: "Luc de Clapiers" }
+        ];
+
+        const powerQuotes = [
+            { text: "Ne reve pas ta vie, vis tes reves.", author: "Unknown" },
+            { text: "Le seul limit a notre epanouissement de demain sera nos doutes d'aujourd'hui.", author: "Franklin D. Roosevelt" },
+            { text: "L'imagination est plus importante que le savoir.", author: "Albert Einstein" },
+            { text: "La meilleure facon de predire l'avenir est de le creer.", author: "Peter Drucker" },
+            { text: "Je n'echoue jamais. J'apprends simplement 10,000 facons qui ne fonctionnent pas.", author: "Thomas Edison" },
+            { text: "Le succes c'est tomber sept fois, se relever huit.", author: "Proverbe japonais" }
+        ];
+
+        const investorQuotes = [
+            { name: "Elon Musk", quote: "Quelque chose de suffisamment important, vous devriez essayer meme si le resultat probable est l'echec." },
+            { name: "Steve Jobs", quote: "Restez affames. Restez fous." },
+            { name: "Jeff Bezos", quote: "Votre marque est ce que les gens disent de vous lorsque vous n'etes pas dans la piece." },
+            { name: "Warren Buffett", quote: "Le meilleur investissement que vous puissiez faire est en vous-meme." },
+            { name: "Bill Gates", quote: "C'est pas votre faute si vous etes ne pauvre, mais c'est votre faute si vous mourez pauvre." },
+            { name: "Mark Zuckerberg", quote: "Le plus grand risque est de ne prendre aucun risque." },
+            { name: "Richard Branson", quote: "Si quelqu'un vous offre une opportunite incroyable et que vous n'etes pas sur de pouvoir le faire, dites oui." },
+            { name: "Jack Ma", quote: "Aujourd'hui est dur. Demain sera pire. Mais apres-demain sera magnifique." },
+            { name: "Oprah Winfrey", quote: "Transformez vos blessures en sagesse." },
+            { name: "Tony Robbins", quote: "Ce qui est impossible aujourd'hui sera possible demain." },
+            { name: "Robert Kiyosaki", quote: "Ne travaillez pas pour l'argent, faites travailler l'argent pour vous." },
+            { name: "Nelson Mandela", quote: "Tout semble impossible jusqu'a ce que ce soit fait." }
+        ];
+
+        const neighborCountries = [
+            { flag: "🇨🇬", name: "Congo-Brazzaville", capital: "Brazzaville" },
+            { flag: "🇨🇲", name: "Cameroun", capital: "Yaounde" },
+            { flag: "🇬🇦", name: "Gabon", capital: "Libreville" },
+            { flag: "🇨🇫", name: "RCA", capital: "Bangui" },
+            { flag: "🇦🇴", name: "Angola", capital: "Luanda" },
+            { flag: "🇷🇼", name: "Rwanda", capital: "Kigali" },
+            { flag: "🇧🇮", name: "Burundi", capital: "Bujumbura" },
+            { flag: "🇹🇿", name: "Tanzanie", capital: "Dodoma" },
+            { flag: "🇿🇲", name: "Zambie", capital: "Lusaka" },
+            { flag: "🇿🇼", name: "Zimbabwe", capital: "Harare" },
+            { flag: "🇲🇿", name: "Mozambique", capital: "Maputo" },
+            { flag: "🇿🇦", name: "Afrique du Sud", capital: "Pretoria" }
+        ];
+
+        const eduTopics = [
+            { icon: "🔬", title: "Physique Quantique", desc: "Comprendre l'univers au niveau subatomique. Dualite onde-particule, intrication quantique, multivers." },
+            { icon: "🧬", title: "Biotechnologie", desc: "CRISPR, therapie genique, clonage, intelligence biologique. L'avenir de la medecine." },
+            { icon: "🤖", title: "Intelligence Artificielle", desc: "Machine learning, deep learning, reseaux neuronaux. La quatrieme revolution industrielle." },
+            { icon: "🚀", title: "Exploration Spatiale", desc: "Mars, exoplanetes, trous noirs, matiere noire. L'humanite au-dela de la Terre." },
+            { icon: "🏛️", title: "Empires Africains", desc: "Kongo, Mali, Songhai, Egypte antique. Les civilisations oubliees de l'histoire." },
+            { icon: "💰", title: "Crypto & Blockchain", desc: "Bitcoin, Ethereum, DeFi, NFT. La decentralisation du pouvoir financier." },
+            { icon: "🧠", title: "Neurosciences", desc: "Plasticite cerebrale, memoire, conscience. Comprendre le cerveau humain." },
+            { icon: "⚡", title: "Energie Libre", desc: "Fusion nucleaire, solaire avancee, energies renouvelables. Le futur de l'energie." }
+        ];
+
+        const newsTopics = {
+            music: [
+                { headline: "Revolution AI dans la Musique", content: "Les outils de creation musicale par IA atteignent un niveau professionnel. Des artistes utilisent desormais l'IA comme co-auteur pour composer des albums complets." },
+                { headline: "Retour du Vinyl", content: "Les ventes de disques vinyles depassent pour la premiere fois depuis 1987 les ventes de CD. Une renaissance analogique dans un monde numerique." },
+                { headline: "Festivals Immersifs 2026", content: "Les festivals de musique integrent des experiences en realite augmentee et des hologrammes d'artistes legendaires pour des concerts posthumes." }
+            ],
+            art: [
+                { headline: "Art Generatif NFT", content: "Les collections NFT d'art generatif atteignent des records. Des algorithmes crees par des artistes africains emergent sur la scene internationale." },
+                { headline: "Street Art Digital", content: "Des projections AR transforment les murs des villes en galeries d'art interactives. Le street art entre dans l'ere du metaverse." },
+                { headline: "Restitution des Tresors Africains", content: "De plus en plus de musees europeens restituent des oeuvres d'art africaines volees pendant la colonisation. Un tournant historique." }
+            ],
+            astronomy: [
+                { headline: "Eclipse Totale 12 Aout 2026", content: "L'eclipse totale de Soleil du 12 aout 2026 sera visible depuis l'Islande, le nord de l'Espagne et le Groenland. Evenement majeur de l'annee." },
+                { headline: "Mission Artemis II", content: "Quatre astronautes (3 Americains, 1 Canadien) survoleront la Lune en fevrier 2026. Premier vol habite vers la Lune depuis Apollo 17 en 1972." },
+                { headline: "Comete C/2026 A1 (MAPS)", content: "Decouverte en janvier 2026, cette comete pourrait etre spectaculaire en avril. Son passage au perihelie le 4 avril est attendu avec impatience." },
+                { headline: "Chang'e 7 - Chine sur la Lune", content: "La mission chinoise Chang'e 7 explorera le pole Sud lunaire a la fin de l'ete 2026, a la recherche de glace d'eau pour une future base." }
+            ],
+            quantum: [
+                { headline: "Ordinateur Quantique 1000 Qubits", content: "IBM a revele un processeur quantique de plus de 1000 qubits. La suprematie quantique pour resoudre des problemes classiquement impossibles approche." },
+                { headline: "Teleportation Quantique Record", content: "Des chercheurs ont reussi a teleporter de l'information quantique sur une distance record de 100 km via fibre optique standard." },
+                { headline: "France 2030 - Plan Quantique", content: "La France investit massivement dans le quantique pour la sante, l'agriculture, la cybersecurite et le climat. L'independance technologique europeenne est en jeu." }
+            ],
+            astrology: [
+                { headline: "Alignement Planetaire 2026", content: "Jupiter et Mars formeront un couple serre du 14 au 18 novembre 2026. Un spectacle celeste rare a observer au telescope dans le meme champ." },
+                { headline: "Retrograde de Mercure", content: "Les periodes de retrograde de Mercure en 2026 sont prevues en janvier, mai et septembre. Periodes traditionnellement associees a la reflexion et au reexamen." },
+                { headline: "Nouvelle Lune du 12 Aout", content: "Coincidant avec l'eclipse totale, cette nouvelle lune marque un moment energetique puissant selon les traditions astrologiques." }
+            ],
+            secrets: [
+                { headline: "Matiere Noire : Enfin Detectee ?", content: "Des experiences souterraines pourraient avoir detecte des signaux de matiere noire. La substance mysterieuse qui compose 85% de la matiere de l'univers." },
+                { headline: "Trous Noirs : L'Information Survit", content: "Nouvelles theories suggerent que l'information qui tombe dans un trou noir n'est pas detruite mais encodee sur l'horizon evenementiel." },
+                { headline: "Signal WOW 2.0", content: "Un nouveau signal radio anomal provenant de l'espace profond a ete detecte. Les scientifiques etudient s'il pourrait etre d'origine artificielle." },
+                { headline: "Multivers : Preuves Observationnelles", content: "Des anomalies dans le rayonnement cosmique de fond pourraient etre des signatures de collisions avec d'autres univers dans le multivers." }
+            ]
+        };
+
+        const secretsTopics = [
+            { title: "🔮 Matiere Noire & Energie Noire", desc: "95% de l'univers est invisible. La matiere noire (27%) attire par gravite, l'energie noire (68%) accelere l'expansion. Nous ne savons pas ce que c'est." },
+            { title: "🕳️ Trous Noirs & Paradoxe de l'Information", desc: "Stephen Hawking a decouvert que les trous noirs s'evaporent. Mais ou va l'information ? Le paradoxe reste non resolu." },
+            { title: "🌌 Multivers & Realites Paralleles", desc: "Notre univers pourrait n'etre qu'une bulle dans un ocean de bulles. Chaque decision cree une branche dans le multivers quantique." },
+            { title: "👽 Civilisations Extraterrestres", desc: "L'equation de Drake estime des milliards de civilisations. Le paradoxe de Fermi demande : ou sont-ils tous ?" },
+            { title: "⏳ Voyage dans le Temps", desc: "La relativite generale autorise theoriquement les boucles temporelles. Les trous de ver pourraient connecter differentes epoques." },
+            { title: "🧬 ADN Cosmique", desc: "Les elements lourds dans notre corps (carbone, oxygene, fer) ont ete forge dans les etoiles. Nous sommes litteralement poussiere d'etoiles." }
+        ];
+
+        // Voice synthesis
+        let synth = window.speechSynthesis;
+        let currentUtterance = null;
+        let isSpeaking = false;
+
+        const voiceBtn = document.getElementById('voiceBtn');
+        voiceBtn.addEventListener('click', toggleVoice);
+
+        function toggleVoice() {
+            if (isSpeaking) {
+                synth.cancel();
+                isSpeaking = false;
+                voiceBtn.classList.remove('speaking');
+                voiceBtn.textContent = '🔊';
+            } else {
+                readCurrentContent();
+            }
+        }
+
+        function readCurrentContent() {
+            let textToRead = '';
+
+            const innovSection = document.getElementById('innovatorSection');
+            const eduSection = document.getElementById('educationSection');
+            const locSection = document.getElementById('locationSection');
+            const mindsetSection = document.getElementById('mindsetSection');
+            const specimenSection = document.getElementById('specimenSection');
+            const newsSection = document.getElementById('newsSection');
+            const secretsSection = document.getElementById('secretsSection');
+            const detailView = document.getElementById('detailView');
+
+            if (detailView.style.display === 'block') {
+                const title = document.getElementById('detailTitle').textContent;
+                const quote = document.getElementById('detailQuote').textContent;
+                textToRead = title + '. ' + quote;
+
+                if (innovSection.style.display === 'block') {
+                    const powerQ = document.getElementById('powerQuote').textContent;
+                    textToRead += '. Mot de pouvoir. ' + powerQ;
+                }
+
+                if (mindsetSection.style.display === 'block') {
+                    const mindsetText = document.getElementById('mindsetText').textContent;
+                    textToRead += '. Mindset Alpha. ' + mindsetText;
+                }
+
+                if (specimenSection.style.display === 'block') {
+                    textToRead += '. Les Specimens. Fraternite de musiciens et programmeurs. Membres fondateurs: Big Thugv et Morning Starr. Domaines: Musique, Programmation, Recherche, Innovation, Intelligence Artificielle, Sciences Occultes.';
+                }
+
+                if (newsSection.style.display === 'block') {
+                    textToRead += '. Nouvelles du monde. ';
+                    document.querySelectorAll('.news-card-detail').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                }
+
+                if (secretsSection.style.display === 'block') {
+                    textToRead += '. Secrets de l univers. ';
+                    document.querySelectorAll('.secret-card').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                }
+
+                if (eduSection.style.display === 'block') {
+                    textToRead += '. Savoirs essentiels. ';
+                    document.querySelectorAll('.edu-card').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                    const quantumSection = document.getElementById('quantumSection');
+                    if (quantumSection.style.display !== 'none') {
+                        textToRead += '. Physique Quantique. ' + quantumSection.textContent;
+                    }
+                }
+
+                if (locSection.style.display === 'block') {
+                    textToRead += '. Localisation. Republique Democratique du Congo. Pays voisins: ';
+                    document.querySelectorAll('.country-card').forEach(card => {
+                        textToRead += card.textContent + '. ';
+                    });
+                }
+            } else {
+                textToRead = 'Morning Starr Morgan. Bienvenue sur mon site personnel. ';
+                textToRead += 'Reseaux sociaux. ';
+                socialData.forEach(item => {
+                    textToRead += item.title + '. ' + item.quote + '. ';
+                });
+            }
+
+            if (textToRead) {
+                currentUtterance = new SpeechSynthesisUtterance(textToRead);
+                currentUtterance.lang = 'fr-FR';
+                currentUtterance.rate = 0.9;
+                currentUtterance.pitch = 1;
+
+                currentUtterance.onend = () => {
+                    isSpeaking = false;
+                    voiceBtn.classList.remove('speaking');
+                    voiceBtn.textContent = '🔊';
+                };
+
+                synth.speak(currentUtterance);
+                isSpeaking = true;
+                voiceBtn.classList.add('speaking');
+                voiceBtn.textContent = '⏹️';
+            }
+        }
+
+        // --- Moteur ---
+        const langSelect = document.getElementById('langSelect');
+        const enterBtn = document.getElementById('enterButton');
+        const intro = document.getElementById('introScreen');
+        const app = document.getElementById('appContainer');
+        const backBtn = document.getElementById('backBtn');
+
+        langSelect.addEventListener('change', () => {
+            const lang = langSelect.value;
+            enterBtn.textContent = config[lang].enter;
+            enterBtn.classList.add('ready');
+        });
+
+        enterBtn.addEventListener('click', () => {
+            const lang = langSelect.value;
+            localStorage.setItem('ms_lang', lang);
+            localStorage.setItem('ms_visited', 'true');
+            showApp();
+        });
+
+        function showApp() {
+            const lang = localStorage.getItem('ms_lang') || 'fr';
+            backBtn.textContent = config[lang].back;
+            intro.style.opacity = '0';
+            setTimeout(() => {
+                intro.style.display = 'none';
+                app.style.display = 'block';
+                setTimeout(() => app.style.opacity = '1', 50);
+                renderAllGrids();
+                initTicker();
+                initScrollReveal();
+            }, 800);
+        }
+
+        function renderAllGrids() {
+            renderGrid('socialGrid', socialData, 'social');
+            renderGrid('eduGrid', eduData, 'edu');
+            renderGrid('locGrid', locData, 'loc');
+            renderGrid('innovGrid', innovData, 'innov');
+            renderGrid('specimenGrid', specimenData, 'specimen');
+            renderGrid('newsGrid', newsData, 'news');
+        }
+
+        function renderGrid(gridId, data, type) {
+            const grid = document.getElementById(gridId);
+            grid.innerHTML = '';
+            data.forEach(item => {
+                const card = document.createElement('div');
+                let cardClass = 'card';
+                let badgeHTML = '';
+
+                if (item.isInnovator) {
+                    cardClass += ' innovator-card';
+                    badgeHTML = '<div class="badge badge-elite">Elite</div>';
+                } else if (type === 'edu') {
+                    cardClass += ' education-card';
+                    badgeHTML = '<div class="badge badge-edu">Savoir</div>';
+                } else if (type === 'loc') {
+                    cardClass += ' location-card';
+                    badgeHTML = '<div class="badge badge-loc">Geo</div>';
+                } else if (type === 'specimen') {
+                    cardClass += ' specimen-card';
+                    badgeHTML = '<div class="badge badge-specimen">SP</div>';
+                } else if (type === 'news') {
+                    cardClass += ' news-card';
+                    badgeHTML = '<div class="badge badge-news">News</div>';
+                }
+
+                card.className = cardClass;
+                card.innerHTML = `
+                    ${badgeHTML}
+                    <img src="${item.img}" class="card-img" alt="${item.title}">
+                    <div class="card-body">
+                        <h3 class="card-title">${item.title}</h3>
+                        <p class="card-text">"${item.quote.substring(0, 40)}..."</p>
+                    </div>
+                `;
+                card.onclick = () => showDetail(item, type);
+                grid.appendChild(card);
+            });
+        }
+
+        function showDetail(item, type) {
+            // Hide all grids and headers
+            ['socialGrid', 'eduGrid', 'locGrid', 'innovGrid', 'specimenGrid', 'newsGrid'].forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            ['header-social', 'header-edu', 'header-loc', 'header-innov', 'header-specimen', 'header-news'].forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            document.querySelector('.proverb-ticker').style.display = 'none';
+            document.querySelector('.footer').style.display = 'none';
+
+            document.getElementById('detailView').style.display = 'block';
+            backBtn.style.display = 'block';
+
+            // Hide all special sections
+            document.getElementById('innovatorSection').style.display = 'none';
+            document.getElementById('educationSection').style.display = 'none';
+            document.getElementById('locationSection').style.display = 'none';
+            document.getElementById('mindsetSection').style.display = 'none';
+            document.getElementById('specimenSection').style.display = 'none';
+            document.getElementById('newsSection').style.display = 'none';
+            document.getElementById('secretsSection').style.display = 'none';
+            document.getElementById('quantumSection').style.display = 'none';
+
+            document.getElementById('detailTitle').textContent = item.title;
+            document.getElementById('detailQuote').innerHTML = `"${item.quote}"<span class="author">- ${item.author}</span>`;
+            document.getElementById('detailImg').src = item.img;
+
+            const detailLink = document.getElementById('detailLink');
+            const qrContainer = document.getElementById('qrContainer');
+
+            if (item.isInnovator) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('innovatorSection').style.display = 'block';
+
+                const randomPower = powerQuotes[Math.floor(Math.random() * powerQuotes.length)];
+                document.getElementById('powerQuote').innerHTML = `"${randomPower.text}"<span class="author">- ${randomPower.author}</span>`;
+
+                const investorGrid = document.getElementById('investorGrid');
+                investorGrid.innerHTML = '';
+                const shuffled = [...investorQuotes].sort(() => 0.5 - Math.random()).slice(0, 6);
+                shuffled.forEach(inv => {
+                    const invCard = document.createElement('div');
+                    invCard.className = 'investor-card';
+                    invCard.innerHTML = `<div class="investor-name">${inv.name}</div><div class="investor-quote">"${inv.quote}"</div>`;
+                    investorGrid.appendChild(invCard);
+                });
+
+            } else if (item.isMindset) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('mindsetSection').style.display = 'block';
+
+            } else if (item.isSpecimen) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('specimenSection').style.display = 'block';
+
+            } else if (item.isNews) {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('newsSection').style.display = 'block';
+
+                const newsContent = document.getElementById('newsContent');
+                newsContent.innerHTML = '';
+
+                if (item.category === 'secrets') {
+                    document.getElementById('newsSection').style.display = 'none';
+                    document.getElementById('secretsSection').style.display = 'block';
+                    const secretsContent = document.getElementById('secretsContent');
+                    secretsContent.innerHTML = '';
+                    secretsTopics.forEach(secret => {
+                        const sCard = document.createElement('div');
+                        sCard.className = 'secret-card';
+                        sCard.innerHTML = `<div class="secret-title">${secret.title}</div><div class="secret-desc">${secret.desc}</div>`;
+                        secretsContent.appendChild(sCard);
+                    });
+                } else {
+                    const topics = newsTopics[item.category] || [];
+                    topics.forEach(news => {
+                        const nCard = document.createElement('div');
+                        nCard.className = 'news-card-detail';
+                        nCard.innerHTML = `<div class="news-category">${item.category.toUpperCase()}</div><div class="news-headline">${news.headline}</div><div class="news-content">${news.content}</div>`;
+                        newsContent.appendChild(nCard);
+                    });
+                }
+
+            } else if (type === 'edu') {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('educationSection').style.display = 'block';
+
+                const eduContent = document.getElementById('eduContent');
+                eduContent.innerHTML = '';
+                const shuffled = [...eduTopics].sort(() => 0.5 - Math.random()).slice(0, 6);
+                shuffled.forEach(topic => {
+                    const eduCard = document.createElement('div');
+                    eduCard.className = 'edu-card';
+                    eduCard.innerHTML = `<div class="edu-icon">${topic.icon}</div><div class="edu-title">${topic.title}</div><div class="edu-desc">${topic.desc}</div>`;
+                    eduContent.appendChild(eduCard);
+                });
+
+                // Show quantum section for science
+                if (item.id === 'science') {
+                    document.getElementById('quantumSection').style.display = 'block';
+                }
+
+            } else if (type === 'loc') {
+                detailLink.style.display = 'none';
+                qrContainer.style.display = 'none';
+                document.getElementById('locationSection').style.display = 'block';
+
+                const countryGrid = document.getElementById('countryGrid');
+                countryGrid.innerHTML = '';
+                neighborCountries.forEach(country => {
+                    const cCard = document.createElement('div');
+                    cCard.className = 'country-card';
+                    cCard.innerHTML = `<div class="country-flag">${country.flag}</div><div class="country-name">${country.name}</div><div class="country-capital">${country.capital}</div>`;
+                    countryGrid.appendChild(cCard);
+                });
+
+            } else {
+                detailLink.style.display = 'block';
+                detailLink.href = item.url;
+                detailLink.textContent = item.id === 'contact' ? 'CONTACTER' : 'VISITER';
+
+                qrContainer.innerHTML = '';
+                qrContainer.style.display = 'block';
+                if (item.id === 'instagram' && typeof QRCode !== 'undefined') {
+                    QRCode.toCanvas(qrContainer, item.url, { width: 150, margin: 1, color: { dark: '#000', light: '#fff' } });
+                } else {
+                    qrContainer.style.display = 'none';
+                }
+            }
+
+            window.scrollTo(0, 0);
+        }
+
+        backBtn.onclick = () => {
+            document.getElementById('detailView').style.display = 'none';
+            backBtn.style.display = 'none';
+
+            // Show all grids and headers
+            ['socialGrid', 'eduGrid', 'locGrid', 'innovGrid', 'specimenGrid', 'newsGrid'].forEach(id => {
+                document.getElementById(id).style.display = 'grid';
+            });
+            ['header-social', 'header-edu', 'header-loc', 'header-innov', 'header-specimen', 'header-news'].forEach(id => {
+                document.getElementById(id).style.display = 'flex';
+            });
+            document.querySelector('.proverb-ticker').style.display = 'block';
+            document.querySelector('.footer').style.display = 'block';
+
+            window.scrollTo(0, 0);
+        };
+
+        function initParticles() {
+            const container = document.getElementById('particleContainer');
+            for(let i=0; i<40; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.animationDuration = (10 + Math.random() * 10) + 's';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(p);
+            }
+        }
+
+        // Ticker
+        function initTicker() {
+            const ticker = document.getElementById('tickerContent');
+            let tickerHTML = '';
+            // Duplicate for seamless loop
+            const shuffled = [...allProverbs].sort(() => 0.5 - Math.random());
+            shuffled.forEach(p => {
+                tickerHTML += ` ✦ "${p.text}" — ${p.author} ✦ `;
+            });
+            shuffled.forEach(p => {
+                tickerHTML += ` ✦ "${p.text}" — ${p.author} ✦ `;
+            });
+            ticker.innerHTML = tickerHTML;
+        }
+
+        // Scroll reveal
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            reveals.forEach(el => observer.observe(el));
+        }
+
+        window.onload = () => {
+            initParticles();
+            if(localStorage.getItem('ms_visited') === 'true') {
+                showApp();
+            }
+        };
+    </script>
+</body>
+</html>
