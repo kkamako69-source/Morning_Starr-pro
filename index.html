@@ -3,20 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Starr Morgan | Official Pro</title>
+    <title>Morning Starr Morgan | Official</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300fff7'/%3E%3Cstop offset='100%25' style='stop-color:%23ffd700'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0f'/%3E%3Ctext x='50' y='70' font-family='Arial Black' font-size='60' font-weight='900' text-anchor='middle' fill='url(%23g)'%3EM%3C/text%3E%3Ccircle cx='85' cy='15' r='8' fill='%23ff2a6d'/%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morning Starr Morgan | Official Pro</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300fff7'/%3E%3Cstop offset='100%25' style='stop-color:%23ffd700'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0f'/%3E%3Ctext x='50' y='70' font-family='Arial Black' font-size='60' font-weight='900' text-anchor='middle' fill='url(%23g)'%3EM%3C/text%3E%3Ccircle cx='85' cy='15' r='8' fill='%23ff2a6d'/%3E%3C/svg%3E">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --clr-bg: #050508;
@@ -26,400 +15,837 @@
             --clr-rose: #ff0055;
             --clr-text: #f0f0f0;
             --radius: 20px;
+            --duration: 0.4s;
             --font-display: 'Orbitron', sans-serif;
             --font-body: 'Space Grotesk', sans-serif;
             --font-quote: 'Playfair Display', serif;
         }
-
-        /* --- RÉGLAGES DE BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-body);
             background: var(--clr-bg);
             color: var(--clr-text);
+            min-height: 100vh;
             overflow-x: hidden;
+            line-height: 1.6;
         }
-
-        /* --- ANIMATIONS DE RÉVÉLATION (SCROLL REVEAL) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+        .bg-gradient {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(255, 204, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 85, 0.03) 0%, transparent 50%);
+            z-index: -2;
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
         }
-
-        /* --- STYLE DES CARTES (AMÉLIORÉ) --- */
-        .card {
-            background: var(--clr-bg-card);
-            border-radius: var(--radius);
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--clr-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(110vh) scale(0); opacity: 0; }
+            50% { opacity: 0.5; transform: scale(1.5); }
+            100% { transform: translateY(-10vh) scale(0); opacity: 0; }
+        }
+        #introScreen {
+            position: fixed;
+            inset: 0;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            z-index: 9999;
+            background: var(--clr-bg);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .card:hover {
-            transform: scale(1.03);
-            border-color: var(--clr-gold);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-        }
-
-        .card-quote {
-            font-family: var(--font-quote);
-            font-size: 1.1rem;
-            font-style: italic;
-            color: var(--clr-text);
-        }
-
-        .card-author {
-            font-family: var(--font-display);
-            font-size: 0.7rem;
-            color: var(--clr-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* --- LES SECTIONS --- */
-        .section-header {
-            max-width: 1200px;
-            margin: 80px auto 30px;
+        .logo-big {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+            border-radius: 35px;
             display: flex;
             align-items: center;
-            padding: 0 20px;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 80px;
+            font-weight: 900;
+            color: #000;
+            box-shadow: 0 0 50px rgba(255, 204, 0, 0.3);
+            animation: pulse 2s infinite alternate;
         }
-        .section-line { flex: 1; height: 1px; background: rgba(255, 204, 0, 0.2); }
-        .section-title { padding: 0 20px; font-family: var(--font-display); color: var(--clr-gold); font-size: 1.2rem; letter-spacing: 3px; }
-
+        @keyframes pulse {
+            from { transform: scale(1); box-shadow: 0 0 30px rgba(255, 204, 0, 0.2); }
+            to { transform: scale(1.05); box-shadow: 0 0 60px rgba(0, 242, 255, 0.4); }
+        }
+        #animatedTitle {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 5vw, 3.5rem);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            background: linear-gradient(90deg, #fff, var(--clr-gold), #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+        @keyframes shimmer { to { background-position: 200% center; } }
+        .language-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        select {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 204, 0, 0.3);
+            color: var(--clr-gold);
+            font-family: var(--font-body);
+            cursor: pointer;
+            outline: none;
+            min-width: 220px;
+            text-align: center;
+        }
+        #enterButton {
+            padding: 1rem 4rem;
+            border-radius: 50px;
+            border: none;
+            background: var(--clr-gold);
+            color: #000;
+            font-family: var(--font-display);
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        #enterButton.ready {
+            opacity: 1;
+            pointer-events: all;
+            box-shadow: 0 10px 30px rgba(255, 204, 0, 0.4);
+        }
+        #appContainer {
+            display: none;
+            min-height: 100vh;
+            padding-bottom: 4rem;
+        }
+        .navbar {
+            position: fixed;
+            top: 0; width: 100%; height: 80px;
+            background: rgba(5, 5, 8, 0.9);
+            backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .nav-brand { display: flex; align-items: center; gap: 15px; }
+        .nav-logo {
+            width: 40px; height: 40px;
+            background: var(--clr-gold);
+            color: #000;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-weight: 900;
+        }
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--clr-gold);
+            color: var(--clr-gold);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: none;
+            font-weight: 600;
+        }
+        .section-header {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--clr-gold), transparent);
+        }
+        .section-title {
+            font-family: var(--font-display);
+            color: var(--clr-gold);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            white-space: nowrap;
+        }
         .main-grid {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 30px auto 50px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             padding: 20px;
         }
-
-        /* Garde tes styles d'intro existants */
-        #introScreen {
-            position: fixed;
-            inset: 0;
-            background: var(--clr-bg);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: 0.8s ease;
-        }
-    </style>
-</head>
-<body>
-
-    <section id="introScreen">
-        <div class="logo-big" style="width:120px; height:120px; background:var(--clr-gold); border-radius:30px; display:flex; align-items:center; justify-content:center; font-size:70px; font-weight:900; color:#000; font-family:var(--font-display);">M</div>
-        <h1 id="animatedTitle" style="margin:20px 0; font-family:var(--font-display); letter-spacing:5px;">Morning Starr</h1>
-        <div class="language-selector">
-            <select id="langSelect" style="padding:10px 20px; border-radius:50px; background:#111; color:white; border:1px solid var(--clr-gold);">
-                <option value="fr">Français</option>
-                <option value="en">English</option>
-            </select>
-            <button id="enterButton" style="margin-top:20px; padding:12px 40px; border-radius:50px; cursor:pointer; background:var(--clr-gold); font-weight:900; border:none;">COMMENCER</button>
-        </div>
-    </section>
-
-    <div id="appContainer" style="display:none;">
-        
-        <div class="section-header">
-            <div class="section-line"></div>
-            <h2 class="section-title">Sagesse & Proverbes</h2>
-            <div class="section-line"></div>
-        </div>
-        <main class="main-grid" id="proverbsGrid"></main>
-
-        <div class="section-header">
-            <div class="section-line"></div>
-            <h2 class="section-title">Éducation & Vision</h2>
-            <div class="section-line"></div>
-        </div>
-        <main class="main-grid" id="eduGrid"></main>
-
-        <div class="section-header">
-            <div class="section-line"></div>
-            <h2 class="section-title">Les Spécimens (SP)</h2>
-            <div class="section-line"></div>
-        </div>
-        <main class="main-grid" id="specimenGrid"></main>
-
-    </div>
-
-    <script>
-        // --- DONNÉES PROFESSIONNELLES ---
-        const dataPro = {
-            proverbs: [
-                { text: "Si tu veux aller vite, marche seul. Si tu veux aller loin, marchons ensemble.", author: "Proverbe Africain" },
-                { text: "Le succès n'est pas final, l'échec n'est pas fatal : c'est le courage de continuer qui compte.", author: "Winston Churchill" },
-                { text: "La patience est une fleur qui ne pousse pas dans tous les jardins.", author: "Proverbe Chinois" }
-            ],
-            education: [
-                { text: "La physique quantique nous apprend que tout est énergie et vibration.", author: "Concept Science" },
-                { text: "L'innovation, c'est ce qui distingue un leader d'un suiveur.", author: "Steve Jobs" }
-            ],
-            specimens: [
-                { text: "Le Spécimen SP-01 représente l'évolution ultime de l'interface humaine.", author: "Morning Starr Vision" }
-            ]
-        };
-
-        // --- MOTEUR D'INJECTION ---
-        function injectCards(data, gridId) {
-            const grid = document.getElementById(gridId);
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'card reveal'; // Ajout de la classe "reveal" pour l'animation
-                card.innerHTML = `
-                    <p class="card-quote">"${item.text}"</p>
-                    <p class="card-author">― ${item.author}</p>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // --- GESTION DE L'ÉCRAN D'ACCUEIL ---
-        const enterBtn = document.getElementById('enterButton');
-        enterBtn.addEventListener('click', () => {
-            document.getElementById('introScreen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('introScreen').style.display = 'none';
-                document.getElementById('appContainer').style.display = 'block';
-                initAnimations();
-            }, 800);
-        });
-
-        // --- ANIMATIONS AU SCROLL (PRO) ---
-        function initAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        }
-
-        // --- DÉMARRAGE ---
-        window.onload = () => {
-            injectCards(dataPro.proverbs, 'proverbsGrid');
-            injectCards(dataPro.education, 'eduGrid');
-            injectCards(dataPro.specimens, 'specimenGrid');
-        };
-    </script>
-</body>
-</html>
-            --clr-bg: #050508;
-            --clr-bg-card: #0d0d14;
-            --clr-accent: #00f2ff;
-            --clr-gold: #ffcc00;
-            --clr-rose: #ff0055;
-            --clr-text: #f0f0f0;
-            --radius: 20px;
-            --font-display: 'Orbitron', sans-serif;
-            --font-body: 'Space Grotesk', sans-serif;
-            --font-quote: 'Playfair Display', serif;
-        }
-
-        /* --- RÉGLAGES DE BASE --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: var(--font-body);
-            background: var(--clr-bg);
-            color: var(--clr-text);
-            overflow-x: hidden;
-        }
-
-        /* --- ANIMATIONS DE RÉVÉLATION (SCROLL REVEAL) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- STYLE DES CARTES (AMÉLIORÉ) --- */
         .card {
             background: var(--clr-bg-card);
             border-radius: var(--radius);
-            padding: 25px;
+            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s;
+            cursor: pointer;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
         }
         .card:hover {
-            transform: scale(1.03);
+            transform: translateY(-10px);
             border-color: var(--clr-gold);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
-
-        .card-quote {
-            font-family: var(--font-quote);
-            font-size: 1.1rem;
-            font-style: italic;
-            color: var(--clr-text);
+        .card-img {
+            width: 100%; height: 200px; object-fit: cover;
+            filter: grayscale(0.5); transition: 0.5s;
         }
-
-        .card-author {
+        .card:hover .card-img { filter: grayscale(0); transform: scale(1.05); }
+        .card-body { padding: 20px; }
+        .card-title { font-family: var(--font-display); color: var(--clr-gold); margin-bottom: 10px; }
+        .card-text { font-family: var(--font-quote); font-style: italic; opacity: 0.7; font-size: 0.9rem; }
+        .innovator-card {
+            background: linear-gradient(145deg, rgba(255,215,0,0.05), rgba(0,242,255,0.05));
+            border: 2px solid rgba(255, 204, 0, 0.3);
+        }
+        .innovator-card:hover {
+            border-color: var(--clr-accent);
+            box-shadow: 0 20px 60px rgba(0, 242, 255, 0.2);
+        }
+        .education-card {
+            background: linear-gradient(145deg, rgba(0,242,255,0.05), rgba(255,0,85,0.05));
+            border: 1px solid rgba(0, 242, 255, 0.2);
+        }
+        .education-card:hover {
+            border-color: var(--clr-accent);
+            box-shadow: 0 20px 60px rgba(0, 242, 255, 0.15);
+        }
+        .location-card {
+            background: linear-gradient(145deg, rgba(255,0,85,0.05), rgba(255,215,0,0.05));
+            border: 1px solid rgba(255, 0, 85, 0.2);
+        }
+        .location-card:hover {
+            border-color: var(--clr-rose);
+            box-shadow: 0 20px 60px rgba(255, 0, 85, 0.15);
+        }
+        .specimen-card {
+            background: linear-gradient(145deg, rgba(138,43,226,0.08), rgba(0,242,255,0.05));
+            border: 2px solid rgba(138, 43, 226, 0.4);
+        }
+        .specimen-card:hover {
+            border-color: #8a2be2;
+            box-shadow: 0 20px 60px rgba(138, 43, 226, 0.3);
+        }
+        .news-card {
+            background: linear-gradient(145deg, rgba(0,255,127,0.05), rgba(255,215,0,0.05));
+            border: 1px solid rgba(0, 255, 127, 0.2);
+        }
+        .news-card:hover {
+            border-color: #00ff7f;
+            box-shadow: 0 20px 60px rgba(0, 255, 127, 0.15);
+        }
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 15px;
+            border-radius: 20px;
             font-family: var(--font-display);
             font-size: 0.7rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+        .badge-elite {
+            background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+            color: #000;
+        }
+        .badge-edu {
+            background: linear-gradient(135deg, var(--clr-accent), var(--clr-rose));
+            color: #fff;
+        }
+        .badge-loc {
+            background: linear-gradient(135deg, var(--clr-rose), var(--clr-gold));
+            color: #000;
+        }
+        .badge-specimen {
+            background: linear-gradient(135deg, #8a2be2, #00f2ff);
+            color: #fff;
+        }
+        .badge-news {
+            background: linear-gradient(135deg, #00ff7f, var(--clr-gold));
+            color: #000;
+        }
+        .detail-view {
+            display: none;
+            max-width: 900px;
+            margin: 120px auto;
+            padding: 20px;
+            animation: slideUp 0.5s ease forwards;
+        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .profile-img {
+            width: 250px; height: 250px;
+            border-radius: 50%;
+            border: 4px solid var(--clr-gold);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.2);
+        }
+        .btn-link {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--clr-gold), #ffaa00);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-family: var(--font-display);
+        }
+        .quote-box {
+            margin-top: 30px;
+            padding: 20px;
+            border-left: 3px solid var(--clr-gold);
+            background: rgba(255, 255, 255, 0.02);
+            font-family: var(--font-quote);
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        .author {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: normal;
+            font-family: var(--font-body);
+        }
+        .qr-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--radius);
+            display: inline-block;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        .power-quote {
+            font-family: var(--font-quote);
+            font-size: 1.5rem;
             color: var(--clr-gold);
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+            border-radius: var(--radius);
+            margin: 1rem 0;
+            background: rgba(255, 215, 0, 0.03);
+        }
+        .investor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .investor-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .investor-card:hover {
+            border-color: var(--clr-accent);
+            transform: translateY(-5px);
+        }
+        .investor-name {
+            font-family: var(--font-display);
+            color: var(--clr-accent);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .investor-quote {
+            font-family: var(--font-quote);
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .edu-card {
+            background: rgba(0, 242, 255, 0.03);
+            border: 1px solid rgba(0, 242, 255, 0.15);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        .edu-card:hover {
+            border-color: var(--clr-accent);
+            transform: translateY(-5px);
+            background: rgba(0, 242, 255, 0.05);
+        }
+        .edu-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .edu-title {
+            font-family: var(--font-display);
+            color: var(--clr-accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .edu-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .location-map {
+            width: 100%;
+            max-width: 600px;
+            border-radius: var(--radius);
+            margin: 2rem auto;
+            border: 2px solid rgba(255, 0, 85, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .country-card {
+            background: rgba(255, 0, 85, 0.03);
+            border: 1px solid rgba(255, 0, 85, 0.15);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .country-card:hover {
+            border-color: var(--clr-rose);
+            transform: scale(1.05);
+        }
+        .country-flag {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .country-name {
+            font-family: var(--font-display);
+            color: var(--clr-rose);
+            font-size: 1rem;
+        }
+        .country-capital {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+        .voice-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--clr-gold), var(--clr-accent));
+            border: none;
+            color: #000;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(255, 204, 0, 0.4);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .voice-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(0, 242, 255, 0.5);
+        }
+        .voice-btn.speaking {
+            animation: voicePulse 1s infinite;
+        }
+        @keyframes voicePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 204, 0, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(0, 242, 255, 0.8); }
+        }
+        .mindset-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: var(--radius);
+            margin: 2rem auto;
+            border: 3px solid var(--clr-gold);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .mindset-section {
+            background: linear-gradient(145deg, rgba(255,215,0,0.05), rgba(0,242,255,0.05));
+            border: 2px solid rgba(255, 204, 0, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .mindset-title {
+            font-family: var(--font-display);
+            color: var(--clr-gold);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .mindset-text {
+            font-family: var(--font-body);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            text-align: justify;
+            font-size: 1rem;
+        }
+        .mindset-highlight {
+            color: var(--clr-gold);
+            font-weight: 700;
+        }
+        .specimen-section {
+            background: linear-gradient(145deg, rgba(138,43,226,0.08), rgba(0,242,255,0.05));
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .specimen-title {
+            font-family: var(--font-display);
+            color: #8a2be2;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .specimen-founder {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .founder-card {
+            background: rgba(138, 43, 226, 0.05);
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .founder-card:hover {
+            border-color: #8a2be2;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.2);
+        }
+        .founder-name {
+            font-family: var(--font-display);
+            color: #8a2be2;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .founder-role {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .founder-desc {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .specimen-traits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .trait-card {
+            background: rgba(138, 43, 226, 0.03);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .trait-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .trait-name {
+            font-family: var(--font-display);
+            color: #8a2be2;
+            font-size: 0.9rem;
+        }
+        .news-section {
+            background: linear-gradient(145deg, rgba(0,255,127,0.05), rgba(255,215,0,0.05));
+            border: 2px solid rgba(0, 255, 127, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .news-title {
+            font-family: var(--font-display);
+            color: #00ff7f;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .news-card-detail {
+            background: rgba(0, 255, 127, 0.03);
+            border: 1px solid rgba(0, 255, 127, 0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .news-card-detail:hover {
+            border-color: #00ff7f;
+            transform: translateY(-5px);
+        }
+        .news-category {
+            font-family: var(--font-display);
+            color: #00ff7f;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-bottom: 0.5rem;
         }
-
-        /* --- LES SECTIONS --- */
-        .section-header {
-            max-width: 1200px;
-            margin: 80px auto 30px;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
+        .news-headline {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
-        .section-line { flex: 1; height: 1px; background: rgba(255, 204, 0, 0.2); }
-        .section-title { padding: 0 20px; font-family: var(--font-display); color: var(--clr-gold); font-size: 1.2rem; letter-spacing: 3px; }
-
-        .main-grid {
-            max-width: 1200px;
-            margin: 0 auto;
+        .news-content {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .quantum-section {
+            background: linear-gradient(145deg, rgba(0,242,255,0.08), rgba(138,43,226,0.05));
+            border: 2px solid rgba(0, 242, 255, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .quantum-title {
+            font-family: var(--font-display);
+            color: var(--clr-accent);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .quantum-def {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .quantum-factors {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
-
-        /* Garde tes styles d'intro existants */
-        #introScreen {
-            position: fixed;
-            inset: 0;
-            background: var(--clr-bg);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: 0.8s ease;
+        .factor-card {
+            background: rgba(0, 242, 255, 0.03);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+        .factor-title {
+            font-family: var(--font-display);
+            color: var(--clr-accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .factor-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .secrets-section {
+            background: linear-gradient(145deg, rgba(255,0,85,0.08), rgba(138,43,226,0.05));
+            border: 2px solid rgba(255, 0, 85, 0.3);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .secrets-title {
+            font-family: var(--font-display);
+            color: var(--clr-rose);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .secrets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .secret-card {
+            background: rgba(255, 0, 85, 0.03);
+            border: 1px solid rgba(255, 0, 85, 0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .secret-card:hover {
+            border-color: var(--clr-rose);
+            transform: translateY(-3px);
+        }
+        .secret-title {
+            font-family: var(--font-display);
+            color: var(--clr-rose);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .secret-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        @media (max-width: 600px) {
+            .navbar { padding: 0 20px; }
+            .logo-big { width: 100px; height: 100px; font-size: 60px; }
+            .profile-img { width: 180px; height: 180px; }
+            .section-title { font-size: 0.9rem; }
+            .voice-btn { width: 50px; height: 50px; font-size: 1.2rem; bottom: 20px; right: 20px; }
         }
     </style>
+<base target="_blank">
+<base target="_blank">
 </head>
 <body>
+    <div class="bg-gradient"></div>
+    <div class="particles" id="particleContainer"></div>
 
     <section id="introScreen">
-        <div class="logo-big" style="width:120px; height:120px; background:var(--clr-gold); border-radius:30px; display:flex; align-items:center; justify-content:center; font-size:70px; font-weight:900; color:#000; font-family:var(--font-display);">M</div>
-        <h1 id="animatedTitle" style="margin:20px 0; font-family:var(--font-display); letter-spacing:5px;">Morning Starr</h1>
+        <div class="logo-big">M</div>
+        <h1 id="animatedTitle">Morning Starr Morgan</h1>
         <div class="language-selector">
-            <select id="langSelect" style="padding:10px 20px; border-radius:50px; background:#111; color:white; border:1px solid var(--clr-gold);">
-                <option value="fr">Français</option>
+            <select id="langSelect">
+                <option value="" disabled selected>Select Language / Langue</option>
+                <option value="fr">Francais</option>
                 <option value="en">English</option>
+                <option value="ln">Lingala</option>
             </select>
-            <button id="enterButton" style="margin-top:20px; padding:12px 40px; border-radius:50px; cursor:pointer; background:var(--clr-gold); font-weight:900; border:none;">COMMENCER</button>
+            <button id="enterButton">COMMENCER</button>
         </div>
     </section>
 
-    <div id="appContainer" style="display:none;">
-        
-        <div class="section-header">
+    <div id="appContainer">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <div class="nav-logo">M</div>
+                <span style="font-family: var(--font-display); font-weight: 700; color: var(--clr-gold);">MORNING STARR</span>
+            </div>
+            <button class="back-btn" id="backBtn">RETOUR</button>
+        </nav>
+
+        <div class="section-header" id="header-social">
             <div class="section-line"></div>
-            <h2 class="section-title">Sagesse & Proverbes</h2>
+            <h2 class="section-title">Reseaux Sociaux</h2>
             <div class="section-line"></div>
         </div>
-        <main class="main-grid" id="proverbsGrid"></main>
+        <main class="main-grid" id="socialGrid"></main>
 
-        <div class="section-header">
+        <div class="section-header" id="header-edu">
             <div class="section-line"></div>
-            <h2 class="section-title">Éducation & Vision</h2>
+            <h2 class="section-title">Decouverte & Education</h2>
             <div class="section-line"></div>
         </div>
         <main class="main-grid" id="eduGrid"></main>
 
-        <div class="section-header">
+        <div class="section-header" id="header-loc">
             <div class="section-line"></div>
-            <h2 class="section-title">Les Spécimens (SP)</h2>
+            <h2 class="section-title">Localisation</h2>
+            <div class="section-line"></div>
+        </div>
+        <main class="main-grid" id="locGrid"></main>
+
+        <div class="section-header" id="header-innov">
+            <div class="section-line"></div>
+            <h2 class="section-title">Innovation & Vision</h2>
+            <div class="section-line"></div>
+        </div>
+        <main class="main-grid" id="innovGrid"></main>
+
+        <div class="section-header" id="header-specimen">
+            <div class="section-line"></div>
+            <h2 class="section-title">Les Specimens (SP)</h2>
             <div class="section-line"></div>
         </div>
         <main class="main-grid" id="specimenGrid"></main>
 
-    </div>
+        <div class="section-header" id="header-news">
+            <div class="section-line"></div>
+            <h2 class="section-title">Nouvelles du Monde</h2>
+            <div class="section-line"></div>
+        </div>
+        <main class="main-grid" id="newsGrid"></main>
 
-    <script>
-        // --- DONNÉES PROFESSIONNELLES ---
-        const dataPro = {
-            proverbs: [
-                { text: "Si tu veux aller vite, marche seul. Si tu veux aller loin, marchons ensemble.", author: "Proverbe Africain" },
-                { text: "Le succès n'est pas final, l'échec n'est pas fatal : c'est le courage de continuer qui compte.", author: "Winston Churchill" },
-                { text: "La patience est une fleur qui ne pousse pas dans tous les jardins.", author: "Proverbe Chinois" }
-            ],
-            education: [
-                { text: "La physique quantique nous apprend que tout est énergie et vibration.", author: "Concept Science" },
-                { text: "L'innovation, c'est ce qui distingue un leader d'un suiveur.", author: "Steve Jobs" }
-            ],
-            specimens: [
-                { text: "Le Spécimen SP-01 représente l'évolution ultime de l'interface humaine.", author: "Morning Starr Vision" }
-            ]
-        };
+        <section class="detail-view" id="detailView">
+            <div class="profile-header">
+                <img src="" alt="" class="profile-img" id="detailImg">
+                <h2 id="detailTitle" style="font-family: var(--font-display); font-size: 2.5rem; color: var(--clr-gold);"></h2>
+                <a href="#" id="detailLink" target="_blank" class="btn-link">VISITER</a>
+                <div class="qr-container" id="qrContainer"></div>
+                <div class="quote-box" id="detailQuote"></div>
 
-        // --- MOTEUR D'INJECTION ---
-        function injectCards(data, gridId) {
-            const grid = document.getElementById(gridId);
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'card reveal'; // Ajout de la classe "reveal" pour l'animation
-                card.innerHTML = `
-                    <p class="card-quote">"${item.text}"</p>
-                    <p class="card-author">― ${item.author}</p>
-                `;
-                grid.appendChild(card);
-            });
-        }
+                <div id="innovatorSection" style="display:none; margin-top: 3rem;">
+                    <h3 style="font-family: var(--font-display); color: var(--clr-accent); text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">MOTS DE POUVOIR</h3>
+                    <div class="power-quote" id="powerQuote"></div>
+                    <h3 style="font-family: var(--font-display); color: var(--clr-gold); text-align: center; margin: 2rem 0 1rem; font-size: 1.2rem;">GRANDS INVESTISSEURS & INNOVATEURS</h3>
+                    <div class="investor-grid" id="investorGrid"></div>
+                </div>
 
-        // --- GESTION DE L'ÉCRAN D'ACCUEIL ---
-        const enterBtn = document.getElementById('enterButton');
-        enterBtn.addEventListener('click', () => {
-            document.getElementById('introScreen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('introScreen').style.display = 'none';
-                document.getElementById('appContainer').style.display = 'block';
-                initAnimations();
-            }, 800);
-        });
+                <div id="educationSection" style="display:none; margin-top: 3rem;">
+                    <h3 style="font-family: var(--font-display); color: var(--clr-accent); text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">SAVOIRS ESSENTIELS</h3>
+                    <div class="edu-grid" id="eduContent"></div>
 
-        // --- ANIMATIONS AU SCROLL (PRO) ---
-        function initAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        }
-
-        // --- DÉMARRAGE ---
-        window.onload = () => {
-            injectCards(dataPro.proverbs, 'proverbsGrid');
-            injectCards(dataPro.education, 'eduGrid');
-            injectCards(dataPro.specimens, 'specimenGrid');
-        };
-    </script>
-</body>
-</html>
+                    <div class="quantum-section" id="quantumSection" style="display:none; margin-top: 3rem;">
+                        <h3 class="quantum-title">PHYSIQUE QUANTIQUE : LA SCIENCE DE L'INFINIMENT PETIT</h3>
+                        <div class="quantum-def">
+                            <p><strong>Definition :</strong> La physique quantique est une theorie qui decrit le comportement des objets physiques au niveau nanoscopique. Elle couvre notamment les atomes, les electrons et les photons. Contrairement a la physique classique ou un objet est defini par sa position et sa vitesse, en physique quantique un objet est decrit par sa <span style="color:var(--clr-accent);font-weight:700;">fonction d'onde</span> — on peut definir ses probabilites de presence a un endroit donne et a un moment donne.</p>
+                            <br>
+                            <p><strong>Principe fondamental :</strong> La <span style="color:var(--clr-accent);font-weight:700;">dualite onde-particule</span> — un objet quantique (electron, atome, photon) se comporte tantot comme une onde, tantot comme une particule selon le contexte experimental.</p>
+                            <br>
+                            <p><strong>Applications actuelles :</strong> Le transistor (base de tous les ordinateurs et telephones), les lasers (telecommunications par fibres optiques), l'imagerie medicale IRM, les GPS, les LED, et bientot l'ordinateur quantique qui revolutionnera l'informatique.</p>
+                        </div>
+                        <h4 style="font-family: var(--font-display); color: var(--clr-gold); text-align: center; margin: 2rem 0 1rem; font-size: 1.1rem;">FACTEURS DE RECHERCHE & DEVELOPPEMENT</h4>
