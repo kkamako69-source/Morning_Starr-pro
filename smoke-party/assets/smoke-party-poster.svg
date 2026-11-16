@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 900" role="img" aria-labelledby="t d">
+<title id="t">Smoke Party — Morning Starr Morgan</title><desc id="d">Affiche événementielle néon cyan, rose et or avec emblème M couronné, ambiance de tournage et décor nocturne.</desc>
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#05080e"/><stop offset=".48" stop-color="#11101d"/><stop offset="1" stop-color="#071820"/></linearGradient>
+ <linearGradient id="metal" x2="1" y2="1"><stop stop-color="#fff1a8"/><stop offset=".35" stop-color="#ffd700"/><stop offset=".68" stop-color="#b77b22"/><stop offset="1" stop-color="#fff2b0"/></linearGradient>
+ <linearGradient id="neon" x2="1"><stop stop-color="#00fff7"/><stop offset=".5" stop-color="#ff2a6d"/><stop offset="1" stop-color="#ffd700"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#ff2a6d" stop-opacity=".6"/><stop offset="1" stop-color="#ff2a6d" stop-opacity="0"/></radialGradient>
+ <radialGradient id="blue"><stop stop-color="#00fff7" stop-opacity=".45"/><stop offset="1" stop-color="#00fff7" stop-opacity="0"/></radialGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="28"/></filter>
+ <filter id="shine"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#8caab2" stroke-opacity=".12" stroke-width="1"/></pattern>
+</defs>
+<rect width="700" height="900" fill="url(#bg)"/>
+<rect width="700" height="900" fill="url(#grid)" opacity=".55"/>
+<circle cx="100" cy="250" r="260" fill="url(#blue)" filter="url(#blur)"/>
+<circle cx="620" cy="365" r="300" fill="url(#glow)" filter="url(#blur)"/>
+<path d="M-25 220C125 35 215 110 335 245S565 450 740 188" fill="none" stroke="#00fff7" stroke-opacity=".25" stroke-width="22" filter="url(#blur)"/>
+<path d="M-25 220C125 35 215 110 335 245S565 450 740 188" fill="none" stroke="#00fff7" stroke-opacity=".65" stroke-width="2"/>
+<g transform="translate(45 30)" fill="none" stroke="#ffd700" stroke-width="5" opacity=".9"><path d="M0 55 24 10 56 39 88 0 120 39 152 10 176 55Z"/><path d="M15 73H161"/></g>
+<text x="350" y="75" fill="#f8f4e9" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" letter-spacing="8">MORNING STARR MORGAN</text>
+<text x="350" y="105" fill="#00fff7" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" letter-spacing="6">PRESENTS · PRIVATE EVENT SERIES</text>
+<g opacity=".8" fill="none" stroke="#ffd700">
+ <path d="M25 147H675M25 152H675" stroke-opacity=".35"/>
+ <path d="M22 780H678" stroke-opacity=".35"/>
+</g>
+<g opacity=".32" fill="#dce8eb">
+ <path d="M80 640V480q0-62 55-62t55 62v160z"/>
+ <path d="M510 640V460q0-72 66-72t66 72v180z"/>
+ <circle cx="135" cy="398" r="36"/><circle cx="576" cy="360" r="40"/>
+ <path d="M240 646V526q0-74 70-74t70 74v120z"/><circle cx="310" cy="428" r="40"/>
+</g>
+<g filter="url(#shine)">
+ <circle cx="350" cy="307" r="145" fill="none" stroke="url(#metal)" stroke-width="2.5" opacity=".8"/>
+ <path d="M246 252 270 187 314 225 350 155 386 225 430 187 454 252Z" fill="none" stroke="url(#metal)" stroke-width="10" stroke-linejoin="round"/>
+ <path d="M266 276H434" stroke="url(#metal)" stroke-width="8"/>
+ <text x="350" y="416" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="220" font-weight="900" fill="url(#metal)" stroke="#fff0bd" stroke-opacity=".3" stroke-width="2">M</text>
+</g>
+<g opacity=".7" fill="none" stroke-linecap="round">
+ <path d="M30 490C105 405 122 557 202 476S278 560 349 482" stroke="#00fff7" stroke-width="12" opacity=".2" filter="url(#blur)"/>
+ <path d="M380 515C459 435 473 584 551 490S632 544 698 450" stroke="#ff2a6d" stroke-width="12" opacity=".24" filter="url(#blur)"/>
+ <path d="M30 490C105 405 122 557 202 476S278 560 349 482" stroke="#00fff7" stroke-width="2"/>
+ <path d="M380 515C459 435 473 584 551 490S632 544 698 450" stroke="#ff2a6d" stroke-width="2"/>
+</g>
+<g transform="translate(36 570)">
+ <text x="0" y="0" fill="#f7f2e8" font-family="Arial Black,Arial,sans-serif" font-size="93" font-weight="900" letter-spacing="-7">SMOKE</text>
+ <text x="4" y="91" fill="#ff2a6d" font-family="Arial Black,Arial,sans-serif" font-size="105" font-weight="900" letter-spacing="-6">PARTY</text>
+ <path d="M5 112H620" stroke="url(#neon)" stroke-width="4"/>
+ <text x="10" y="150" fill="#00fff7" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">NEW YEAR · CLIP SESSION</text>
+ <text x="10" y="190" fill="#e7e1d7" font-family="Arial,sans-serif" font-size="18" letter-spacing="4">31 DEC 2026 — 01 JAN 2027</text>
+</g>
+<g transform="translate(38 835)">
+ <text x="0" y="0" fill="#ffd700" font-family="Arial,sans-serif" font-size="11" letter-spacing="3">A MORNING STARR EXPERIENCE</text>
+ <text x="622" y="0" text-anchor="end" fill="#c5d5d7" font-family="Arial,sans-serif" font-size="11" letter-spacing="2">MSM / 001</text>
+</g>
+<g fill="none" stroke="#ffd700" stroke-width="2" opacity=".7"><path d="M650 26h24v24h-24z"/><path d="M662 20v36M644 38h36"/></g>
+</svg>
