@@ -1,155 +1,147 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#09090d">
-<meta name="description" content="Smoke Party — New Year Clip Session. Une nuit privée, un tournage de clip et le passage à 2027. Présenté par Morning Starr.">
+<meta name="description" content="Smoke Party — New Year Clip Session. Soirée du 31 décembre 2026 au 1er janvier 2027 avec tournage de clip. Billetterie et contact WhatsApp Morning Starr.">
 <meta property="og:title" content="SMOKE PARTY — New Year Clip Session">
-<meta property="og:description" content="31 décembre 2026 → 1er janvier 2027 · Nuit privée & tournage de clip · Morning Starr">
+<meta property="og:description" content="31 décembre 2026 → 1er janvier 2027 · Événement privé · Tournage de clip · Morning Starr">
 <title>Smoke Party — New Year Clip Session | Morning Starr</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#09090d;--paper:#f5f0e8;--muted:#a8a1ac;--line:rgba(245,240,232,.16);--pink:#ff3d91;--violet:#9f75ff;--acid:#d7ff65;--gold:#e7c58b;--max:1180px}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--ink);color:var(--paper);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 12% 14%,rgba(117,42,156,.23),transparent 34%),radial-gradient(ellipse at 90% 39%,rgba(30,91,116,.2),transparent 32%),linear-gradient(180deg,#0b0910 0%,#09090d 60%,#0c0b10 100%)}
-body:after{content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E")}
-a{color:inherit}.shell{width:min(var(--max),calc(100% - 44px));margin:auto}
-.mono{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.16em}
-.nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:relative;z-index:2}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.mark{width:34px;height:34px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font:800 17px Syne,sans-serif;transform:rotate(45deg)}
-.mark span{transform:rotate(-45deg)}
-.brand-name{font:800 13px Syne,sans-serif;letter-spacing:.2em}
-.nav-right{display:flex;align-items:center;gap:24px;color:#c9c1cd;font-size:11px}
-.nav-right a{text-decoration:none}.nav-right a:hover{color:var(--acid)}
-.nav-tag{border:1px solid var(--line);padding:9px 12px;color:var(--gold)}
-.hero{min-height:700px;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:72px 0 82px;position:relative}
-.hero:before{content:"";position:absolute;width:580px;height:580px;left:19%;top:11%;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(169,72,203,.17),rgba(255,61,145,.07) 35%,transparent 68%);filter:blur(12px)}
-.kicker{display:flex;align-items:center;gap:13px;color:var(--acid);font-size:10px}
-.kicker:before{content:"";width:32px;height:1px;background:var(--acid)}
-h1{font:800 clamp(76px,10.5vw,142px)/.78 Syne,sans-serif;letter-spacing:-.09em;text-transform:uppercase;margin:34px 0 26px;max-width:720px}
-h1 .line2{display:block;color:transparent;-webkit-text-stroke:1px rgba(245,240,232,.85);padding-left:8vw}
-h1 .line3{display:block;color:var(--pink);font-size:.62em;letter-spacing:-.07em;line-height:1.15;padding-left:19vw;text-shadow:0 0 45px rgba(255,61,145,.2)}
-.subline{font:500 13px "DM Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:#d8cbdc;margin-top:24px}
-.hero-copy{max-width:570px;color:#b9b1bc;font-size:15px;line-height:1.9;margin:22px 0 30px}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:0 20px;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);transition:transform .2s,background .2s,border .2s;cursor:pointer;background:transparent;color:var(--paper)}
-.btn:hover{transform:translateY(-3px);border-color:var(--acid)}
-.btn-main{background:var(--acid);border-color:var(--acid);color:#10110b}
-.btn-main:hover{background:#e7ff9b}
-.btn-arrow{font-size:18px;line-height:0}
-.hero-note{font-size:10px;color:#8f8794;line-height:1.7;margin-top:18px}
-.art-card{min-height:495px;position:relative;overflow:hidden;border:1px solid rgba(245,240,232,.2);background:linear-gradient(145deg,#28132e 0%,#12101a 47%,#0b2533 100%);padding:27px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 35px 100px rgba(0,0,0,.45)}
-.art-card:before{content:"";position:absolute;inset:-15%;background:radial-gradient(ellipse at 22% 28%,rgba(255,61,145,.45),transparent 34%),radial-gradient(ellipse at 82% 65%,rgba(54,190,226,.33),transparent 30%),radial-gradient(ellipse at 56% 48%,rgba(169,117,255,.2),transparent 35%);filter:blur(19px);animation:breath 9s ease-in-out infinite alternate}
-.art-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,4,10,.06),rgba(5,4,10,.08) 44%,rgba(5,4,10,.78));pointer-events:none}
-.art-top,.art-mid,.art-bottom{position:relative;z-index:1}
-.art-top{display:flex;justify-content:space-between;align-items:center;color:#e9d9ef;font:10px "DM Mono",monospace;letter-spacing:.17em;text-transform:uppercase}
-.art-stamp{width:56px;height:56px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:700 22px Syne,sans-serif}
-.art-date{font:10px "DM Mono",monospace;letter-spacing:.17em;color:var(--acid);text-transform:uppercase}
-.art-title{font:800 clamp(49px,6vw,79px)/.79 Syne,sans-serif;letter-spacing:-.08em;text-transform:uppercase;margin:13px 0}
-.art-title span{display:block;color:var(--pink);padding-left:35px}
-.art-caption{color:#e6dbe9;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
-.art-bottom{border-top:1px solid rgba(255,255,255,.25);padding-top:15px;display:flex;justify-content:space-between;gap:10px;color:#d5cbd8;font:9px "DM Mono",monospace;letter-spacing:.13em;text-transform:uppercase}
-.orbit{position:absolute;z-index:1;border:1px solid rgba(240,211,255,.2);border-radius:50%;width:420px;height:180px;transform:rotate(-32deg);top:42%;left:-7%;pointer-events:none}
-.orbit.two{width:500px;height:230px;top:33%;left:-20%;transform:rotate(42deg);border-color:rgba(255,61,145,.2)}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;padding:27px 0;border-top:1px solid var(--line)}
-.section-head h2{font:700 clamp(28px,4vw,44px)/1 Syne,sans-serif;letter-spacing:-.05em;margin:0}
-.section-head p{max-width:390px;margin:0;color:#9d95a1;font-size:12px;line-height:1.8}
-.info-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);margin:0 0 110px}
-.info{padding:25px 24px;min-height:145px;border-right:1px solid var(--line)}
-.info:last-child{border-right:0}
-.info-label{font:10px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.18em;color:var(--pink)}
-.info-value{font:700 21px Syne,sans-serif;letter-spacing:-.03em;margin-top:17px}
-.info-note{font-size:11px;color:#a59ca9;margin-top:6px}
-.date-big{color:var(--acid)}
-.film-section{display:grid;grid-template-columns:.78fr 1.22fr;gap:70px;padding:15px 0 110px;align-items:start}
-.film-index{font:11px "DM Mono",monospace;letter-spacing:.18em;color:var(--pink)}
-.film-title{font:700 clamp(34px,5vw,57px)/.99 Syne,sans-serif;letter-spacing:-.06em;margin:19px 0}
-.film-copy{color:#b6aeb9;line-height:1.9;font-size:14px;margin:0}
-.film-points{border-top:1px solid var(--line)}
-.point{display:grid;grid-template-columns:45px 1fr;gap:18px;padding:19px 0;border-bottom:1px solid var(--line)}
-.point-no{color:var(--acid);font:11px "DM Mono",monospace;padding-top:3px}
-.point strong{font:700 14px Syne,sans-serif;display:block;margin-bottom:5px}
-.point span{font-size:12px;color:#a9a1ad;line-height:1.7}
-.invite{position:relative;border:1px solid rgba(215,255,101,.45);padding:clamp(27px,5vw,60px);margin-bottom:95px;background:linear-gradient(120deg,rgba(215,255,101,.08),rgba(159,117,255,.08) 60%,rgba(255,61,145,.08));overflow:hidden}
-.invite:after{content:"2027";position:absolute;right:-10px;bottom:-68px;color:rgba(245,240,232,.04);font:800 170px Syne,sans-serif;letter-spacing:-.1em;pointer-events:none}
-.invite>*{position:relative;z-index:1}
-.invite h2{font:700 clamp(32px,5vw,59px)/.97 Syne,sans-serif;letter-spacing:-.06em;margin:16px 0}
-.invite p{color:#bcb4bf;font-size:13px;line-height:1.8;max-width:640px;margin-bottom:25px}
-.fineprint{max-width:var(--max);margin:0 auto 28px;color:#837b88;font-size:10px;line-height:1.8}
-footer{border-top:1px solid var(--line);padding:26px 0 35px;display:flex;justify-content:space-between;gap:15px;color:#8d8591;font:9px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
-footer b{color:#e8dce9}
+:root{--bg:#09090d;--panel:#111017;--paper:#f5f0e8;--muted:#aaa2af;--line:rgba(245,240,232,.14);--pink:#ff438f;--purple:#a57bff;--acid:#d9ff72;--gold:#e8c78d;--max:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--bg);color:var(--paper);font-family:Manrope,Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 12% 10%,rgba(118,42,156,.2),transparent 34%),radial-gradient(ellipse at 90% 38%,rgba(30,91,116,.18),transparent 32%),linear-gradient(180deg,#0b0910,#09090d 60%,#0c0b10)}
+body:after{content:"";position:fixed;inset:0;z-index:8;pointer-events:none;opacity:.09;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E")}
+a{color:inherit}.shell{width:min(var(--max),calc(100% - 42px));margin:auto}.mono{font-family:"DM Mono",monospace;letter-spacing:.15em;text-transform:uppercase}
+header{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;background:rgba(9,9,13,.88);backdrop-filter:blur(18px)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}.mark{width:33px;height:33px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font:800 17px Syne,sans-serif;transform:rotate(45deg)}.mark span{transform:rotate(-45deg)}.brand-name{font:800 12px Syne,sans-serif;letter-spacing:.2em}
+nav{display:flex;align-items:center;gap:clamp(12px,2vw,25px)}nav a{text-decoration:none;color:#c8bfcc;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}nav a:hover{color:var(--acid)}nav .nav-cta{color:#10110b;background:var(--acid);padding:10px 14px}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);color:white;padding:9px 12px;font-size:18px}
+.hero{min-height:660px;display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center;padding:70px 0 78px;position:relative}.hero:before{content:"";position:absolute;width:580px;height:580px;left:15%;top:8%;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(169,72,203,.15),rgba(255,61,145,.06) 38%,transparent 69%);filter:blur(12px)}
+.kicker{display:flex;align-items:center;gap:12px;color:var(--acid);font-size:10px}.kicker:before{content:"";width:31px;height:1px;background:var(--acid)}
+h1{font:800 clamp(76px,10vw,138px)/.78 Syne,sans-serif;letter-spacing:-.09em;text-transform:uppercase;margin:32px 0 24px}h1 .outline{display:block;color:transparent;-webkit-text-stroke:1px rgba(245,240,232,.87);padding-left:8vw}h1 .sub{display:block;color:var(--pink);font-size:.3em;line-height:1.25;letter-spacing:.02em;padding-left:20vw;margin-top:18px}
+.date-line{font:500 12px "DM Mono",monospace;letter-spacing:.17em;color:#d9cce0;text-transform:uppercase;margin-top:24px}.hero-copy{max-width:560px;color:#b9b1bc;font-size:14px;line-height:1.9;margin:20px 0 28px}
+.actions{display:flex;flex-wrap:wrap;gap:11px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 18px;text-decoration:none;font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;border:1px solid var(--line);transition:transform .2s,background .2s,border .2s;cursor:pointer;background:transparent;color:var(--paper);font-family:inherit}.btn:hover{transform:translateY(-2px);border-color:var(--acid)}.btn-main{background:var(--acid);border-color:var(--acid);color:#10110b}.btn-main:hover{background:#e8ffad}.btn-wa{border-color:rgba(217,255,114,.5);color:var(--acid)}.btn-arrow{font-size:17px}.note{font-size:9px;color:#948b99;line-height:1.8;margin-top:16px}
+.art{min-height:470px;position:relative;overflow:hidden;border:1px solid rgba(245,240,232,.2);background:linear-gradient(145deg,#28132e,#12101a 48%,#0b2533);padding:25px;display:flex;flex-direction:column;justify-content:space-between}.art:before{content:"";position:absolute;inset:-15%;background:radial-gradient(ellipse at 22% 28%,rgba(255,61,145,.43),transparent 34%),radial-gradient(ellipse at 82% 65%,rgba(54,190,226,.3),transparent 30%),radial-gradient(ellipse at 56% 48%,rgba(169,117,255,.2),transparent 35%);filter:blur(19px);animation:breath 9s ease-in-out infinite alternate}.art>*{position:relative;z-index:1}.art-top,.art-bottom{display:flex;justify-content:space-between;gap:10px;color:#e9d9ef;font:9px "DM Mono",monospace;letter-spacing:.15em;text-transform:uppercase}.seal{width:50px;height:50px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:700 21px Syne}.art-date{font:10px "DM Mono",monospace;letter-spacing:.17em;color:var(--acid);text-transform:uppercase}.art-title{font:800 clamp(50px,6vw,78px)/.8 Syne,sans-serif;letter-spacing:-.08em;text-transform:uppercase;margin:14px 0}.art-title span{display:block;color:var(--pink);padding-left:35px}.art-caption{font-size:10px;letter-spacing:.17em;text-transform:uppercase}.art-bottom{border-top:1px solid rgba(255,255,255,.25);padding-top:14px}
+.section{padding:28px 0 82px}.section-top{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:25px}.index{font:10px "DM Mono",monospace;color:var(--pink);letter-spacing:.18em;text-transform:uppercase}.section h2{font:700 clamp(31px,4.5vw,49px)/.98 Syne,sans-serif;letter-spacing:-.06em;margin:12px 0 0}.section-intro{max-width:440px;color:#aaa2af;font-size:12px;line-height:1.85;margin:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}.stat{padding:22px;border-right:1px solid var(--line);min-height:140px}.stat:last-child{border-right:0}.stat small{font:10px "DM Mono",monospace;color:var(--pink);letter-spacing:.15em;text-transform:uppercase}.stat strong{display:block;font:700 21px Syne,sans-serif;margin-top:15px}.stat span{font-size:10px;color:#9e96a3}
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.tile{background:linear-gradient(145deg,#17131e,#0e0d13);border:1px solid var(--line);padding:22px;min-height:180px}.tile-no{color:var(--acid);font:10px "DM Mono",monospace}.tile h3{font:700 19px Syne,sans-serif;margin:16px 0 7px}.tile p{font-size:11px;color:#aaa2af;line-height:1.8;margin:0}
+.timeline{border-top:1px solid var(--line)}.step{display:grid;grid-template-columns:100px 1fr;gap:20px;padding:17px 0;border-bottom:1px solid var(--line)}.step-time{font:10px "DM Mono",monospace;color:var(--acid)}.step strong{font:700 14px Syne,sans-serif}.step p{font-size:11px;color:#aaa2af;margin:4px 0 0}
+.ticket-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.ticket{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,#17131e,#0e0d13);padding:26px;overflow:hidden}.ticket.featured{border-color:rgba(217,255,114,.62);background:linear-gradient(145deg,rgba(91,75,27,.22),#111017 70%)}.ticket-label{font:10px "DM Mono",monospace;color:var(--acid);letter-spacing:.17em;text-transform:uppercase}.ticket h3{font:700 29px Syne,sans-serif;margin:12px 0 2px}.ticket-price{font:800 25px Syne,sans-serif;color:var(--gold);margin:13px 0}.ticket p{font-size:11px;color:#aaa2af;min-height:45px}.ticket .btn{width:100%;margin-top:10px}.ticket-note{font-size:10px;color:#918897;line-height:1.7;margin-top:15px}
+.clip-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px}.clip-copy{font-size:13px;color:#aaa2af;line-height:1.9}.clip-points{border-top:1px solid var(--line)}.clip-row{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}.clip-row b{font:10px "DM Mono",monospace;color:var(--acid)}.clip-row strong{font:700 13px Syne,sans-serif}.clip-row p{font-size:11px;color:#aaa2af;margin:4px 0 0}
+.faq{border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line);padding:17px 0}summary{cursor:pointer;list-style:none;font:700 13px Syne,sans-serif;display:flex;justify-content:space-between;gap:15px}summary::-webkit-details-marker{display:none}summary:after{content:"+";color:var(--acid);font:18px "DM Mono",monospace}details[open] summary:after{content:"−"}details p{font-size:11px;color:#aaa2af;line-height:1.8;max-width:780px}
+.contact-box{border:1px solid rgba(217,255,114,.4);padding:clamp(25px,5vw,54px);background:linear-gradient(120deg,rgba(217,255,114,.07),rgba(165,123,255,.08) 62%,rgba(255,67,143,.06))}.contact-box h2{font:700 clamp(32px,5vw,54px)/.98 Syne;letter-spacing:-.06em;margin:14px 0}.contact-box p{font-size:12px;color:#b9b1bc;line-height:1.9;max-width:650px}.contact-methods{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 0}.number{font:11px "DM Mono",monospace;color:var(--gold);margin-top:18px}
+footer{border-top:1px solid var(--line);padding:25px 0 40px;display:flex;justify-content:space-between;gap:15px;color:#8d8591;font:9px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase}.fine{font-size:9px;color:#817987;line-height:1.8;margin:35px 0 25px}
+.mobile-ticket{display:none}
 @keyframes breath{from{transform:scale(.95) rotate(-5deg)}to{transform:scale(1.08) rotate(5deg)}}
-@media(max-width:850px){.hero{grid-template-columns:1fr;gap:35px;padding:55px 0}.hero-copy{max-width:650px}.art-card{min-height:440px}.film-section{grid-template-columns:1fr;gap:38px}.section-head{align-items:start;flex-direction:column}.section-head p{max-width:560px}}
-@media(max-width:600px){.shell{width:min(100% - 30px,var(--max))}.nav{height:68px}.nav-right{gap:10px}.nav-right .nav-tag{display:none}.brand-name{font-size:11px}h1{font-size:clamp(70px,19vw,108px);margin-top:30px}h1 .line2{padding-left:5vw}h1 .line3{padding-left:18vw}.hero{padding:48px 0 54px}.hero-copy{font-size:13px}.art-card{min-height:390px;padding:21px}.art-title{font-size:58px}.info-grid{grid-template-columns:1fr;margin-bottom:72px}.info{min-height:unset;border-right:0;border-bottom:1px solid var(--line);padding:20px}.info:last-child{border-bottom:0}.info-value{margin-top:9px;font-size:19px}.film-section{padding-bottom:70px}.invite{margin-bottom:65px}.invite:after{font-size:115px;bottom:-43px}footer{flex-direction:column;gap:9px}}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:30px;padding:52px 0 65px}.art{min-height:400px}.section-top{align-items:start;flex-direction:column}.clip-layout{grid-template-columns:1fr;gap:25px}}
+@media(max-width:660px){.shell{width:calc(100% - 30px)}header{height:68px}.menu-toggle{display:block}nav{display:none;position:absolute;top:67px;left:-15px;right:-15px;padding:16px 20px 20px;background:#0d0c12;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.06)}nav a.nav-cta{margin-top:10px;text-align:center;padding:13px}.brand-name{font-size:11px}h1{font-size:clamp(69px,18vw,105px)}h1 .outline{padding-left:5vw}h1 .sub{padding-left:15vw;font-size:.28em}.date-line{font-size:10px;letter-spacing:.1em}.hero-copy{font-size:12px}.art{min-height:360px;padding:20px}.art-title{font-size:57px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line);min-height:unset;padding:18px}.stat:last-child{border-bottom:0}.stat strong{margin-top:8px}.concept-grid{grid-template-columns:1fr}.tile{min-height:unset}.ticket-grid{grid-template-columns:1fr}.step{grid-template-columns:70px 1fr}.section{padding-bottom:65px}.mobile-ticket{display:block;position:fixed;bottom:0;left:0;right:0;z-index:9;background:rgba(9,9,13,.93);backdrop-filter:blur(15px);border-top:1px solid var(--line);padding:10px 15px}.mobile-ticket .btn{width:100%}footer{flex-direction:column;gap:8px}body{padding-bottom:72px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div class="shell">
-<header class="nav">
-  <a class="brand" href="#top" aria-label="Morning Starr, accueil"><span class="mark"><span>M</span></span><span class="brand-name">MORNING STARR</span></a>
-  <div class="nav-right"><a href="#concept">Le concept</a><a href="#infos">Informations</a><span class="nav-tag mono">Private night / 001</span></div>
+<header>
+ <a class="brand" href="#accueil"><span class="mark"><span>M</span></span><span class="brand-name">MORNING STARR</span></a>
+ <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+ <nav id="mainNav" aria-label="Menu principal">
+  <a href="#accueil">Accueil</a><a href="#concept">Concept</a><a href="#programme">Programme</a><a href="#tickets">Tickets</a><a href="#clip">Tournage</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+  <a class="nav-cta" href="#tickets">Réserver ↗</a>
+ </nav>
 </header>
-<main id="top">
-<section class="hero">
-  <div>
-    <div class="kicker mono">Morning Starr présente · Édition spéciale</div>
-    <h1><span>Smoke</span><span class="line2">Party</span><span class="line3">New Year / Clip Session</span></h1>
-    <div class="subline">31.12.2026 — 01.01.2027 &nbsp;·&nbsp; Private event</div>
-    <p class="hero-copy">Une nuit pour passer à la nouvelle année autrement. Une soirée privée pensée comme le décor vivant d’un tournage de clip : musique, énergie, images fortes et une nouvelle page qui s’ouvre avec 2027.</p>
-    <div class="actions">
-      <a class="btn btn-main" href="https://www.tiktok.com/@bigmorning_starr" target="_blank" rel="noopener noreferrer">Demander une invitation <span class="btn-arrow">↗</span></a>
-      <a class="btn" href="#concept">Découvrir le concept <span class="btn-arrow">↓</span></a>
-    </div>
-    <div class="hero-note mono">Accès privé · Places limitées · Adresse transmise après confirmation</div>
-  </div>
-  <div class="art-card" aria-label="Identité visuelle Smoke Party New Year Clip Session">
-    <div class="orbit"></div><div class="orbit two"></div>
-    <div class="art-top"><span>MS / Visual culture</span><span class="art-stamp">M</span></div>
-    <div class="art-mid"><div class="art-date">One night · One take · New year</div><div class="art-title">Smoke<span>Party</span></div><div class="art-caption">Apartment session / 2027</div></div>
-    <div class="art-bottom"><span>31 dec — 01 jan</span><span>Clip shoot</span><span>Morning Starr</span></div>
-  </div>
+<main>
+<section class="hero" id="accueil">
+ <div>
+  <div class="kicker mono">Morning Starr présente · Édition spéciale</div>
+  <h1>Smoke<span class="outline">Party</span><span class="sub">New Year / Clip Session</span></h1>
+  <div class="date-line">31.12.2026 — 01.01.2027 · Nuit du réveillon</div>
+  <p class="hero-copy">Une nuit pour entrer dans 2027 avec une énergie différente. Une soirée privée pensée comme le décor vivant d’un tournage de clip : musique, direction artistique, images fortes et passage à la nouvelle année.</p>
+  <div class="actions"><a class="btn btn-main" href="#tickets">Voir les tickets <span class="btn-arrow">↗</span></a><a class="btn btn-wa" href="https://wa.me/242050781712?text=Bonjour%20Morning%20Starr%2C%20je%20souhaite%20des%20informations%20sur%20Smoke%20Party%20New%20Year%20Clip%20Session." target="_blank" rel="noopener">WhatsApp direct ↗</a></div>
+  <div class="note mono">Accès privé · Places limitées · Adresse communiquée après confirmation</div>
+ </div>
+ <div class="art"><div class="art-top"><span>MS / Visual culture</span><span class="seal">M</span></div><div><div class="art-date">One night · One take · New year</div><div class="art-title">Smoke<span>Party</span></div><div class="art-caption">Apartment edition / 2027</div></div><div class="art-bottom"><span>31 dec — 01 jan</span><span>Clip shoot</span><span>Morning Starr</span></div></div>
 </section>
-<section id="infos">
-  <div class="section-head"><h2>Une date. Deux années.<br>Un seul décor.</h2><p>Le réveillon devient une expérience visuelle et musicale. Les détails pratiques seront envoyés uniquement aux personnes dont la présence est confirmée.</p></div>
-  <div class="info-grid">
-    <div class="info"><div class="info-label">La date</div><div class="info-value date-big">31 décembre → 1 janvier</div><div class="info-note">Du jeudi 31.12.2026 au vendredi 01.01.2027</div></div>
-    <div class="info"><div class="info-label">L’expérience</div><div class="info-value">Party + tournage de clip</div><div class="info-note">Une ambiance de soirée intégrée à une production vidéo</div></div>
-    <div class="info"><div class="info-label">Le lieu</div><div class="info-value">Appartement privé</div><div class="info-note">Adresse communiquée aux invités confirmés</div></div>
-  </div>
+
+<section class="section" id="concept">
+ <div class="section-top"><div><div class="index">01 / L’idée</div><h2>Plus qu’une soirée.<br>Une expérience à vivre.</h2></div><p class="section-intro">Smoke Party mêle réveillon, culture musicale et création audiovisuelle. Le site rassemble les informations, les demandes de tickets et le contact officiel au même endroit.</p></div>
+ <div class="concept-grid">
+  <article class="tile"><div class="tile-no">01 — ATMOSPHÈRE</div><h3>Une ambiance immersive</h3><p>Univers nocturne, éclairages travaillés, sélection musicale et décor pensé pour marquer le passage en 2027.</p></article>
+  <article class="tile"><div class="tile-no">02 — RENCONTRES</div><h3>Une édition privée</h3><p>Une capacité maîtrisée et un accès sur confirmation afin de préserver le confort de tous.</p></article>
+  <article class="tile"><div class="tile-no">03 — CRÉATION</div><h3>Une soirée filmée</h3><p>Le tournage du clip fait partie de l’expérience. La participation à l’image se fait avec l’accord des personnes concernées.</p></article>
+ </div>
 </section>
-<section class="film-section" id="concept">
-  <div>
-    <div class="film-index mono">01 / The concept</div>
-    <h2 class="film-title">La soirée devient le plateau.</h2>
-    <p class="film-copy">Smoke Party accompagne un tournage de clip dans une atmosphère intime et cinématographique. Les invités participent à l’énergie du décor, sans perdre leur place ni leur liberté pendant la soirée.</p>
-  </div>
-  <div class="film-points">
-    <div class="point"><div class="point-no">01</div><div><strong>Une direction artistique</strong><span>Lumières travaillées, univers nocturne, silhouettes et détails pensés pour l’image.</span></div></div>
-    <div class="point"><div class="point-no">02</div><div><strong>Un tournage annoncé</strong><span>Une équipe peut filmer certains moments. La présence à l’image se fait avec l’accord des personnes concernées.</span></div></div>
-    <div class="point"><div class="point-no">03</div><div><strong>Un espace respecté</strong><span>Capacité limitée, circulation dégagée et consignes de sécurité pour préserver l’appartement et les invités.</span></div></div>
-  </div>
+
+<section class="section" id="programme">
+ <div class="section-top"><div><div class="index">02 / Le rendez-vous</div><h2>La nuit en quelques temps forts.</h2></div><p class="section-intro">Le conducteur détaillé et les horaires seront transmis aux participants confirmés. Cette trame présente les grands moments prévus, sans figer le planning technique.</p></div>
+ <div class="stats">
+  <div class="stat"><small>La date</small><strong>31 déc. 2026 → 1 janv. 2027</strong><span>Du jeudi au vendredi</span></div>
+  <div class="stat"><small>L’expérience</small><strong>Réveillon + clip session</strong><span>Musique, convivialité et tournage</span></div>
+  <div class="stat"><small>Le lieu</small><strong>Appartement privé</strong><span>Adresse remise après confirmation</span></div>
+ </div>
+ <div class="timeline" style="margin-top:22px">
+  <div class="step"><div class="step-time">TEMPS 01</div><div><strong>Accueil des invités</strong><p>Vérification des tickets et installation dans le respect de la capacité prévue.</p></div></div>
+  <div class="step"><div class="step-time">TEMPS 02</div><div><strong>Ambiance & séquences clip</strong><p>Moments musicaux et prises de vues annoncées à l’avance aux personnes présentes.</p></div></div>
+  <div class="step"><div class="step-time">MINUIT</div><div><strong>Passage à la nouvelle année</strong><p>Le moment collectif pour accueillir 2027.</p></div></div>
+  <div class="step"><div class="step-time">ENSUITE</div><div><strong>Suite de la soirée</strong><p>Musique et derniers moments de l’événement, selon le programme confirmé.</p></div></div>
+ </div>
 </section>
-<section class="invite">
-  <div class="kicker mono">Private access / Request only</div>
-  <h2>Fais partie du moment.<br>Pas juste du public.</h2>
-  <p>Tu souhaites participer à la Smoke Party et au tournage ? Envoie une demande à Morning Starr. L’organisateur te communiquera les horaires, l’adresse, les conditions d’accès et les informations complémentaires après confirmation.</p>
-  <div class="actions"><a class="btn btn-main" href="https://www.tiktok.com/@bigmorning_starr" target="_blank" rel="noopener noreferrer">Contacter Morning Starr <span class="btn-arrow">↗</span></a><button class="btn" id="copyInvite" type="button">Copier le message <span class="btn-arrow">＋</span></button></div>
-  <div class="hero-note mono" id="copyStatus" role="status" aria-live="polite">Demande d’invitation ≠ entrée confirmée.</div>
+
+<section class="section" id="tickets">
+ <div class="section-top"><div><div class="index">03 / Billetterie</div><h2>Choisis ton accès.</h2></div><p class="section-intro">Les demandes de tickets sont centralisées sur WhatsApp. Écris directement à l’organisateur pour connaître les tarifs, les disponibilités et les modalités de paiement.</p></div>
+ <div class="ticket-grid">
+  <article class="ticket"><div class="ticket-label">Accès événement</div><h3>Pass Standard</h3><div class="ticket-price">Tarif sur demande</div><p>Demande ton pass pour accéder à la Smoke Party, sous réserve de disponibilité et de confirmation.</p><a class="btn btn-main" href="https://wa.me/242050781712?text=Bonjour%2C%20je%20souhaite%20acheter%20un%20Pass%20Standard%20pour%20Smoke%20Party%20du%2031%20d%C3%A9cembre%202026%20au%201er%20janvier%202027.%20Merci%20de%20m%E2%80%99indiquer%20le%20tarif%20et%20les%20modalit%C3%A9s." target="_blank" rel="noopener">Commander sur WhatsApp ↗</a></article>
+  <article class="ticket featured"><div class="ticket-label">Accès premium · selon disponibilité</div><h3>Pass VIP</h3><div class="ticket-price">Tarif sur demande</div><p>Contacte l’organisateur pour connaître les conditions, les avantages inclus et la disponibilité du pass VIP.</p><a class="btn btn-main" href="https://wa.me/242050781712?text=Bonjour%2C%20je%20souhaite%20des%20informations%20et%20le%20tarif%20du%20Pass%20VIP%20pour%20Smoke%20Party%20du%2031%20d%C3%A9cembre%202026%20au%201er%20janvier%202027." target="_blank" rel="noopener">Demander le Pass VIP ↗</a></article>
+ </div>
+ <p class="ticket-note">Important : cette page ne débite aucune carte et ne confirme pas automatiquement une vente. La réservation est enregistrée après échange avec l’organisateur ; le paiement et la validation du ticket sont confirmés séparément par celui-ci. Ne verse aucun paiement à un autre numéro que celui confirmé par Morning Starr.</p>
 </section>
-<p class="fineprint">INFORMATIONS IMPORTANTES — La date indiquée correspond à la nuit du 31 décembre 2026 au 1er janvier 2027. L’heure, le tarif éventuel, le programme détaillé et l’adresse ne sont pas encore publiés. Les effets de fumée éventuels doivent être adaptés à un espace intérieur et ne doivent pas exposer les invités à des produits ou émanations dangereuses. Les personnes ne souhaitant pas apparaître dans le clip doivent pouvoir le signaler et être respectées. Aucun produit interdit ni comportement dangereux n’est autorisé.</p>
+
+<section class="section" id="clip">
+ <div class="section-top"><div><div class="index">04 / Production audiovisuelle</div><h2>La fête rencontre le cinéma.</h2></div><p class="section-intro">Une partie de la soirée sera consacrée au tournage d’un clip. L’organisation doit permettre de filmer sans imposer l’apparition de chaque invité.</p></div>
+ <div class="clip-layout">
+  <p class="clip-copy">La direction visuelle, les lumières et l’énergie de la soirée contribueront à l’univers du clip. Les personnes qui acceptent d’être filmées pourront participer aux séquences prévues. Un espace hors caméra doit rester possible pour les invités qui ne souhaitent pas apparaître.</p>
+  <div class="clip-points">
+   <div class="clip-row"><b>01</b><div><strong>Direction artistique</strong><p>Décor, éclairage et ambiance cohérents avec l’univers musical du projet.</p></div></div>
+   <div class="clip-row"><b>02</b><div><strong>Consentement à l’image</strong><p>Les séquences filmées sont annoncées. Chacun peut refuser d’être filmé et le signaler à l’équipe.</p></div></div>
+   <div class="clip-row"><b>03</b><div><strong>Respect du lieu</strong><p>Capacité limitée, circulation libre, ventilation adaptée et sorties dégagées.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="faq">
+ <div class="section-top"><div><div class="index">05 / À savoir</div><h2>Questions fréquentes.</h2></div><p class="section-intro">Les réponses essentielles avant de demander ton ticket.</p></div>
+ <div class="faq">
+  <details><summary>Comment acheter un ticket ?</summary><p>Choisis Standard ou VIP dans la section Billetterie puis envoie le message prérempli sur WhatsApp. L’organisateur te répondra avec le tarif, les places disponibles et les modalités de paiement.</p></details>
+  <details><summary>Le ticket est-il confirmé dès le message WhatsApp ?</summary><p>Non. Le message est une demande d’achat. Ton ticket est confirmé uniquement après validation explicite par Morning Starr.</p></details>
+  <details><summary>Où se déroule la soirée ?</summary><p>L’événement se déroule dans un appartement privé. L’adresse exacte sera communiquée uniquement aux participants confirmés.</p></details>
+  <details><summary>Est-ce que je serai filmé pendant le clip ?</summary><p>Pas automatiquement. Les séquences filmées seront annoncées. Tu peux refuser d’apparaître et demander à rester dans une zone hors caméra.</p></details>
+  <details><summary>Comment contacter l’organisation ?</summary><p>Par appel au +242 050 78 17 12 ou par WhatsApp au même numéro. Les boutons directs sont disponibles dans la section Contact.</p></details>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <div class="contact-box">
+  <div class="kicker mono">06 / Contact officiel & tickets</div>
+  <h2>Une question ?<br>Écris directement.</h2>
+  <p>Pour commander un ticket, vérifier les disponibilités, connaître les tarifs ou obtenir les informations pratiques, contacte Morning Starr par WhatsApp ou par appel téléphonique.</p>
+  <div class="contact-methods">
+   <a class="btn btn-main" href="https://wa.me/242050781712?text=Bonjour%20Morning%20Starr%2C%20je%20souhaite%20des%20informations%20sur%20Smoke%20Party." target="_blank" rel="noopener">WhatsApp · Commander ↗</a>
+   <a class="btn" href="tel:+242050781712">Appeler · +242 050 78 17 12</a>
+  </div>
+  <div class="number">+242 050 78 17 12 · MÊME NUMÉRO POUR APPEL ET WHATSAPP</div>
+ </div>
+</section>
+
+<p class="fine">INFORMATIONS & RESPONSABILITÉ — Date : nuit du 31 décembre 2026 au 1er janvier 2027. L’heure, les tarifs définitifs, les modalités de paiement et l’adresse exacte sont communiqués par l’organisateur. Aucun paiement n’est traité directement sur ce site. Respect des lois locales, des voisins, des règles de sécurité et du consentement des personnes filmées. Aucun produit interdit ni comportement dangereux n’est autorisé.</p>
 </main>
-<footer><span><b>MORNING STARR</b> · Smoke Party / New Year Clip Session</span><span>Private event · 2026 / 2027</span></footer>
+<footer><span><b>MORNING STARR</b> · SMOKE PARTY / NEW YEAR CLIP SESSION</span><span>31.12.2026 — 01.01.2027</span></footer>
 </div>
+<div class="mobile-ticket"><a class="btn btn-main" href="#tickets">Billetterie · Commander un ticket ↗</a></div>
 <script>
-const msg="Salut Morning Starr ! Je souhaite demander une invitation pour Smoke Party — New Year / Clip Session, du 31 décembre 2026 au 1er janvier 2027. Peux-tu m'envoyer les conditions d'accès et les informations pratiques ?";
-document.getElementById("copyInvite").addEventListener("click",async()=>{const s=document.getElementById("copyStatus");try{await navigator.clipboard.writeText(msg);s.textContent="Message copié. Ouvre le profil Morning Starr pour l’envoyer.";}catch(e){s.textContent=msg;}});
+const toggle=document.getElementById("menuToggle"),nav=document.getElementById("mainNav");
+toggle.addEventListener("click",()=>{const open=nav.classList.toggle("open");toggle.setAttribute("aria-expanded",String(open));toggle.textContent=open?"×":"☰";});
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");toggle.setAttribute("aria-expanded","false");toggle.textContent="☰";}));
 </script>
 </body>
 </html>
