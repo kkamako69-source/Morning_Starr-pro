@@ -48,6 +48,10 @@
  <text x="10" y="150" fill="#00fff7" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">NEW YEAR · CLIP SESSION</text>
  <text x="10" y="190" fill="#e7e1d7" font-family="Arial,sans-serif" font-size="18" letter-spacing="4">31 DEC 2026 — 01 JAN 2027</text>
 </g>
+<g transform="translate(350 808)" text-anchor="middle">
+ <text x="0" y="0" fill="#00fff7" font-family="Arial,sans-serif" font-size="10" letter-spacing="4">MUSIC PROJECT · OFFICIAL VIDEO</text>
+ <text x="0" y="20" fill="#f7f2e8" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="3">MORNING STARR × NANDIRO</text>
+</g>
 <g transform="translate(38 835)">
  <text x="0" y="0" fill="#ffd700" font-family="Arial,sans-serif" font-size="11" letter-spacing="3">A MORNING STARR EXPERIENCE</text>
  <text x="622" y="0" text-anchor="end" fill="#c5d5d7" font-family="Arial,sans-serif" font-size="11" letter-spacing="2">MSM / 001</text>
