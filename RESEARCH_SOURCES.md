@@ -27,11 +27,11 @@ Ce document liste des sources publiques pour enrichir les rubriques Découverte 
 
 ### BantuLanguages Initiative — corpus congolais
 - Catalogue : https://bantulanguageinitiative.com/fr/datasets
-- Corpus LRSC : parole lue en Lingala, avec audio et transcription.
-- Corpus CSRC : archives radio non annotées en Lingala, Kikongo et Tshiluba.
-- Le catalogue indique un défaut de licence CC-BY-4.0 ; vérifier la fiche Hugging Face et la licence de chaque release avant réutilisation.
-- Usages possibles : prototype de recherche vocale, transcription, prononciation ou navigation vocale en Lingala. Ce corpus n'est pas un réservoir de punchlines et ne doit pas être utilisé pour entraîner à reproduire les voix des personnes.
-- Exigences : conserver attribution, provenance, conditions de consentement et limites du corpus ; ne pas republier l'audio sans vérifier les droits.
+- LRSC : https://huggingface.co/datasets/BantuLanguagesInitiative/LRSC — corpus de parole lue en Lingala, avec audio et transcriptions ; 2 940 énoncés et environ 5,01 heures selon la fiche de données.
+- CSRC : https://huggingface.co/datasets/BantuLanguagesInitiative/CSRC — archives radio non annotées en Lingala, Kikongo et Tshiluba ; la fiche affiche 97 779 segments et environ 690,35 heures, sans transcriptions de référence.
+- Les deux releases Hugging Face indiquent la licence CC-BY-4.0. Conserver l'attribution aux auteurs du jeu original et à l'équipe de reconditionnement Bantu Languages Initiative.
+- Usages possibles : prototype de recherche vocale, transcription et navigation vocale en Lingala. LRSC est le point de départ supervisé le plus simple ; CSRC convient plutôt à la recherche auto-supervisée et à l'adaptation radio, et représente un téléchargement volumineux.
+- Ces corpus ne sont pas des réservoirs de punchlines et ne doivent pas être utilisés pour cloner/reproduire la voix d'une personne. Vérifier consentement, provenance et conditions d'utilisation avant toute réutilisation audio.
 
 ## 4. Localisation et cartographie
 
@@ -43,7 +43,16 @@ Ce document liste des sources publiques pour enrichir les rubriques Découverte 
 - Exigences : crédit visible « © OpenStreetMap contributors » et respect des conditions ODbL. Ne pas aspirer les tuiles de la carte ; utiliser un fournisseur de tuiles conforme à sa politique.
 - Ne pas afficher publiquement l'adresse d'un événement privé avant confirmation de l'organisateur.
 
-## 5. Images et médias
+## 5. Indicateurs publics
+
+### Banque mondiale — World Development Indicators
+- Documentation API : https://datahelpdesk.worldbank.org/knowledgebase/articles/889392
+- API v2 : https://api.worldbank.org/v2/
+- Accès public sans clé API.
+- Usages : indicateurs comparables sur la population, l'éducation, l'accès à l'électricité, la santé, la connectivité et l'économie des pays d'Afrique centrale.
+- Toujours afficher l'indicateur exact, le pays, l'année, l'unité, la source et la date de récupération. Ne pas présenter une estimation ou une donnée ancienne comme une mesure actuelle.
+
+## 6. Images et médias
 
 ### Wikimedia Commons
 - Catalogue : https://commons.wikimedia.org/
@@ -57,13 +66,13 @@ Ce document liste des sources publiques pour enrichir les rubriques Découverte 
 - Usages : rechercher des médias réutilisables.
 - Le filtre de recherche ne remplace pas la vérification de la licence sur la page d'origine. Ne pas utiliser d'images de célébrités ou de personnes privées sans droits/consentement adaptés.
 
-## 6. Recherche et actualités
+## 7. Recherche et actualités
 
 - Pour les actualités, utiliser les flux ou APIs des éditeurs avec autorisation ; afficher le titre, la date de publication, la source et un lien, puis paraphraser. Ne pas recopier des articles complets.
 - Pour la musique, utiliser les liens officiels des artistes et plateformes ; ne pas extraire des paroles protégées, des enregistrements privés ou des commentaires privés pour construire la base de contenu.
 - Pour le projet Smoke Party, les prix et les conditions de billetterie restent ceux confirmés par l'organisateur. Les demandes WhatsApp ne sont pas des billets et le site ne confirme pas de paiement.
 
-## 7. Architecture de collecte recommandée
+## 8. Architecture de collecte recommandée
 
 1. Collecte serveur ou tâche planifiée avec cache, limites de requêtes et respect des conditions d'utilisation.
 2. Enregistrer pour chaque item : source, URL d'origine, date de collecte, licence, attribution, langue et date de vérification.
