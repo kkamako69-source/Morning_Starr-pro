@@ -35,3 +35,5 @@ GitHub Actions lance aussi ce contrôle à chaque modification de la branche `ma
 ## Événement en vedette
 
 La page d'accueil met en avant [Smoke Party — Nouvelle l'an](smoke-party/), collaboration Morning Starr × Nandiro prévue du 31 décembre 2026 au 1er janvier 2027. Les demandes de pass restent soumises à confirmation par l'organisation et vérification du paiement ; le site ne délivre pas automatiquement un billet.
+## Recherche et sources de données
+Voir [RESEARCH_SOURCES.md](RESEARCH_SOURCES.md) pour les catalogues OpenAlex, Wikidata, BantuLanguages Initiative, OpenStreetMap, Wikimedia Commons et Openverse, avec leurs licences et conditions de réutilisation.
