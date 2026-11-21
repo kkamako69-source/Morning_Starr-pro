@@ -31,3 +31,7 @@ python tools/check_site.py
 ```
 
 GitHub Actions lance aussi ce contrôle à chaque modification de la branche `main` et pour chaque pull request. Les avertissements (par exemple un fragment HTML ou une ressource locale introuvable) doivent être examinés ; un passage réussi ne remplace pas les tests dans un vrai navigateur.
+
+## Événement en vedette
+
+La page d'accueil met en avant [Smoke Party — Nouvelle l'an](smoke-party/), collaboration Morning Starr × Nandiro prévue du 31 décembre 2026 au 1er janvier 2027. Les demandes de pass restent soumises à confirmation par l'organisation et vérification du paiement ; le site ne délivre pas automatiquement un billet.
