@@ -21,3 +21,13 @@ Site artistique personnel de **Morning Starr Morgan**.
 - Tester le site après chaque changement pour éviter une régression de la page publiée.
 
 > Ce dépôt contient une page HTML principale ; ce README ne prétend pas qu’un test automatisé ou une vérification complète des navigateurs a déjà été réalisé.
+
+## Contrôle automatique
+
+Le contrôle de structure HTML peut être lancé localement avec :
+
+```sh
+python tools/check_site.py
+```
+
+GitHub Actions lance aussi ce contrôle à chaque modification de la branche `main` et pour chaque pull request. Les avertissements (par exemple un fragment HTML ou une ressource locale introuvable) doivent être examinés ; un passage réussi ne remplace pas les tests dans un vrai navigateur.
