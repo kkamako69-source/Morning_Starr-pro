@@ -106,3 +106,43 @@ Aucun connecteur ni clé API n'est installé dans le site à ce stade. Les inté
 - MusicBrainz pour les relations artiste/sortie ; Wikidata pour les identifiants et faits structurés CC0 ; OpenAlex pour les publications de recherche (musique, IA, acoustique, culture, langues).
 - OpenAlex permet les requêtes simples sans clé. Une clé gratuite augmente le budget quotidien et est nécessaire pour poursuivre la pagination par curseur au-delà de la première page ; appliquer des limites et du backoff en cas de 429.
 - Garder séparées les métadonnées musicales, les fichiers audio et les œuvres/lyrics : une licence sur une base de tags ne donne pas les droits sur les enregistrements ou paroles.
+## 10. Sources actualisées et limites d’intégration
+
+### OpenAlex — littérature scientifique
+- API : https://api.openalex.org/ et guide : https://help.openalex.org/api/
+- Rechercher travaux, chercheurs, institutions, thèmes et publications sur acoustique, IA, musique, culture et linguistique.
+- Les requêtes simples fonctionnent sans clé. Une clé gratuite augmente le budget quotidien et permet la pagination par curseur ; appliquer les limites de requêtes et un backoff exponentiel en cas de 429.
+
+### MusicBrainz — identité des artistes et sorties
+- API : https://musicbrainz.org/doc/MusicBrainz_API
+- Données utiles : artistes, groupes, albums, labels, dates, relations et identifiants musicaux. Ce n’est pas un hébergeur audio ni une licence sur les morceaux.
+- Usage non commercial gratuit, sans clé, mais chaque client doit fournir un User-Agent explicite et rester à une requête par seconde. L’usage commercial doit être discuté avec MusicBrainz.
+
+### World Bank Open Data — indicateurs de contexte
+- API : https://datahelpdesk.worldbank.org/knowledgebase/articles/889392
+- Indicateurs comparables sur population, éducation, économie, connectivité, énergie et développement au Congo, en Afrique centrale et dans le monde.
+- L’accès aux indicateurs ne nécessite pas de clé API. Conserver la date d’extraction, le code d’indicateur, le pays et l’unité pour chaque graphique.
+
+### Bantu Languages Initiative — corpus vocaux régionaux
+- Catalogue : https://bantulanguageinitiative.com/fr/datasets
+- LRSC : parole lue en Lingala, annotée avec transcription ; candidat léger pour reconnaissance vocale et tests de transcription.
+- CSRC : archives radio non annotées en Lingala, Kikongo et Tshiluba ; plus adaptées à l’adaptation acoustique et à l’apprentissage auto-supervisé qu’à une transcription clé-en-main.
+- Le catalogue annonce une licence par défaut CC BY 4.0, mais il faut toujours lire la fiche de chaque release et respecter les conditions de consentement, attribution et redistribution.
+
+### MTG-Jamendo — classification musicale, pas bibliothèque commerciale
+- Dataset : https://mtg.github.io/mtg-jamendo-dataset/
+- Plus de 55 000 pistes et 195 tags de genre, instrument et humeur ; utile pour prototypes de recherche et d’auto-tagging.
+- Le code du dépôt est Apache 2.0, les métadonnées CC BY-NC-SA 4.0 et les fichiers audio ont des licences individuelles. Le dataset est réservé à la recherche non commerciale sauf autorisation écrite de Jamendo : ne pas l’utiliser dans Smoke Party, les clips ou la publicité sans licence commerciale distincte.
+
+### Bases cartographiques et iconographiques
+- OpenStreetMap : données sous ODbL ; conserver attribution et vérifier les obligations liées à une base dérivée.
+- Wikimedia Commons : vérifier la licence de chaque fichier et respecter l’attribution, la mention des modifications et les éventuelles restrictions.
+- Openverse : bon moteur de découverte ; ouvrir la source et vérifier la licence d’origine avant publication.
+
+## 11. Politique commune de données
+
+- Séparer métadonnées, fichiers audio, paroles et contenus utilisateur ; leurs licences et droits ne sont pas interchangeables.
+- Enregistrer la source, l’auteur, l’URL d’origine, la date de collecte, la licence, l’attribution, la langue et les éventuelles restrictions.
+- Ne pas aspirer les paroles, commentaires privés ou médias personnels pour nourrir les plateformes.
+- Utiliser des jeux synthétiques pour les tests et modérer toute contribution publique.
+- Mettre les appels API derrière un cache côté serveur lorsqu’un service public est consulté à grande échelle ; gérer limites, erreurs 429/503 et backoff.
