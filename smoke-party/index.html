@@ -47,6 +47,20 @@ footer{border-top:1px solid var(--line);padding:25px 0 40px;display:flex;justify
 @media(max-width:660px){.shell{width:calc(100% - 30px)}.track-card{align-items:flex-start;flex-direction:column}.track-mark{width:72px;height:72px;flex-basis:72px;font-size:17px}.artist-grid{grid-template-columns:1fr;gap:10px}.artist-cross{padding:0}.artist-card{padding:18px;min-height:135px}.artist-initial{width:58px;height:58px;flex-basis:58px;font-size:20px}.artist-byline{font-size:10px;letter-spacing:.14em}header{height:68px}.menu-toggle{display:block}nav{display:none;position:absolute;top:67px;left:-15px;right:-15px;padding:16px 20px 20px;background:#0d0c12;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.06)}nav a.nav-cta{margin-top:10px;text-align:center;padding:13px}.brand-name{font-size:11px}h1{font-size:clamp(69px,18vw,105px)}h1 .outline{padding-left:5vw}h1 .sub{padding-left:15vw;font-size:.28em}.date-line{font-size:10px;letter-spacing:.1em}.hero-copy{font-size:12px}.art{min-height:0;padding:0}.art-title{font-size:57px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line);min-height:unset;padding:18px}.stat:last-child{border-bottom:0}.stat strong{margin-top:8px}.concept-grid{grid-template-columns:1fr}.tile{min-height:unset}.ticket-grid{grid-template-columns:1fr}.step{grid-template-columns:70px 1fr}.section{padding-bottom:65px}.mobile-ticket{display:block;position:fixed;bottom:0;left:0;right:0;z-index:9;background:rgba(9,9,13,.93);backdrop-filter:blur(15px);border-top:1px solid var(--line);padding:10px 15px}.mobile-ticket .btn{width:100%}footer{flex-direction:column;gap:8px}body{padding-bottom:72px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
+<style id="accessibility-enhancements">
+:where(a,button,input,select,textarea,[tabindex]):focus-visible {
+  outline: 3px solid #00fff7 !important;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="shell">
