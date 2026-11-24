@@ -924,7 +924,7 @@
 
         <div class="section-header reveal" id="header-news">
             <div class="section-line"></div>
-            <h2 class="section-title">Nouvelles du Monde</h2>
+            <h2 class="section-title">Veille & découvertes</h2>
             <div class="section-line"></div>
         </div>
         <main class="main-grid reveal" id="newsGrid"></main>
@@ -1074,10 +1074,9 @@
 
                 <div id="newsSection" style="display:none; margin-top: 3rem;">
                     <div class="news-section">
-                        <h3 class="news-title">NOUVELLES DU MONDE 2026</h3>
+                        <h3 class="news-title">VEILLE & DÉCOUVERTES</h3>
                         <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 2rem;">
-                            Les dernieres decouvertes et actualites dans les domaines de la musique, de l'art, 
-                            de l'astronomie, de la physique quantique, de l'astrologie et des secrets de l'univers.
+                            Ces cartes sont des pistes éditoriales, pas un flux d’actualités en temps réel. Les dates et annonces doivent être vérifiées auprès des sources originales avant publication. L’astrologie est présentée comme tradition culturelle, non comme science.
                         </p>
                         <div class="news-grid" id="newsContent"></div>
                     </div>
@@ -1338,18 +1337,11 @@
         ];
 
         const neighborCountries = [
-            { flag: "🇨🇬", name: "Congo-Brazzaville", capital: "Brazzaville" },
-            { flag: "🇨🇲", name: "Cameroun", capital: "Yaounde" },
+            { flag: "🇨🇩", name: "République démocratique du Congo", capital: "Kinshasa" },
+            { flag: "🇨🇲", name: "Cameroun", capital: "Yaoundé" },
             { flag: "🇬🇦", name: "Gabon", capital: "Libreville" },
-            { flag: "🇨🇫", name: "RCA", capital: "Bangui" },
-            { flag: "🇦🇴", name: "Angola", capital: "Luanda" },
-            { flag: "🇷🇼", name: "Rwanda", capital: "Kigali" },
-            { flag: "🇧🇮", name: "Burundi", capital: "Bujumbura" },
-            { flag: "🇹🇿", name: "Tanzanie", capital: "Dodoma" },
-            { flag: "🇿🇲", name: "Zambie", capital: "Lusaka" },
-            { flag: "🇿🇼", name: "Zimbabwe", capital: "Harare" },
-            { flag: "🇲🇿", name: "Mozambique", capital: "Maputo" },
-            { flag: "🇿🇦", name: "Afrique du Sud", capital: "Pretoria" }
+            { flag: "🇨🇫", name: "République centrafricaine", capital: "Bangui" },
+            { flag: "🇦🇴", name: "Angola", capital: "Luanda" }
         ];
 
         const eduTopics = [
@@ -1365,45 +1357,44 @@
 
         const newsTopics = {
             music: [
-                { headline: "Revolution AI dans la Musique", content: "Les outils de creation musicale par IA atteignent un niveau professionnel. Des artistes utilisent desormais l'IA comme co-auteur pour composer des albums complets." },
-                { headline: "Retour du Vinyl", content: "Les ventes de disques vinyles depassent pour la premiere fois depuis 1987 les ventes de CD. Une renaissance analogique dans un monde numerique." },
-                { headline: "Festivals Immersifs 2026", content: "Les festivals de musique integrent des experiences en realite augmentee et des hologrammes d'artistes legendaires pour des concerts posthumes." }
+                { headline: "IA et création musicale", content: "Les outils d'IA peuvent assister l'écriture, l'arrangement et le mixage. Avant publication, vérifie les conditions du service, les droits sur les sources, les voix utilisées et les règles de transparence des plateformes." },
+                { headline: "Samples et droits musicaux", content: "Un sample peut mobiliser des droits sur l'enregistrement et sur la composition. Une licence claire et une preuve d'autorisation doivent être conservées avant toute diffusion commerciale." },
+                { headline: "Identité sonore et métadonnées", content: "Des métadonnées fiables — artiste, titre, auteurs, ISRC, date, label et crédits — facilitent la distribution, le référencement et le suivi des œuvres." }
             ],
             art: [
-                { headline: "Art Generatif NFT", content: "Les collections NFT d'art generatif atteignent des records. Des algorithmes crees par des artistes africains emergent sur la scene internationale." },
-                { headline: "Street Art Digital", content: "Des projections AR transforment les murs des villes en galeries d'art interactives. Le street art entre dans l'ere du metaverse." },
-                { headline: "Restitution des Tresors Africains", content: "De plus en plus de musees europeens restituent des oeuvres d'art africaines volees pendant la colonisation. Un tournant historique." }
+                { headline: "Art génératif et créativité", content: "Les œuvres génératives associent des règles, des données et des choix artistiques. La documentation du processus et des outils permet de mieux expliquer la part créative et les droits associés." },
+                { headline: "Images réutilisables", content: "Une image visible en ligne n'est pas automatiquement libre. Vérifie la licence d'origine, les obligations d'attribution et les droits à l'image avant une réutilisation." },
+                { headline: "Patrimoine et restitutions", content: "Les débats sur la restitution d'œuvres et d'objets culturels se traitent au cas par cas : provenance, contexte historique, institutions concernées et accords publiés." }
             ],
             astronomy: [
-                { headline: "Eclipse Totale 12 Aout 2026", content: "L'eclipse totale de Soleil du 12 aout 2026 sera visible depuis l'Islande, le nord de l'Espagne et le Groenland. Evenement majeur de l'annee." },
-                { headline: "Mission Artemis II", content: "Quatre astronautes (3 Americains, 1 Canadien) survoleront la Lune en fevrier 2026. Premier vol habite vers la Lune depuis Apollo 17 en 1972." },
-                { headline: "Comete C/2026 A1 (MAPS)", content: "Decouverte en janvier 2026, cette comete pourrait etre spectaculaire en avril. Son passage au perihelie le 4 avril est attendu avec impatience." },
-                { headline: "Chang'e 7 - Chine sur la Lune", content: "La mission chinoise Chang'e 7 explorera le pole Sud lunaire a la fin de l'ete 2026, a la recherche de glace d'eau pour une future base." }
+                { headline: "Éclipses : prévoir et observer", content: "Les éclipses solaires et lunaires suivent des géométries prévisibles. Pour chaque événement, consulte une carte de visibilité datée et les consignes officielles de sécurité oculaire." },
+                { headline: "Exoplanètes : comment les détecter ?", content: "Les astronomes utilisent notamment les transits et les vitesses radiales. Une détection candidate doit être confirmée et caractérisée avant d'être présentée comme une découverte définitive." },
+                { headline: "Exploration lunaire", content: "Les missions lunaires combinent navigation, science, essais de technologies et partenariats internationaux. Les dates et objectifs annoncés doivent être revérifiés auprès des agences spatiales." }
             ],
             quantum: [
-                { headline: "Ordinateur Quantique 1000 Qubits", content: "IBM a revele un processeur quantique de plus de 1000 qubits. La suprematie quantique pour resoudre des problemes classiquement impossibles approche." },
-                { headline: "Teleportation Quantique Record", content: "Des chercheurs ont reussi a teleporter de l'information quantique sur une distance record de 100 km via fibre optique standard." },
-                { headline: "France 2030 - Plan Quantique", content: "La France investit massivement dans le quantique pour la sante, l'agriculture, la cybersecurite et le climat. L'independance technologique europeenne est en jeu." }
+                { headline: "Ordinateurs quantiques et erreurs", content: "Le nombre de qubits ne suffit pas à mesurer la puissance utile. La stabilité, la correction d'erreurs et la qualité des opérations sont essentielles pour construire des machines fiables." },
+                { headline: "Intrication quantique", content: "L'intrication produit des corrélations mesurables entre systèmes quantiques. Elle ne permet pas d'envoyer un message plus vite que la lumière." },
+                { headline: "Téléportation quantique", content: "La téléportation quantique transfère un état quantique grâce à l'intrication et à une communication classique ; elle ne téléporte ni matière ni personnes." }
             ],
             astrology: [
-                { headline: "Alignement Planetaire 2026", content: "Jupiter et Mars formeront un couple serre du 14 au 18 novembre 2026. Un spectacle celeste rare a observer au telescope dans le meme champ." },
-                { headline: "Retrograde de Mercure", content: "Les periodes de retrograde de Mercure en 2026 sont prevues en janvier, mai et septembre. Periodes traditionnellement associees a la reflexion et au reexamen." },
-                { headline: "Nouvelle Lune du 12 Aout", content: "Coincidant avec l'eclipse totale, cette nouvelle lune marque un moment energetique puissant selon les traditions astrologiques." }
+                { headline: "Astrologie et astronomie", content: "L'astronomie étudie les objets célestes avec des méthodes scientifiques. L'astrologie relève de traditions symboliques et culturelles ; ses prédictions n'ont pas de validation scientifique robuste." },
+                { headline: "Le mouvement rétrograde", content: "Une planète en rétrogradation semble reculer dans le ciel depuis la Terre à cause des mouvements relatifs des orbites. Elle ne change pas réellement de sens de révolution autour du Soleil." },
+                { headline: "Observer le ciel avec méthode", content: "Pour préparer une observation, utilise une carte du ciel et des éphémérides datées. Sépare toujours les positions astronomiques calculées des interprétations astrologiques." }
             ],
             secrets: [
-                { headline: "Matiere Noire : Enfin Detectee ?", content: "Des experiences souterraines pourraient avoir detecte des signaux de matiere noire. La substance mysterieuse qui compose 85% de la matiere de l'univers." },
-                { headline: "Trous Noirs : L'Information Survit", content: "Nouvelles theories suggerent que l'information qui tombe dans un trou noir n'est pas detruite mais encodee sur l'horizon evenementiel." },
-                { headline: "Signal WOW 2.0", content: "Un nouveau signal radio anomal provenant de l'espace profond a ete detecte. Les scientifiques etudient s'il pourrait etre d'origine artificielle." },
-                { headline: "Multivers : Preuves Observationnelles", content: "Des anomalies dans le rayonnement cosmique de fond pourraient etre des signatures de collisions avec d'autres univers dans le multivers." }
+                { headline: "Matière noire : une énigme ouverte", content: "Des observations gravitationnelles indiquent qu'une composante invisible joue un rôle cosmique important. Sa nature microscopique n'est pas identifiée de façon concluante." },
+                { headline: "Trous noirs et information", content: "Le paradoxe de l'information pose la question du devenir de l'information quantique dans l'évaporation des trous noirs. Plusieurs pistes théoriques existent ; le sujet reste actif en recherche." },
+                { headline: "Le signal Wow! de 1977", content: "Le signal Wow! est une détection radio singulière enregistrée en 1977. Son origine n'a pas été confirmée ; il ne faut pas le présenter comme un nouveau signal ni comme une preuve d'intelligence extraterrestre." },
+                { headline: "Multivers : hypothèse spéculative", content: "Certaines théories évoquent plusieurs univers, mais il n'existe pas de preuve observationnelle confirmée d'autres univers. Les scénarios doivent être présentés comme des hypothèses, pas des faits." }
             ]
-        };
+        };;
 
         const secretsTopics = [
-            { title: "🔮 Matiere Noire & Energie Noire", desc: "95% de l'univers est invisible. La matiere noire (27%) attire par gravite, l'energie noire (68%) accelere l'expansion. Nous ne savons pas ce que c'est." },
+            { title: "🔮 Matière noire & énergie noire", desc: "Les modèles cosmologiques estiment que matière noire (~27 %) et énergie noire (~68 %) représentent ensemble environ 95 % du contenu masse-énergie de l'Univers. Leur nature reste inconnue." },
             { title: "🕳️ Trous Noirs & Paradoxe de l'Information", desc: "Stephen Hawking a decouvert que les trous noirs s'evaporent. Mais ou va l'information ? Le paradoxe reste non resolu." },
-            { title: "🌌 Multivers & Realites Paralleles", desc: "Notre univers pourrait n'etre qu'une bulle dans un ocean de bulles. Chaque decision cree une branche dans le multivers quantique." },
-            { title: "👽 Civilisations Extraterrestres", desc: "L'equation de Drake estime des milliards de civilisations. Le paradoxe de Fermi demande : ou sont-ils tous ?" },
-            { title: "⏳ Voyage dans le Temps", desc: "La relativite generale autorise theoriquement les boucles temporelles. Les trous de ver pourraient connecter differentes epoques." },
+            { title: "🌌 Multivers & univers parallèles", desc: "Le multivers apparaît dans certains scénarios théoriques et interprétations de la physique. Aucune observation confirmée ne démontre l'existence d'autres univers." },
+            { title: "👽 Vie extraterrestre", desc: "L'équation de Drake organise les facteurs qui pourraient influencer le nombre de civilisations détectables. Plusieurs paramètres restent inconnus et aucune vie extraterrestre n'a été confirmée." },
+            { title: "⏳ Temps et relativité", desc: "La dilatation du temps est un effet mesuré de la relativité. Les scénarios de voyage vers le passé restent spéculatifs et aucune méthode physique n'a été démontrée." },
             { title: "🧬 ADN Cosmique", desc: "Les elements lourds dans notre corps (carbone, oxygene, fer) ont ete forge dans les etoiles. Nous sommes litteralement poussiere d'etoiles." }
         ];
 
