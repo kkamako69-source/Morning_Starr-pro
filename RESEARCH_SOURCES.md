@@ -1,6 +1,6 @@
 # Réservoirs de données et d'innovation — Morning Starr Morgan
 
-Dernière vérification documentaire : 21 novembre 2026.
+Dernière vérification documentaire : 24 novembre 2026.
 
 Ce document liste des sources publiques pour enrichir les rubriques Découverte & Éducation, Actualités, Innovation et Localisation. Il s'agit de pistes documentées, pas de flux déjà connectés au site.
 
