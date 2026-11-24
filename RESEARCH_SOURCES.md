@@ -82,3 +82,27 @@ Ce document liste des sources publiques pour enrichir les rubriques Découverte 
 6. Afficher la date de mise à jour afin de distinguer un fait vérifié d'une donnée ancienne.
 
 Aucun connecteur ni clé API n'est installé dans le site à ce stade. Les intégrations devront être faites progressivement, après choix des sources, vérification des licences et configuration sécurisée côté serveur.
+
+## 9. Musique : catalogues, données et droits
+
+### MusicBrainz — catalogue de métadonnées musicales
+- API : https://musicbrainz.org/doc/MusicBrainz_API
+- Utilité : retrouver artistes, groupes, sorties, labels, dates de parution et liens d’identification. MusicBrainz fournit des métadonnées, pas les fichiers audio des morceaux.
+- L’accès au web service est gratuit pour un usage non commercial, sans clé API. Chaque application doit fournir un User-Agent parlant et respecter la limite d’une requête par seconde ; les usages commerciaux doivent faire l’objet d’un accord/plan adapté.
+- Bon usage : construire des fiches artiste/albums et dédupliquer les références musicales, sans extraire ou héberger des enregistrements protégés.
+
+### MTG-Jamendo — tags musicaux et recherche audio
+- Site : https://mtg.github.io/mtg-jamendo-dataset/
+- Environ 55 000 pistes avec métadonnées et tags de genre/ambiance ; utile pour tester la recherche musicale et les prototypes de classification.
+- Les métadonnées sont sous CC BY-NC-SA 4.0 ; les fichiers audio disposent de licences individuelles et le jeu est destiné à la recherche non commerciale. Toute réutilisation commerciale nécessite une autorisation écrite préalable de Jamendo et la vérification des droits de chaque piste.
+- Ne pas intégrer ce corpus aux clips commerciaux, à la publicité ou à des chansons monétisées sans autorisation.
+
+### Free Music Archive — FMA sur Hugging Face
+- Dataset : https://huggingface.co/datasets/benjamin-paine/free-music-archive-full
+- La version empaquetée annonce 106 199 clips, 8 104 heures et environ 593 GB. Les métadonnées sont CC BY 4.0 ; les fichiers audio ont des licences individuelles variées.
+- Trop volumineux pour un prototype avec peu de budget. Sélectionner uniquement des titres dont la licence individuelle autorise clairement le contexte de diffusion prévu et conserver les attributions.
+
+### Métadonnées libres et bases d'inspiration
+- MusicBrainz pour les relations artiste/sortie ; Wikidata pour les identifiants et faits structurés CC0 ; OpenAlex pour les publications de recherche (musique, IA, acoustique, culture, langues).
+- OpenAlex permet les requêtes simples sans clé. Une clé gratuite augmente le budget quotidien et est nécessaire pour poursuivre la pagination par curseur au-delà de la première page ; appliquer des limites et du backoff en cas de 429.
+- Garder séparées les métadonnées musicales, les fichiers audio et les œuvres/lyrics : une licence sur une base de tags ne donne pas les droits sur les enregistrements ou paroles.
