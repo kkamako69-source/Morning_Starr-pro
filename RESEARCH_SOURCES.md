@@ -146,3 +146,28 @@ Aucun connecteur ni clé API n'est installé dans le site à ce stade. Les inté
 - Ne pas aspirer les paroles, commentaires privés ou médias personnels pour nourrir les plateformes.
 - Utiliser des jeux synthétiques pour les tests et modérer toute contribution publique.
 - Mettre les appels API derrière un cache côté serveur lorsqu’un service public est consulté à grande échelle ; gérer limites, erreurs 429/503 et backoff.
+
+## 12. Données personnelles, hébergement et télécommunications au Congo
+
+### Textes officiels de la République du Congo
+- **Loi n° 29-2019 du 10 octobre 2019** relative à la protection des données à caractère personnel — Journal officiel n° 45-2019 : https://www.sgg.cg/JO/2019/congo-jo-2019-45.pdf
+- Ses articles 22 à 25 encadrent les transferts vers des pays tiers (information préalable de la Commission, appréciation du niveau de protection, conditions et garanties). Un simple consentement dans une page web ne dispense pas automatiquement des formalités applicables : faire valider le scénario d’hébergement et les flux par un conseil compétent.
+- **Loi n° 5-2025 du 29 mars 2025** portant création de la Commission nationale pour la protection des données à caractère personnel (CNPD), Journal officiel n° 15-2025 : https://www.sgg.cg/JO/2025/congo-jo-2025-15.pdf
+- **Décret n° 2025-538 du 31 décembre 2025**, nommant les membres de la CNPD, publié dans le Journal officiel du 29 janvier 2026 : https://sgg.cg/JO/2026/congo-jo-2026-5-2.pdf
+- Le Secrétariat général du Gouvernement publie le Journal officiel en ligne, mais précise que seule l’édition papier ordinaire fait foi : https://www.sgg.cg/fr/accueil.html
+
+### Hébergement Supabase et transferts
+- Projet Punchi Battle : région principale `eu-west-3` (Paris). La documentation Supabase précise que la région choisie héberge la base, Auth, Storage et les sauvegardes principales ; certaines catégories limitées de traitement opérationnel peuvent toutefois avoir lieu ailleurs. La région n’est pas une preuve automatique de conformité et ne se change pas directement après création : https://supabase.com/docs/guides/platform/regions et https://supabase.com/legal/privacy-resources/data-residency-and-transfers-faq
+- Avant de collecter des coordonnées réelles à grande échelle, compléter l’identité et le contact du responsable du traitement, évaluer les formalités de transfert vers la France et demander un avis juridique/CNPD si nécessaire. Ne pas annoncer la conformité tant que l’analyse n’est pas validée.
+
+### Téléphone international et SMS OTP
+- Supabase Auth prend en charge l’OTP par SMS ; fournisseurs documentés : Twilio, Vonage, MessageBird (intégration ancienne) et TextLocal communautaire. Le projet ne dispose encore d’aucun fournisseur SMS configuré : https://supabase.com/docs/guides/auth/phone-login
+- Twilio affiche le 24 novembre 2026 un tarif indicatif de **0,3371 USD par segment SMS sortant** vers la République du Congo. Son guide pays indique que les SMS bidirectionnels ne sont pas pris en charge et décrit des règles d’enregistrement d’identifiant expéditeur ; les identifiants numériques dynamiques peuvent être filtrés ou réécrits sur certains réseaux. Vérifier avec Twilio avant usage : https://www.twilio.com/en-us/sms/pricing/cg et https://www.twilio.com/en-us/guidelines/cg/sms
+- Vonage signale un Sender ID alphanumérique de marque et un pré-enregistrement pour MTN, des restrictions sur les Sender ID numériques et l’interdiction du P2P : https://api.support.vonage.com/hc/en-us/articles/7538554948628-Republic-of-the-Congo-SMS-Features-and-Restrictions
+- Les numéros de téléphone peuvent être recyclés et les comptes SMS sont exposés au SIM swap. Prévoir une adresse e-mail confirmée, une MFA et une méthode de récupération. Les coordonnées secondaires non vérifiées ne sont pas une récupération de compte.
+- Avant activation : vérifier les tarifs et la couverture par réseau (MTN/Airtel), activer CAPTCHA et les limites OTP, effectuer des tests avec numéros de test Supabase et obtenir l’accord budgétaire de l’exploitant.
+
+### Bonnes pratiques communes pour les projets événementiels et artistiques
+- Séparer les listes de participants, les confirmations de paiement, les contacts marketing et les fichiers artistiques ; leur finalité et leur durée de conservation sont différentes.
+- Ne jamais réutiliser les coordonnées du compte Punchi Battle pour les campagnes Smoke Party ou les publications Morning Starr sans une finalité distincte, information et consentement appropriés.
+- Conserver des preuves minimales de consentement, des périodes de conservation documentées et un processus de demande d’accès, rectification et suppression.
